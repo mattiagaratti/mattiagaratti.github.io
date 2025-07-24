@@ -1,11 +1,32 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic");
 
-/*
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* Logo M calligrafica */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+:root {
+	--COLORE_1: #353849; /* Colore article */
+	--COLORE_2: #2e3141; /* Colore body */
+	--COLORE_3: #4c5c96; /*Colore menu */
+	--COLORE_4: rgba(53, 56, 73, 0.95); /* Colore header */
+	--GRADIENTE: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)),
+		url("../../images/bg.jpg"); /* Immagine di sfondo */
+ }
+
+.logo.m-logo {
+	font-family: 'Euler Script';
+	font-size: 2.5em;
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid rgba(255, 255, 255, 0.25);
+	margin: 0 auto 1em auto;
+}
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -99,8 +120,8 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #2e3141;
-		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+		background-color: var(--COLORE_2);
+		background-image: var(--GRADIENTE);
 		background-size: auto,
  cover;
 		background-attachment: fixed,
@@ -2227,7 +2248,7 @@ input, select, textarea {
 
 		select option {
 			color: #ffffff;
-			background: #2e3141;
+			background: var(--COLORE_2);
 		}
 
 		select:focus::-ms-value {
@@ -2315,12 +2336,12 @@ input, select, textarea {
 			background: #ffffff;
 			border-color: #ffffff;
 			content: '\f00c';
-			color: #2e3141;
+			color: var(--COLORE_2);
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #4c5c96;
+			border-color: var(--COLORE_3);
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2745,7 +2766,7 @@ input, select, textarea {
 				}
 
 				ul.pagination li > .page.active {
-					background-color: #4c5c96;
+					background-color: var(--COLORE_3);
 				}
 
 			ul.pagination li:first-child {
@@ -2913,7 +2934,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #4c5c96;
+			background-color: var(--COLORE_3);
 			box-shadow: none;
 		}
 
@@ -3005,7 +3026,7 @@ input, select, textarea {
 
 		.features article {
 			padding: 1.75em 1.75em 0.1em 1.75em ;
-			background-color: #353849;
+			background-color: var(--COLORE_1);
 			border-radius: 5px;
 			margin: 1.5em 3em 1.5em 0;
 			width: calc(50% - 1.5em);
@@ -3076,7 +3097,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: rgba(53, 56, 73, 0.95);
+		background-color: var(--COLORE_4);
 		height: 3.5em;
 		left: 0;
 		line-height: 3.5em;
@@ -3281,7 +3302,7 @@ input, select, textarea {
 			-ms-transition: opacity 0.35s ease, -ms-transform 0.35s ease;
 			transition: opacity 0.35s ease, transform 0.35s ease;
 			-webkit-overflow-scrolling: touch;
-			background: #4c5c96;
+			background: var(--COLORE_3);
 			border-radius: 5px;
 			display: block;
 			max-width: 100%;
@@ -3465,8 +3486,8 @@ input, select, textarea {
 
 			#banner {
 				padding: 7em 0 8.25em 0 ;
-				background-color: #2e3141;
-				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+				background-color: var(--COLORE_2);
+				background-image: var(--GRADIENTE);
 				background-size: auto,
  cover;
 				background-position: center,
@@ -3577,8 +3598,8 @@ input, select, textarea {
 
 		#wrapper > header {
 			padding: 9em 0 6.25em 0 ;
-			background-color: #2e3141;
-			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+			background-color: var(--COLORE_2);
+			background-image: var(--GRADIENTE);
 			background-size: auto,
  cover;
 			background-position: center,
@@ -3625,7 +3646,7 @@ input, select, textarea {
 	}
 
 	.wrapper {
-		background-color: #2e3141;
+		background-color: var(--COLORE_2);
 		margin: 6.5em 0;
 		position: relative;
 	}
@@ -3635,11 +3656,11 @@ input, select, textarea {
 		}
 
 		.wrapper:before {
-			box-shadow: inset 0 -1px 0 0 #2e3141, 0 1px 0 0 #2e3141;
+			box-shadow: inset 0 -1px 0 0 var(--COLORE_2), 0 1px 0 0 var(--COLORE_2);
 		}
 
 		.wrapper:after {
-			box-shadow: inset 0 -1px 0 0 #2e3141, 0 1px 0 0 #2e3141;
+			box-shadow: inset 0 -1px 0 0 var(--COLORE_2), 0 1px 0 0 var(--COLORE_2);
 		}
 
 		.wrapper:before, .wrapper:after {
@@ -3687,7 +3708,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style2 {
-			background-color: #353849;
+			background-color: var(--COLORE_1);
 		}
 
 			.wrapper.style2:before, .wrapper.style2:after {
@@ -3695,11 +3716,11 @@ input, select, textarea {
 			}
 
 			.wrapper.style2:before {
-				box-shadow: inset 0 -1px 0 0 #353849, 0 1px 0 0 #353849;
+				box-shadow: inset 0 -1px 0 0 var(--COLORE_1), 0 1px 0 0 var(--COLORE_1);
 			}
 
 			.wrapper.style2:after {
-				box-shadow: inset 0 -1px 0 0 #353849, 0 1px 0 0 #353849;
+				box-shadow: inset 0 -1px 0 0 var(--COLORE_1), 0 1px 0 0 var(--COLORE_1);
 			}
 
 		.wrapper.style3 {
@@ -3767,7 +3788,7 @@ input, select, textarea {
 			}
 
 		.wrapper.spotlight {
-			background-color: #4c5c96;
+			background-color: var(--COLORE_3);
 		}
 
 			.wrapper.spotlight:before, .wrapper.spotlight:after {
@@ -3775,11 +3796,11 @@ input, select, textarea {
 			}
 
 			.wrapper.spotlight:before {
-				box-shadow: inset 0 -1px 0 0 #4c5c96, 0 1px 0 0 #4c5c96;
+				box-shadow: inset 0 -1px 0 0 var(--COLORE_3), 0 1px 0 0 var(--COLORE_3);
 			}
 
 			.wrapper.spotlight:after {
-				box-shadow: inset 0 -1px 0 0 #4c5c96, 0 1px 0 0 #4c5c96;
+				box-shadow: inset 0 -1px 0 0 var(--COLORE_3), 0 1px 0 0 var(--COLORE_3);
 			}
 
 			.wrapper.spotlight .inner {
@@ -4070,8 +4091,8 @@ input, select, textarea {
 	@media screen and (max-width: 1280px) {
 
 		#footer {
-			background-color: #2e3141;
-			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+			background-color: var(--COLORE_2);
+			background-image: var(--GRADIENTE);
 			background-size: auto,
  cover;
 			background-position: center,
