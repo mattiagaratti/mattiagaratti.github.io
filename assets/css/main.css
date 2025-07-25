@@ -7,8 +7,14 @@
 	--COLORE_2: #003153; /* Colore body */
 	--COLORE_3: #3b4150; /*Colore menu */
 	--COLORE_4: rgba(91, 143, 185, 0.95); /* Colore header */
-	--GRADIENTE: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)),
-		url("../../images/background.jpg"); /* Immagine di sfondo */
+	--OVERLAY_IMMAGINE: rgba(46, 49, 65, 0.8); /* Overlay immagine di sfondo */
+	--GRADIENTE: linear-gradient(to top, var(--OVERLAY_IMMAGINE), var(--OVERLAY_IMMAGINE));
+	
+	/* Immagini di sfondo */
+	--SFONDO_HOME: var(--GRADIENTE), url(../../images/background_index.jpg);
+	--SFONDO_MATERIALS: var(--GRADIENTE), url(../../images/background_materials.jpg);
+	--SFONDO_CV: var(--GRADIENTE), url(../../images/background_cv.jpg);
+	--SFONDO_PRIVATE_LESSONS: var(--GRADIENTE), url(../../images/background_private_lessons.jpg);
  }
 
 .logo.m-logo {
@@ -24,11 +30,6 @@
 	justify-content: center;
 	border: 2px solid rgba(255, 255, 255, 0.25);
 	margin: 0 auto 1em auto;
-}
-
-mark {
-  background-color: #003153;
-  color: #ffffff;
 }
 
 
@@ -81,7 +82,7 @@ body {
 }
 
 mark {
-	background-color: transparent;
+	background-color: var(--COLORE_1);
 	color: inherit;
 }
 
@@ -143,6 +144,30 @@ input, select, textarea {
 			-webkit-transition: none !important;
 			-ms-transition: none !important;
 			transition: none !important;
+		}
+
+		body.materials {
+			background-color: var(--COLORE_2);
+			background-image: var(--SFONDO_MATERIALS);
+			background-size: auto,
+		}
+
+		body.cv {
+			background-color: var(--COLORE_2);
+			background-image: var(--SFONDO_CV);
+			background-size: auto,
+		}
+
+		body.private_lessons {
+			background-color: var(--COLORE_2);
+			background-image: var(--SFONDO_PRIVATE_LESSONS);
+			background-size: auto,
+		}
+
+		body.index {
+			background-color: var(--COLORE_2);
+			background-image: var(--SFONDO_HOME);
+			background-size: auto,
 		}
 
 /* Type */
