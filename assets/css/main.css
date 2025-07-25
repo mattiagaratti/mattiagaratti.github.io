@@ -126,6 +126,8 @@ input, select, textarea {
 	}
 
 	body {
+		background-color: var(--BODY_COLOR);
+		background-image: var(--GRADIENT);
 		background-size: auto,
  cover;
 		background-attachment: fixed,
@@ -169,6 +171,44 @@ input, select, textarea {
 			background-size: auto, cover;
 		}
 
+		body.index #banner, body.index #footer {
+			background-image: var(--HOME_BG);
+			background-size: auto, cover;
+			background-attachment: fixed, fixed;
+			background-position: center, center;
+		}
+
+		body.index #banner,
+		body.index #footer {
+			background-image: var(--HOME_BG);
+			background-size: auto, cover;
+			background-attachment: fixed, fixed;
+			background-position: center, center;
+		}
+
+		body.private_lessons #banner,
+		body.private_lessons #footer {
+			background-image: var(--PRIVATE_LESSONS_BG);
+			background-size: auto, cover;
+			background-attachment: fixed, fixed;
+			background-position: center, center;
+		}
+
+		body.materials #banner,
+		body.materials #footer {
+			background-image: var(--MATERIALS_BG);
+			background-size: auto, cover;
+			background-attachment: fixed, fixed;
+			background-position: center, center;
+		}
+
+		body.cv #banner,
+		body.cv #footer {
+			background-image: var(--CV_BG);
+			background-size: auto, cover;
+			background-attachment: fixed, fixed;
+			background-position: center, center;
+		}
 /* Type */
 
 	body, input, select, textarea {
@@ -3514,6 +3554,8 @@ input, select, textarea {
 
 			#banner {
 				padding: 7em 0 8.25em 0 ;
+				background-color: var(--BODY_COLOR);
+				background-image: var(--GRADIENT);
 				background-size: auto,
  cover;
 				background-position: center,
@@ -3624,6 +3666,8 @@ input, select, textarea {
 
 		#wrapper > header {
 			padding: 9em 0 6.25em 0 ;
+			background-color: var(--BODY_COLOR);
+			background-image: var(--GRADIENT);
 			background-size: auto,
  cover;
 			background-position: center,
@@ -3862,7 +3906,7 @@ input, select, textarea {
 				flex: 2;
 			}
 
-			.wrapper.spotlight:nth-child(2n - 1) .inner {
+			.wrapper.spotlight:nth-child(2n) .inner {
 				-moz-flex-direction: row-reverse;
 				-webkit-flex-direction: row-reverse;
 				-ms-flex-direction: row-reverse;
@@ -3870,7 +3914,7 @@ input, select, textarea {
 				text-align: right;
 			}
 
-			.wrapper.spotlight:nth-child(2n - 1) .image {
+			.wrapper.spotlight:nth-child(2n) .image {
 				margin: 0 0 2em 3em;
 			}
 
@@ -4117,6 +4161,8 @@ input, select, textarea {
 	@media screen and (max-width: 1280px) {
 
 		#footer {
+			background-color: var(--BODY_COLOR);
+			background-image: var(--GRADIENT);
 			background-size: auto,
  cover;
 			background-position: center,
