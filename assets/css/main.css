@@ -3,18 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 :root {
-	--COLORE_1: #3b4150; /* Colore article */
-	--COLORE_2: #003153; /* Colore body */
-	--COLORE_3: #3b4150; /*Colore menu */
-	--COLORE_4: rgba(91, 143, 185, 0.95); /* Colore header */
-	--OVERLAY_IMMAGINE: rgba(46, 49, 65, 0.8); /* Overlay immagine di sfondo */
-	--GRADIENTE: linear-gradient(to top, var(--OVERLAY_IMMAGINE), var(--OVERLAY_IMMAGINE));
+	--ARTICLE_COLOR: #3b4150; /* Colore article */
+	--BODY_COLOR: #003153; /* Colore body */
+	--MENU_COLOR: #3b4150; /*Colore menu */
+	--HEADER_COLOR: rgba(91, 143, 185, 0.95); /* Colore header */
+	--BG_OVERLAY: rgba(46, 49, 65, 0.8); /* Overlay immagine di sfondo */
+	--GRADIENT: linear-gradient(to top, var(--BG_OVERLAY), var(--BG_OVERLAY));
 	
 	/* Immagini di sfondo */
-	--SFONDO_HOME: var(--GRADIENTE), url(../../images/background_index.jpg);
-	--SFONDO_MATERIALS: var(--GRADIENTE), url(../../images/background_materials.jpg);
-	--SFONDO_CV: var(--GRADIENTE), url(../../images/background_cv.jpg);
-	--SFONDO_PRIVATE_LESSONS: var(--GRADIENTE), url(../../images/background_private_lessons.jpg);
+	--HOME_BG: var(--GRADIENT), url(../../images/background_index.jpg);
+	--MATERIALS_BG: var(--GRADIENT), url(../../images/background_materials.jpg);
+	--CV_BG: var(--GRADIENT), url(../../images/background_cv.jpg);
+	--PRIVATE_LESSONS_BG: var(--GRADIENT), url(../../images/background_private_lessons.jpg);
  }
 
 .logo.m-logo {
@@ -82,7 +82,7 @@ body {
 }
 
 mark {
-	background-color: var(--COLORE_1);
+	background-color: var(--ARTICLE_COLOR);
 	color: inherit;
 }
 
@@ -125,8 +125,8 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: var(--COLORE_2);
-		background-image: var(--GRADIENTE);
+		background-color: var(--BODY_COLOR);
+		background-image: var(--GRADIENT);
 		background-size: auto,
  cover;
 		background-attachment: fixed,
@@ -147,26 +147,26 @@ input, select, textarea {
 		}
 
 		body.materials {
-			background-color: var(--COLORE_2);
-			background-image: var(--SFONDO_MATERIALS);
+			background-color: var(--BODY_COLOR);
+			background-image: var(--MATERIALS_BG);
 			background-size: auto,
 		}
 
 		body.cv {
-			background-color: var(--COLORE_2);
-			background-image: var(--SFONDO_CV);
+			background-color: var(--BODY_COLOR);
+			background-image: var(--CV_BG);
 			background-size: auto,
 		}
 
 		body.private_lessons {
-			background-color: var(--COLORE_2);
-			background-image: var(--SFONDO_PRIVATE_LESSONS);
+			background-color: var(--BODY_COLOR);
+			background-image: var(--PRIVATE_LESSONS_BG);
 			background-size: auto,
 		}
 
 		body.index {
-			background-color: var(--COLORE_2);
-			background-image: var(--SFONDO_HOME);
+			background-color: var(--BODY_COLOR);
+			background-image: var(--HOME_BG);
 			background-size: auto,
 		}
 
@@ -2277,7 +2277,7 @@ input, select, textarea {
 
 		select option {
 			color: #ffffff;
-			background: var(--COLORE_2);
+			background: var(--BODY_COLOR);
 		}
 
 		select:focus::-ms-value {
@@ -2365,12 +2365,12 @@ input, select, textarea {
 			background: #ffffff;
 			border-color: #ffffff;
 			content: '\f00c';
-			color: var(--COLORE_2);
+			color: var(--BODY_COLOR);
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: var(--COLORE_3);
+			border-color: var(--MENU_COLOR);
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2795,7 +2795,7 @@ input, select, textarea {
 				}
 
 				ul.pagination li > .page.active {
-					background-color: var(--COLORE_3);
+					background-color: var(--MENU_COLOR);
 				}
 
 			ul.pagination li:first-child {
@@ -2963,7 +2963,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: var(--COLORE_3);
+			background-color: var(--MENU_COLOR);
 			box-shadow: none;
 		}
 
@@ -3055,7 +3055,7 @@ input, select, textarea {
 
 		.features article {
 			padding: 1.75em 1.75em 0.1em 1.75em ;
-			background-color: var(--COLORE_1);
+			background-color: var(--ARTICLE_COLOR);
 			border-radius: 5px;
 			margin: 1.5em 3em 1.5em 0;
 			width: calc(50% - 1.5em);
@@ -3126,7 +3126,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: var(--COLORE_4);
+		background-color: var(--HEADER_COLOR);
 		height: 3.5em;
 		left: 0;
 		line-height: 3.5em;
@@ -3331,7 +3331,7 @@ input, select, textarea {
 			-ms-transition: opacity 0.35s ease, -ms-transform 0.35s ease;
 			transition: opacity 0.35s ease, transform 0.35s ease;
 			-webkit-overflow-scrolling: touch;
-			background: var(--COLORE_3);
+			background: var(--MENU_COLOR);
 			border-radius: 5px;
 			display: block;
 			max-width: 100%;
@@ -3515,8 +3515,8 @@ input, select, textarea {
 
 			#banner {
 				padding: 7em 0 8.25em 0 ;
-				background-color: var(--COLORE_2);
-				background-image: var(--GRADIENTE);
+				background-color: var(--BODY_COLOR);
+				background-image: var(--GRADIENT);
 				background-size: auto,
  cover;
 				background-position: center,
@@ -3627,8 +3627,8 @@ input, select, textarea {
 
 		#wrapper > header {
 			padding: 9em 0 6.25em 0 ;
-			background-color: var(--COLORE_2);
-			background-image: var(--GRADIENTE);
+			background-color: var(--BODY_COLOR);
+			background-image: var(--GRADIENT);
 			background-size: auto,
  cover;
 			background-position: center,
@@ -3675,7 +3675,7 @@ input, select, textarea {
 	}
 
 	.wrapper {
-		background-color: var(--COLORE_2);
+		background-color: var(--BODY_COLOR);
 		margin: 6.5em 0;
 		position: relative;
 	}
@@ -3685,11 +3685,11 @@ input, select, textarea {
 		}
 
 		.wrapper:before {
-			box-shadow: inset 0 -1px 0 0 var(--COLORE_2), 0 1px 0 0 var(--COLORE_2);
+			box-shadow: inset 0 -1px 0 0 var(--BODY_COLOR), 0 1px 0 0 var(--BODY_COLOR);
 		}
 
 		.wrapper:after {
-			box-shadow: inset 0 -1px 0 0 var(--COLORE_2), 0 1px 0 0 var(--COLORE_2);
+			box-shadow: inset 0 -1px 0 0 var(--BODY_COLOR), 0 1px 0 0 var(--BODY_COLOR);
 		}
 
 		.wrapper:before, .wrapper:after {
@@ -3737,7 +3737,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style2 {
-			background-color: var(--COLORE_1);
+			background-color: var(--ARTICLE_COLOR);
 		}
 
 			.wrapper.style2:before, .wrapper.style2:after {
@@ -3745,11 +3745,11 @@ input, select, textarea {
 			}
 
 			.wrapper.style2:before {
-				box-shadow: inset 0 -1px 0 0 var(--COLORE_1), 0 1px 0 0 var(--COLORE_1);
+				box-shadow: inset 0 -1px 0 0 var(--ARTICLE_COLOR), 0 1px 0 0 var(--ARTICLE_COLOR);
 			}
 
 			.wrapper.style2:after {
-				box-shadow: inset 0 -1px 0 0 var(--COLORE_1), 0 1px 0 0 var(--COLORE_1);
+				box-shadow: inset 0 -1px 0 0 var(--ARTICLE_COLOR), 0 1px 0 0 var(--ARTICLE_COLOR);
 			}
 
 		.wrapper.style3 {
@@ -3817,7 +3817,7 @@ input, select, textarea {
 			}
 
 		.wrapper.spotlight {
-			background-color: var(--COLORE_3);
+			background-color: var(--MENU_COLOR);
 		}
 
 			.wrapper.spotlight:before, .wrapper.spotlight:after {
@@ -3825,11 +3825,11 @@ input, select, textarea {
 			}
 
 			.wrapper.spotlight:before {
-				box-shadow: inset 0 -1px 0 0 var(--COLORE_3), 0 1px 0 0 var(--COLORE_3);
+				box-shadow: inset 0 -1px 0 0 var(--MENU_COLOR), 0 1px 0 0 var(--MENU_COLOR);
 			}
 
 			.wrapper.spotlight:after {
-				box-shadow: inset 0 -1px 0 0 var(--COLORE_3), 0 1px 0 0 var(--COLORE_3);
+				box-shadow: inset 0 -1px 0 0 var(--MENU_COLOR), 0 1px 0 0 var(--MENU_COLOR);
 			}
 
 			.wrapper.spotlight .inner {
@@ -4122,8 +4122,8 @@ input, select, textarea {
 	@media screen and (max-width: 1280px) {
 
 		#footer {
-			background-color: var(--COLORE_2);
-			background-image: var(--GRADIENTE);
+			background-color: var(--BODY_COLOR);
+			background-image: var(--GRADIENT);
 			background-size: auto,
  cover;
 			background-position: center,
