@@ -9,6 +9,7 @@
 	--HEADER_COLOR: rgba(91, 143, 185, 0.95); /* Colore header */
 	--BG_OVERLAY: rgba(46, 49, 65, 0.8); /* Overlay immagine di sfondo */
 	--GRADIENT: linear-gradient(to top, var(--BG_OVERLAY), var(--BG_OVERLAY));
+	--MENU_HOVER_COLOR: #45558d; /* Colore hover menu */
 	
 	/* Immagini di sfondo */
 	--HOME_BG: var(--GRADIENT), url(../../images/background_index.jpg);
@@ -3387,7 +3388,7 @@ input, select, textarea {
 				}
 
 					#menu .links li a:hover {
-						background: #45558d;
+						background: var(--MENU_HOVER_COLOR);
 					}
 
 		@media screen and (max-width: 736px) {
