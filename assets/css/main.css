@@ -126,8 +126,6 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: var(--BODY_COLOR);
-		background-image: var(--GRADIENT);
 		background-size: auto,
  cover;
 		background-attachment: fixed,
@@ -150,25 +148,25 @@ input, select, textarea {
 		body.materials {
 			background-color: var(--BODY_COLOR);
 			background-image: var(--MATERIALS_BG);
-			background-size: auto,
+			background-size: auto, cover;
 		}
 
 		body.cv {
 			background-color: var(--BODY_COLOR);
 			background-image: var(--CV_BG);
-			background-size: auto,
+			background-size: auto, cover;
 		}
 
 		body.private_lessons {
 			background-color: var(--BODY_COLOR);
 			background-image: var(--PRIVATE_LESSONS_BG);
-			background-size: auto,
+			background-size: auto, cover;
 		}
 
 		body.index {
 			background-color: var(--BODY_COLOR);
 			background-image: var(--HOME_BG);
-			background-size: auto,
+			background-size: auto, cover;
 		}
 
 /* Type */
