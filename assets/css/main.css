@@ -15,9 +15,9 @@
 
 .logo.m-logo {
 	font-family: 'Euler Script';
-	font-size: 2.5em;
-	width: 2.5em;
-	height: 2.5em;
+	font-size: 3em;
+	width: 1.8em;
+	height: 1.8em;
 	border-radius: 50%;
 	background-color: rgba(255, 255, 255, 0.1);
 	color: #ffffff;
@@ -27,6 +27,7 @@
 	border: 2px solid rgba(255, 255, 255, 0.25);
 	margin: 0 auto 1em auto;
 }
+
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
