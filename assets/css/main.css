@@ -26,6 +26,11 @@
 	margin: 0 auto 1em auto;
 }
 
+mark {
+  background-color: #003153;
+  color: #ffffff;
+}
+
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
