@@ -12,7 +12,7 @@
 	--MENU_HOVER_COLOR: #45558d; /* Colore hover menu */
 	
 	/* Immagini di sfondo */
-	/*-HOME_BG: var(--GRADIENT), url(../../images/background_index.jpg); */
+	--HOME_BG: var(--GRADIENT), url(../../images/background_index.jpg); 
 	--MATERIALS_BG: var(--GRADIENT), url(../../images/background_materials.jpg);
 	--CV_BG: var(--GRADIENT), url(../../images/background_cv.jpg);
 	--PRIVATE_LESSONS_BG: var(--GRADIENT), url(../../images/background_private_lessons.jpg);
@@ -24,7 +24,7 @@
 	width: 1.8em;
 	height: 1.8em;
 	border-radius: 50%;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: #003153;
 	color: #ffffff;
 	display: flex;
 	align-items: center;
