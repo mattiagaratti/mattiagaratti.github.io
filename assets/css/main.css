@@ -6,13 +6,13 @@
 	--ARTICLE_COLOR: #3b4150; /* Colore article */
 	--BODY_COLOR: #003153; /* Colore body */
 	--MENU_COLOR: #3b4150; /*Colore menu */
-	--HEADER_COLOR: rgba(91, 143, 185, 0.95); /* Colore header */
+	--HEADER_COLOR: #000923; /* Colore header */
 	--BG_OVERLAY: rgba(46, 49, 65, 0.8); /* Overlay immagine di sfondo */
 	--GRADIENT: linear-gradient(to top, var(--BG_OVERLAY), var(--BG_OVERLAY));
 	--MENU_HOVER_COLOR: #45558d; /* Colore hover menu */
 	
 	/* Immagini di sfondo */
-	--HOME_BG: var(--GRADIENT), url(../../images/background_index.jpg);
+	/*-HOME_BG: var(--GRADIENT), url(../../images/background_index.jpg); */
 	--MATERIALS_BG: var(--GRADIENT), url(../../images/background_materials.jpg);
 	--CV_BG: var(--GRADIENT), url(../../images/background_cv.jpg);
 	--PRIVATE_LESSONS_BG: var(--GRADIENT), url(../../images/background_private_lessons.jpg);
@@ -264,7 +264,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-		border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+		/* border-bottom: dotted 1px rgba(255, 255, 255, 0.35); */
 		color: #ffffff;
 		text-decoration: none;
 	}
