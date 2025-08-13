@@ -3119,6 +3119,10 @@ input, select, textarea {
 				margin-right: 0;
 			}
 
+			.features article:nth-child(2n) {
+				margin-right: 3em;
+			}
+
 			.features article .image {
 				border-radius: 5px 5px 0 0;
 				display: block;
