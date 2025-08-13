@@ -16,6 +16,7 @@
 	--MATERIALS_BG: var(--GRADIENT), url(../../images/background_materials.jpg);
 	--CV_BG: var(--GRADIENT), url(../../images/background_cv.jpg);
 	--PRIVATE_LESSONS_BG: var(--GRADIENT), url(../../images/background_private_lessons.jpg);
+	--READINGS_BG: var(--GRADIENT), url(../../images/background_readings.jpg);
  }
 
 .logo.m-logo {
@@ -153,6 +154,12 @@ input, select, textarea {
 			background-size: auto, cover;
 		}
 
+		body.readings {
+			background-color: var(--BODY_COLOR);
+			background-image: var(--READINGS_BG);
+			background-size: auto, cover;
+		}
+
 		body.cv {
 			background-color: var(--BODY_COLOR);
 			background-image: var(--CV_BG);
@@ -205,6 +212,14 @@ input, select, textarea {
 		body.cv #banner,
 		body.cv #footer {
 			background-image: var(--CV_BG);
+			background-size: auto, cover;
+			background-attachment: fixed, fixed;
+			background-position: center, center;
+		}
+
+		body.readings #banner,
+		body.readings #footer {
+			background-image: var(--READINGS_BG);
 			background-size: auto, cover;
 			background-attachment: fixed, fixed;
 			background-position: center, center;
@@ -3100,7 +3115,7 @@ input, select, textarea {
 			width: calc(50% - 11.5em);
 		}
 
-			.features article:nth-child(2n) {
+			.features article:nth-child(3n) {
 				margin-right: 0;
 			}
 
@@ -3126,6 +3141,14 @@ input, select, textarea {
 				width: calc(50% - 1em);
 			}
 
+			.features article:nth-child(2n) {
+				margin-right: 0;
+			}
+
+			.features article:nth-child(3n) {
+				margin-right: 2em;
+			}
+
 		}
 
 		@media screen and (max-width: 736px) {
@@ -3135,6 +3158,14 @@ input, select, textarea {
 				margin: 0.875em 1.75em 0.875em 0;
 				width: calc(50% - 0.875em - 1px);
 			}
+
+				.features article:nth-child(2n) {
+					margin-right: 0;
+				}
+
+				.features article:nth-child(3n) {
+					margin-right: 1.5em;
+				}
 
 				.features article .image {
 					margin-bottom: 1.5em;
