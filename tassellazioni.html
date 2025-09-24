@@ -5,68 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tassellazioni del piano</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Times New Roman', serif;
             line-height: 1.6;
-            max-width: 210mm;
-            margin: 0 auto;
-            padding: 20px;
+            width: 100vw;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
             background-color: white;
             color: black;
+            overflow-x: hidden;
         }
         
         h1 {
             text-align: center;
             font-size: 1.8em;
             margin-bottom: 0.5em;
+            padding: 0;
         }
         
         h2 {
             font-size: 1.4em;
-            margin-top: 1.5em;
+            margin-top: 1em;
             margin-bottom: 0.5em;
             border-bottom: 1px solid #ccc;
             padding-bottom: 0.3em;
+            width: 100%;
         }
         
         h3 {
             font-size: 1.2em;
-            margin-top: 1.2em;
-            margin-bottom: 0.5em;
+            margin-top: 0.8em;
+            margin-bottom: 0.3em;
         }
         
         .quotation {
             background-color: #f9f9f9;
             border-left: 4px solid #ccc;
-            margin: 1em 0;
+            margin: 0.8em 0;
             padding: 0.5em 1em;
             font-style: italic;
+            width: 100%;
         }
         
         .center {
             text-align: center;
-            margin: 1em 0;
+            margin: 0.8em 0;
+            width: 100%;
         }
         
         .minipage-container {
             display: flex;
             justify-content: space-between;
-            margin: 1em 0;
+            margin: 0.8em 0;
+            width: 100%;
+            gap: 10px;
         }
         
         .minipage {
-            width: 49%;
+            flex: 1;
             text-align: center;
+            min-width: 0;
         }
         
         img {
             max-width: 100%;
             height: auto;
+            display: block;
+            margin: 0 auto;
         }
         
         ul, ol {
             margin: 0.5em 0;
             padding-left: 2em;
+            width: 100%;
         }
         
         li {
@@ -77,11 +95,12 @@
             margin: 1em 0;
             padding-left: 1em;
             border-left: 2px solid #666;
+            width: 100%;
         }
         
         .page-break {
-            page-break-before: always;
             margin-top: 2em;
+            width: 100%;
         }
         
         .emphasis {
@@ -93,12 +112,41 @@
         }
         
         .small-space {
-            margin-top: -4em;
+            margin-top: -2em;
+        }
+        
+        p {
+            margin: 0.5em 0;
+            width: 100%;
+        }
+        
+        /* Per ottimizzare la visualizzazione su schermi piccoli */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            
+            .minipage-container {
+                flex-direction: column;
+            }
+            
+            .minipage {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Tassellazioni del piano</h1>
+    <h1>Tassellazioni del piano </br></br> </h1>
     
     <div class="small-space"></div>
     
@@ -207,7 +255,7 @@
             <img src="images/tassellazioni/Dardo - Acquilone.jpg" alt="Dardo - Acquilone" style="width: 80%;">
         </div>
         <div class="minipage">
-            <img src="images/tassellazioni/Rombi" alt="Rombi" style="width: 80%;">
+            <img src="images/tassellazioni/Rombi.png" alt="Rombi" style="width: 80%;">
         </div>
     </div>
     
@@ -225,7 +273,7 @@
     <p>Tale tassello è stato chiamato <span class="emphasis">Hat</span> e può essere costruito combinando opportunamente 16 triangoli rettangoli congruenti.</p>
     
     <div class="center">
-        <img src="images/tassellazioni/tassello cappello" alt="Tassello Hat" style="width: 50%;">
+        <img src="images/tassellazioni/tassello cappello.jpg" alt="Tassello Hat" style="width: 50%;">
     </div>
     
     <p>Il team di ricerca ha dichiarato che con il tassello Hat è possibile costruire una tassellazione <span class="emphasis">monoedrica</span>, cioè che usa un solo tipo di tassello, aperiodica. Nell'articolo, forniscono addirittura un'intera famiglia di tasselli di Einstein: gli appartenenti sono l'uno il trasformato dell'altro tramite manipolazioni indipendenti e continue.</p>
@@ -267,7 +315,7 @@
     </div>
     
     <div class="center">
-        <img src="images/tassellazioni/Spectre e Mystic" alt="Spectre e Mystic" style="width: 100%;">
+        <img src="images/tassellazioni/Spectre e Mystic.jpg" alt="Spectre e Mystic" style="width: 100%;">
     </div>
     
     <p>Lo Spettro di livello 1 si ottiene circondando un Mistico (di livello 0) con 7 Spettri disposti come nella figura precedente a sinistra. Rispetto al tassello blu del Mistico e procedendo in senso orario, dal rosa più tenue al rosso, l'angolo di rotazione di ciascuno Spettro è -120, -60, -60, 0, 60, 60, 120 gradi. Il Mistico di livello 1 si ottiene rimuovendo lo Spettro più esterno, come mostrato a destra nella figura precedente. Si noti quindi che tra i due aggregati vi è un solo tassello di differenza.</p>
