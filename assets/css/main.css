@@ -2806,6 +2806,29 @@ input, select, textarea {
 				margin-top: 0;
 			}
 
+			/* Contact - Nuova classe per immagine LMO */
+			ul.contact li.icon-image {
+    			text-decoration: none;
+    			margin: 2.5em 0 0 0;
+    			padding: 0 0 0 3.25em;
+    			position: relative;
+			}
+
+			ul.contact li.icon-image:before {
+    			content: "";
+    			background-image: url('images/Orsay_Sigle_CMJN.svg'); 
+    			background-size: cover;
+    			background-position: center;
+    			border-radius: 100%;
+    			border: solid 2px rgba(255, 255, 255, 0.125);
+    			display: inline-block;
+    			height: 2.5em;
+    			left: 0;
+    			position: absolute;
+    			top: 0;
+    			width: 2.5em;
+			}
+
 		@media screen and (max-width: 736px) {
 
 			ul.contact li {
