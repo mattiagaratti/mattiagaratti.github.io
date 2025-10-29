@@ -1,0 +1,986 @@
+% Commenti speciali
+
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatex
+% !TEX spellcheck = it-IT
+% !TEX root = Dispensa/afed.tex
+
+% Capitolo 5
+\chapter{Alcuni elementi di Analisi non lineare}\label{Alcuni elementi di Analisi non lineare}
+
+\section{Introduzione}
+La linearità è una delle proprietà più amate in tutta la Matematica. Anche in Analisi Matematica, lavorare con operatori lineari garantisce una trattazione pressoché organica e molto generale: basti pensare a quanto visto per gli operatori differenziali lineari del secondo ordine studiati nel capitolo \ref{Equazioni ellittiche lineari del secondo ordine}. Rinunciare alla linearità ha in generale un costo non indifferente, come mostrato dal seguente esempio motivazionale.
+\begin{esempio}\label{equazionialgebriche}
+	Consideriamo un'applicazione reale di variabile reale $f$, definita nel modo più generico assegnando l'espressione matematica $f(x)$, di classe $C^\infty$ nel suo dominio naturale. Siamo interessati a determinare gli zeri di $f$, ossia a trovare le soluzioni del problema
+	\[ f(x) = 0. \]
+	Se $f$ è lineare, il problema è banale. Se $f$ è un polinomio di grado almeno $1$, grazie al Teorema fondamentale dell'Algebra, sappiamo esattamente il numero di soluzioni del problema, ma se il grado del polinomio supera $4$, dal Teorema di Abel--Ruffini, a priori non ne esiste una formula di rappresentazione. In generale, presa $f$ qualsiasi, il problema può rivelarsi insidioso: potrei non avere nemmeno un risultato di esistenza di soluzioni.
+\end{esempio}
+
+In questo capitolo siamo interessati a presentare alcuni metodi per lo studio di determinate classi di operatori non lineari: l'obiettivo principale sarà la determinazione di risultati di esistenza di soluzioni per problemi differenziali non lineari.
+
+\section{Metodi di punto fisso}
+Alcuni problemi non lineari possono essere riscritti come problemi di punto fisso: un primo caso è l'Esempio \eqref{equazionialgebriche}.
+\begin{esempio}
+	Consideriamo un'applicazione reale di variabile reale $f$, definita nel modo più generico assegnando l'espressione matematica $f(x)$, di classe $C^\infty$ nel suo dominio naturale. Il problema 
+	\[ f(x) = 0 \]
+	è equivalente a 
+	\[ f(x) + x = x \]
+	ossia, posto $g(x) = f(x) + x$, al problema di punto fisso
+	\[ g(x) = x. \]
+\end{esempio}
+La prima applicazione del risultati di punto fisso che vogliamo proporre è legata al Teorema delle contrazioni. 
+\begin{definizione}
+Siano $U$ un aperto limitato di $\R^n$ con $\partial U$ di classe $C^\infty$, $T>0$, $g \in H^1_0(U;\R^m)$ ed $f: \R^m \to \R^m$ un'applicazione lipschitziana e sub-lineare\footnote{A voler ben vedere la sub-linearità è conseguenza della lipschitzianità su $\R^m$, infatti $\abs{f(x)}- \abs{f(0)}\le \abs{f(x)-f(0)} \le C\abs{x}$, da cui $\abs{f(x)}\le C(1+\abs{x})$. Nel seguito la preciseremo comunque.}. Diciamo che $u \in L^2(0,T;H^1_0(U;\R^m))$ tale che $u' \in L^2(0,T;H^{-1}(U;\R^m))$ è una \emph{soluzione debole}\index[analitico]{soluzione!debole} del problema di Dirichlet
+	\[ 	\begin{cases}
+		\partial_t u-\Delta u = f(u) & \textup{in } U \times \left] 0,T\right],\\
+		u = 0 & \textup{su } \partial U \times [0,T],\\
+		u=g & \textup{su }  U \times \left\lbrace 0\right\rbrace ,
+	\end{cases} \]
+	se $u(0) = g$ e per ogni $v \in H^1_0(U;\R^m)$ e per \emph{q.o.} $t \in [0,T]$
+	\[ \braket{u',v} + \int_U Du \cdot Dv d\mathcal{L}^n = \int_U f(u)\cdot v d\mathcal{L}^n. \]
+\end{definizione}
+\begin{osservazione}
+La precedente definizione è ben posta grazie alla sub-linearità di $f$ ed al fatto che $u$ ammette un rappresentante in $C([0,T];L^2(U;\R^m))$.
+\end{osservazione}
+\begin{osservazione}
+Se $f: U \times [0,T] \to \R^m$, ossia nel caso lineare e scalare, si può provare esistenza ed unicità della soluzione debole grazie al \emph{Metodo di Galerkin}.
+\end{osservazione}
+
+\begin{teorema}
+Siano $U$ un aperto limitato di $\R^m$ con $\partial U$ di classe $C^\infty$, $g \in H^1_0(U;\R^m)$ ed $f: \R^m \to \R^m$ un'applicazione lipschitziana e sub-lineare. Esiste $T>0$ tale che il problema di Dirichlet
+\[ 	\begin{cases}
+	\partial_t u-\Delta u = f(u) & \textup{in } U \times \left] 0,T\right],\\
+	u = 0 & \textup{su } \partial U \times [0,T],\\
+	u=g & \textup{su }  U \times \left\lbrace 0\right\rbrace ,
+\end{cases} \]
+ammette una ed una sola soluzione debole.
+\end{teorema}
+\begin{proof}
+Data $u \in C([0,T];L^2(U;\R^m))$, sia $h(t) = f(u(t))$. Dal fatto che $f$ è sub-lineare, $h \in L^2(0,T;L^2(U;\R^m))$. In particolare, il problema di Dirichlet
+\[ 	\begin{cases}
+	\partial_t w-\Delta w = h & \textup{in } U \times \left] 0,T\right],\\
+	w = 0 & \textup{su } \partial U \times [0,T],\\
+	w=g & \textup{su }  U \times \left\lbrace 0\right\rbrace ,
+\end{cases} \]
+ammette un'unica soluzione debole $w \in L^2(0,T;H^1_0(U;\R^m))$ tale che $w' \in L^2(0,T;H^{-1}(U;\R^m))$, ossia $w(0) = g$ e per ogni $v \in H^1_0(U;\R^m)$ e per q.o. $t \in [0,T]$
+\[ \braket{w',v} + \int_U Dw \cdot Dv d\mathcal{L}^n = \int_U h\cdot v d\mathcal{L}^n. \]
+Dal fatto che $w$ ha un rappresentante in $C([0,T];L^2(U;\R^m))$, che chiamiamo comunque $w$, rimane definita un'applicazione $A: C([0,T];L^2(U;\R^m)) \to C([0,T];L^2(U;\R^m))$ tale che 
+\[ A(u) = w. \]
+Dati $u_1,u_2 \in C([0,T];L^2(U;\R^m))$, siano $w_1 = A(u_1), w_2 = A(u_2)$. Innanzitutto, per linearità,
+\begin{align*}
+\braket{(w_1-w_2)',w_1-w_2} + \int_U \abs{D(w_1-w_2)}^2d\mathcal{L}^n = \int_U (h_1-h_2)\cdot (w_1-w_2) d\mathcal{L}^n,
+\end{align*}
+quindi 
+\begin{align*}
+	\frac{1}{2} \frac{d}{dt}\norm{w_1-w_2}_{L^2(U;\R^m)}^2+ \int_U \abs{D(w_1-w_2)}^2d\mathcal{L}^n = \int_U (h_1-h_2)\cdot (w_1-w_2) d\mathcal{L}^n,
+\end{align*}
+da cui, per la disuguaglianza di Cauchy--Schwarz combinata con la disuguaglianza di Poincaré e la disuguaglianza di Young pesata,
+\begin{align*}
+\frac{d}{dt}\norm{w_1-w_2}_{L^2(U;\R^m)}^2+ 2\norm{w_1 - w_2}_{H^1_0(U;\R^m)}^2 &= 2\int_U (h_1-h_2)\cdot (w_1-w_2) d\mathcal{L}^n \le \\
+&\le 2 \norm{w_1-w_2}_{L^2(U;\R^m)}\norm{h_1-h_2}_{L^2(U;\R^m)}\le \\
+&\le 2\norm{w_1 - w_2}_{H^1_0(U;\R^m)}^2 + C\norm{h_1-h_2}_{L^2(U;\R^m)}^2,
+\end{align*}
+che conduce, usando la lipschitzianità di $f$, a
+\[ \frac{d}{dt}\norm{w_1-w_2}_{L^2(U;\R^m)}^2 \le C\norm{h_1-h_2}_{L^2(U;\R^m)}^2 = C \norm{f(u_1)-f(u_2)}_{L^2(U;\R^m)}^2 \le C \norm{u_1 - u_2}_{L^2(U;\R^m)}^2. \]
+Integrando in $t$,
+\[ \norm{w_1(s)-w_2(s)}_{L^2(U;\R^m)}^2 \le C \int_0^s \norm{u_1(t) - u_2(t)}_{L^2(U;\R^m)}^2d\mathcal{L}^1(t) \le CT \norm{u_1-u_2}_{C([0,T];L^2(U;\R^m))}^2, \]
+quindi 
+\[ \norm{A(u_1)-A(u_2)}_{C([0,T];L^2(U;\R^m))} \le(CT)^{\frac{1}{2}} \norm{u_1-u_2}_{C([0,T];L^2(U;\R^m))}, \]
+con $C$ che non dipende da $T$. Se $T$ tale che $(CT)^{\frac{1}{2}} <1$, la tesi segue dal Teorema delle contrazioni.
+\end{proof}
+
+Il risultato di punto fisso a cui vorremmo fare riferimento per la prossima applicazione è il Teorema di Tychonoff, di cui il seguente è un Corollario che si adatta ai nostri scopi.
+\begin{corollario}\emph{\textbf{(Teorema di Schaefer)}}\index[analitico]{teorema!di Schaefer}
+	Consideriamo $(X,\norm{\;})$ uno spazio normato su $\R$ e $f: X \to X$ un'applicazione continua e compatta. Se l'insieme
+	\[ B = \left\lbrace  x \in X : x = \lambda f(x), \textup{ per qualche } \lambda \in [0,1]\right\rbrace  \]
+	è limitato, allora esiste $x \in X$ tale che $f(x) = x$.
+\end{corollario}
+\begin{proof}
+	Sia $M > 0$ tale che 
+	\[ \norm{x}<M \]
+	per ogni $x \in B$. Consideriamo $\tilde{f}: \overline{\B(0,M)} \to \overline{\B(0,M)}$ tale che
+	\[ \tilde{f}(x) = \begin{cases} 
+		f(x) & \textup{se } \norm{f(x)}\le M,\\
+		\frac{Mf(x)}{\norm{f(x)}} & \textup{se } \norm{f(x)}> M.
+	\end{cases} \]
+	
+	Osserviamo che $\tilde{f}$ è ben definita: se $\norm{f(x)}\le M$, allora $\norm{\tilde{f}(x)} \le M$; se invece $ \norm{f(x)}> M$, 
+	\[ \norm{\tilde{f}(x)} = \frac{M \norm{f(x)}}{\norm{f(x)}} =M.\]
+	In particolare, $\tilde{f}(\overline{\B(0,M)}) \subseteq \overline{\B(0,M)}$.
+	
+	Mostriamo anche che $\tilde{f}$ è compatta. Sia $(x_h)$ in $\overline{\B(0,M)}$, chiaramente limitata. Se, definitivamente in $h$, $\norm{f(x_h)}\le M$ (risp. $\norm{f(x_h)} > M$), allora, definitivamente in $h$, $\tilde{f}(x_h) = f(x_h)$ (risp. $\tilde{f}(x_h) = \frac{Mf(x_h)}{\norm{f(x_h)}}$) e la compattezza segue da quella di $f$ (risp. da quella di $f$ e dalla continuità della norma). A meno di sottosuccessioni, posso sempre supporre di essere nella situazione sopra descritta, quindi $\tilde{f}$ è compatta.
+	
+	Consideriamo $C_H(\tilde{f}(\overline{\B(0,M)})) \subseteq X$, l'inviluppo convesso chiuso di $\tilde{f}(\overline{\B(0,M)})$. $C_H(\tilde{f}(\overline{\B(0,M)}))$ è convesso e chiuso, mostriamo che è compatto. Per fare ciò, consideriamo $(x_h)$ in $C_H(\tilde{f}(\overline{\B(0,M)}))$. In particolare, per ogni $h \in \N$
+	\[ x_h = \sum_{i=1}^{n_h}\lambda_i^{(h)}\tilde{f}(y_i^{(h)}). \]
+	Fissato $i$, a meno di sottosuccessioni, per compattezza di $\tilde{f}$ ed il Teorema di Bolzano--Weierstrass, $\lambda_i^{h} \to \lambda$ e $\tilde{f}(y_i^{h}) \to \tilde{f}(y_i)$. Se, per assurdo, $n_{h} \to +\infty$, allora il limite della successione $(x_h)$ non starebbe in  $C_H(\tilde{f}(\overline{\B(0,M)}))$, violandone la chiusura, quindi, a meno di sottosuccessioni, $(x_h)$ è convergente in $C_H(\tilde{f}(\overline{\B(0,M)}))$.
+	
+	Vediamo che è ben definita $\tilde{f}: C_H(\tilde{f}(\overline{\B(0,M)})) \to C_H(\tilde{f}(\overline{\B(0,M)}))$. In primo luogo,
+	\[ C_H(\tilde{f}(\overline{\B(0,M)})) \subseteq C_h(\overline{\B(0,M)}) = \overline{\B(0,M)}, \]
+	e
+	\[ \tilde{f}(C_H(\tilde{f}(\overline{\B(0,M)}))) \subseteq \tilde{f}(\overline{\B(0,M)}) \subseteq C_H(\tilde{f}(\overline{\B(0,M)})). \]
+	
+	Dal Teorema di Tychonoff, esiste quindi $x \in C_H(\tilde{f}(\overline{\B(0,M)}))$ tale che $\tilde{f}(x) = x$. Ora, se per assurdo, $x$ non fosse un punto fisso per $f$, allora si avrebbe, per definizione di $\tilde{f}$, 
+	\[ \norm{f(x)} > M \]
+	e, detto $\lambda = \frac{M}{\norm{f(x)}} <1$, 
+	\[ x = \tilde{f}(x) = \lambda f(x), \]
+	quindi $x \in B$, ma $\norm{x} = \norm{\tilde{f}(x)} = M$, da cui l'assurdo e la tesi.
+\end{proof}
+Il Teorema di Schaefer rientra nella filosofia del \emph{metodo delle stime a priori}: se, assumendo per ipotesi che una soluzione di un certo problema esista, si riescono a dimostrare determinate stime per le soluzioni, allora queste stesse stime si possono usare per dimostrare l'esistenza di soluzioni (infatti se non valessero sicuramente la soluzione non esisterebbe). In ogni caso, il vantaggio del Teorema di Schaefer rispetto al Teorema di Tychonoff sta nel fatto che non è richiesto di specificare l'insieme convesso e compatto su cui lavorare. Vediamone un'applicazione.
+\begin{definizione}
+	Siano $U$ un aperto limitato di $\R^n$ con $\partial U$ di classe $C^\infty$, $b: \R^n \to \R$ un'applicazione lipschitziana, sub-lineare e di classe $C^\infty$ e $\mu >0$. Diciamo che $u$ è una \emph{soluzione classica}\index[analitico]{soluzione!classica} del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\Delta u + b(Du) + \mu u = 0 & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	se $u \in C^2(U)\cap C(\overline{U})$, $-\Delta u(x) + b(Du(x)) + \mu u(x) = 0$ per ogni $x \in U$ e $u(x) = 0$ per ogni $x \in \partial U$.
+\end{definizione}
+Vediamo ora come indebolire la definizione di soluzione del problema 
+\[ 	\begin{cases}
+	-\Delta u + b(Du) + \mu u = 0 & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U,
+\end{cases} \]
+Se $u$ è una soluzione classica, allora per ogni $x \in U$
+\[ -\Delta u(x) + b(Du(x)) + \mu u(x) = 0. \]
+Moltiplicando ambo i membri per una certa $\varphi \in C^\infty_c(U)$ ed integrando otteniamo 
+\[ \int_U \left( -\Delta u \varphi + \mu u\varphi\right) d\mathcal{L}^n = -\int_U b(Du) \varphi d\mathcal{L}^n. \]
+Per le formule di Gauss--Green abbiamo quindi, per ogni $\varphi \in C^\infty_c(U)$
+\[ \int_U \left( Du \cdot D\varphi +\mu u \varphi\right)  d\mathcal{L}^n = -\int_U b(Du) \varphi d\mathcal{L}^n. \]
+Osserviamo che l'equazione precedente ha significato con $u,\varphi \in H^1_0(U)$.
+\begin{definizione}
+	Siano $U$ un aperto limitato di $\R^n$ con $\partial U$ di classe $C^\infty$, $b: \R^n \to \R$ un'applicazione lipschitziana, sub-lineare e di classe $C^\infty$ e $\mu >0$.	Diciamo che $u \in H^1_0(U)$ è una \emph{soluzione debole}\index[analitico]{soluzione!debole} del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\Delta u + b(Du) + \mu u = 0 & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	se per ogni $v \in H^1_0(U)$, 
+	\[ \int_U \left( Du \cdot Dv +\mu u v\right)  d\mathcal{L}^n = -\int_U b(Du) v d\mathcal{L}^n. \]
+\end{definizione}
+\begin{osservazione}
+	La precedente definizione è ben posta, infatti, dalla sub-linearità di $b$ combinata con le disuguaglianze di Holder e Poincaré,
+	\[ \int_U b(Du) v d\mathcal{L}^n \le C\norm{v}_{H^1_0(U)}(1+\norm{u}_{H^!_0(U)})<+\infty.  \]
+	e, chiaramente,
+	\[  \int_U \left( Du \cdot Dv +\mu u v\right)  d\mathcal{L}^n < +\infty.\]
+\end{osservazione}
+
+Vediamo come, applicando il Teorema di Schaefer, riusciamo a dimostrare l'esistenza di soluzioni deboli al problema in esame.
+\begin{teorema}
+	Siano $U$ un aperto limitato di $\R^n$ con $\partial U$ di classe $C^\infty$, $b: \R^n \to \R$ un'applicazione lipschitziana, sub-lineare e di classe $C^\infty$ e $\mu >0$. Se $\mu$ è sufficientemente grande, allora esiste $u \in H^2(U)\cap H^1_0(U)$ soluzione debole
+	del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\Delta u + b(Du) + \mu u = 0 & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U.
+	\end{cases} \] 
+\end{teorema}
+\begin{proof}
+	Innanzitutto, per ogni $u \in H^1_0(U)$, posto $f = -b(Du)$, dalla sub-linearità di $b$, si ha
+	\[ \norm{f}_{L^2(U)}^2 = \int_U f^2 d\mathcal{L}^n\le C\int_U(1+\abs{Du})^2 d\mathcal{L}^n \le C(1+ \norm{u}_{H^1_0(U)}^2)<+\infty, \]
+	quindi $f \in L^2(U)$. Allora, per il primo Teorema di esistenza di soluzioni deboli, per ogni $\mu >0$ esiste ed è unica $w \in H^1_0(U)$ soluzione debole di 
+	\[ \begin{cases}
+		-\Delta w + \mu w = f & \textup{in } U,\\
+		w=0 & \textup{su } \partial U.
+	\end{cases} \]
+	Per quanto visto sulla regolarità delle soluzioni deboli nel caso lineare, $w \in H^2(U)$ ed esiste $C>0$, dipendente solo da $U$ e $\mu$, tale che
+	\[ \norm{w}_{H^2(U)} \le C \norm{f}_{L^2(U)}. \]
+	Rimane definita $A: H^1_0(U) \to H^1_0(U)$ tale che
+	\[ A(u) = w, \]
+	dove $w$ è la soluzione sopra descritta. In particolare, per ogni $u,v \in H^1_0(U)$
+	\begin{equation}\label{perilgranfinale}
+		\int_U \left( D(A(u))\cdot Dv + \mu A(u)v\right) d\mathcal{L}^n = -\int_U b(Du)vd\mathcal{L}^n
+	\end{equation}
+	e, per la sub-linearità di $b$,
+	\[ \norm{A(u)}_{H^2(U)} \le C (1+ \norm{u}_{H^1_0(U)}). \]
+	
+	Mostriamo che $A$ è continua.  Siano $(u_h)$ in $H^1_0(U)$ e $u \in H^1_0(U)$ tali che $u_h \to u$ in $H^1_0(U)$. Siccome $(u_h)$ è convergente, allora è limitata, quindi 
+	\[ \underset{h}{\sup}\; \norm{A(u_h)}_{H^2(U)} \le C \underset{h}{\sup}\; \left( 1 + \norm{u_h}_{H^1_0(U)}\right)  < +\infty, \]
+	ossia $(A(u_h))$ è limitata in $H^2(U)$. Allora esiste $w \in H^1(U)$ tale che, a meno di una sottosuccessione, $A(u_h) \to w$ in $H^1(U)$. Siccome $H^1_0(U)$ è completo, in particolare è chiuso perciò $w \in H^1_0(U)$ e $A(u_h) \to w$ in $H^1_0(U)$. Ora, per definizione di $A$, per ogni $v \in H^1_0(U)$
+	\begin{equation}\label{formulazionedeboleA}
+		\int_U \left( D(A(u_h))\cdot Dv + \mu A(u_h)v\right) d\mathcal{L}^n = -\int_U b(Du_h)vd\mathcal{L}^n.
+	\end{equation}
+	Siccome $A(u_h) \to w$ in $H^1_0(U)$, in particolare $D(A(u_h)) \to Dw$ in $L^2(U)$, quindi $D(A(u_h)) \rightharpoonup Dw$ in $L^2(U)$. Similmente, $A(u_h) \to w$ in $L^2(U)$, quindi $A(u_h) \rightharpoonup w$ in $L^2(U)$. In più, dal fatto che $u_h \to u$ in $H^1_0(U)$, si ha $Du_h \to Du$ in $L^2(U)$ quindi dal fatto che $b$ è sub-lineare,
+	\begin{align*}
+	\int_U(b(Du_h)-b(Du))vd\mathcal{L}^n &\le C \int_U (\abs{Du_h}-\abs{Du})vd\mathcal{L}^n \le C\int_U \abs{Du_h - Du}\abs{v}d\mathcal{L}^n \le \\
+	&\le C\int_U \abs{Du_h - Du}^2d\mathcal{L}^n \int_U \abs{v}^2 d\mathcal{L}^n \to 0,
+	\end{align*}
+	quindi $b(Du_h) \rightharpoonup b(Du)$ in $L^2(U)$. Passando al limite in \eqref{formulazionedeboleA}, per ogni $u,v \in H^1_0(U)$
+	\[ \int_U \left( D(w)\cdot Dv + \mu wv\right) d\mathcal{L}^n = -\int_U b(Du)vd\mathcal{L}^n, \]
+	ossia $w$ è soluzione debole del problema di Dirichlet
+	\[ \begin{cases}
+		-\Delta w + \mu w = -b(Du) & \textup{in } U,\\
+		w=0 & \textup{su } \partial U,
+	\end{cases} \]
+	che, in altre parole, significa $A(u) = w$, quindi $A(u_h) \to A(u)$ in $H^1_0(U)$ e la continuità è dimostrata.
+	
+	Mostriamo che $A$ è compatta. Sia $(u_h)$ in $H^1_0(U)$ limitata. Allora 
+	\[ \underset{h}{\sup}\; \norm{A(u_h)}_{H^2(U)} \le C \underset{h}{\sup}\; \left( 1 + \norm{u_h}_{H^1_0(U)}\right)  < +\infty, \]
+	ossia $(A(u_h))$ è limitata in $H^2(U)$. Allora esiste $w \in H^1(U)$ tale che, a meno di una sottosuccessione, $A(u_h) \to w$ in $H^1(U)$. Siccome $H^1_0(U)$ è completo, in particolare è chiuso perciò $w \in H^1_0(U)$ e $A(u_h) \to w$ in $H^1_0(U)$, da cui la compattezza.
+	
+	Mostriamo che, per $\mu$ sufficientemente grande, l'insieme
+	\[ B= \left\lbrace  u \in H^1_0(U) : u = \lambda A(u), \textup{ per qualche } \lambda \in [0,1]\right\rbrace \]
+	è limitato in $H^1_0(U)$. Se $u \in B$, allora $A(u) = \frac{u}{\lambda}$, quindi $u \in H^2(U)\cap H^1_0(U)$ e, preso $v= u$ nella formulazione variazionale che definisce $A$, 
+	\[ \int_U \left( \abs{Du}^2 + \mu \abs{u}^2\right) d\mathcal{L}^n = -\int_U\lambda b(Du)u d\mathcal{L}^n.\]
+	Essendo $b$ sub-lineare, usando la disuguaglianza di Young pesata con $\varepsilon=\frac{1}{2C}$ ed dal fatto che $\lambda \le 1$,
+	\begin{align*}
+		-\int_U\lambda b(Du)u d\mathcal{L}^n &\le \lambda C \int_U (1+\abs{Du})\abs{u}d\mathcal{L}^n\le C \int_U (1+\abs{Du})\abs{u}d\mathcal{L}^n\le \\
+		&\le \frac{1}{2} \int_U \abs{Du}^2d\mathcal{L}^n + C\int_U \left( 1+\abs{u}^2\right) d\mathcal{L}^n,
+	\end{align*}
+	quindi 
+	\[ \frac{1}{2} \int_U \abs{Du}^2d\mathcal{L}^n + (\mu-C) \int_U \abs{u}^2 d\mathcal{L}^n \le C  \]
+	dove $C$ non dipende da $\lambda$ e nemmeno da $u$. Se quindi $\mu > C$, $\norm{u}_{H^1_0(U)}\le C$, ossia $B$ è limitato in $H^1_0(U)$.
+	
+	Possiamo concludere che, per il Teorema di Schaefer, esiste $u \in H^1_0(U)\cap H^2(U)$ tale che $A(u)=u$ che, combinato con \eqref{perilgranfinale}, permette di affermare che per ogni $v \in H^1_0(U)$
+	\[ \int_U \left( Du\cdot Dv + \mu uv)\right) d\mathcal{L}^n = -\int_U b(Du)vd\mathcal{L}^n, \]
+	da cui la tesi.
+\end{proof}
+\begin{osservazione}
+	Dal Teorema precedente abbiamo direttamente l'esistenza di una soluzione forte. In più, la teoria della regolarità per questo problema differenziale può essere ricondotta a quella del caso lineare, e quindi al Metodo di Stampacchia: siccome $u \in H^2(U)$, allora $Du \in H^1(U)$, quindi $f = -b(Du) \in H^1(U)$. Aumentando le ipotesi di regolarità su $b$ si può proseguire. Non entriamo nel dettaglio: la morale è che la non linearità è più un problema per l'esistenza che per la regolarità.
+\end{osservazione}
+
+\section{Metodo di monotonia}
+\begin{definizione}
+	Siano $U$ un aperto limitato di $\R^n$ con $\partial U$ di classe $C^\infty$, $a: \R^n \to \R^n$ un'applicazione di classe $C^\infty$ ed $f: U \to \R$ un'applicazione continua. Diciamo che $u$ è una \emph{soluzione classica}\index[analitico]{soluzione!classica} del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\div(a(Du)) = f & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	se $u \in C^2(U)\cap C(\overline{U})$, $-\div(a(Du(x))) = f(x)$ per ogni $x \in U$ e $u(x) = 0$ per ogni $x \in \partial U$.
+\end{definizione}
+\begin{osservazione}
+	Se $a = \textup{Id}$, allora ritroviamo il problema di Poisson, visto nel capitolo \ref{Equazioni ellittiche lineari del secondo ordine}.
+\end{osservazione}
+\begin{osservazione}
+	Se esiste $F: \R^n \to \R$ tale che $a = DF$, ossia $a$ ammette potenziale scalare, allora l'equazione 
+	\[ -\div(a(Du)) = f  \textup{ in } U \]
+	è l'equazione di Eulero--Lagrange associata al funzionale
+	\[ I[u] = \int_U (F(Du) - fu) d\mathcal{L}^n, \]
+	quindi possiamo utilizzare le tecniche del Calcolo delle Variazioni, come visto nel capitolo \ref{Alcuni complementi di calcolo delle variazioni}, per studiare il problema. Infatti, con le convenzioni sulle notazioni introdotte nel capitolo \ref{Alcuni complementi di calcolo delle variazioni},
+	\begin{align*}
+		D_{\xi_i}L(x,s,\xi) &= D_\xi F(\xi), & D_s L(x,s,\xi) = -f
+	\end{align*}
+	per cui l'equazione di Eulero--Lagrange è 
+	\[ -\sum_{i=1}^{n} D_{x_i}(D_{\xi_i}F(Du)) = f  \textup{ in } U \]
+	ossia, in forma vettoriale,
+	\[ -\div(DF(Du)) = f  \textup{ in } U. \]
+\end{osservazione}
+
+Consideriamo per un attimo la situazione in cui $a$ ammette potenziale scalare $F$ convesso. Allora, per ogni $\xi,\eta \in \R^n$
+\begin{align*}
+	(a(\xi) - a(\eta))\cdot (\xi - \eta) &= (DF(\xi)- DF(\eta))\cdot(\xi-\eta) = \\
+	&= \sum_{i=1}^n (D_iF(\xi)- D_iF(\eta))\cdot(\xi_i-\eta_i)
+\end{align*}
+e, per il Teorema di Lagrange, esiste $t \in [0,1]$ tale che
+\[ 	(a(\xi) - a(\eta))\cdot (\xi - \eta) = \sum_{i,j=1}^n D^2_{i,j}F(\xi + t(\eta - \xi))(\xi_j - \eta_j)(\xi_i - \eta_i).  \]
+A questo punto, dalla convessità di $F$, si deduce che
+\[ (a(\xi) - a(\eta))\cdot (\xi - \eta) \ge 0. \]
+Motivati da questo calcolo, diamo la seguente definizione.
+\begin{definizione}
+	Diciamo che un'applicazione $a: \R^n \to \R^n$ è \emph{monotona}\index[index]{monotonia}, se per ogni $\xi,\eta \in \R^n$
+	\[ (a(\xi) - a(\eta))\cdot (\xi - \eta) \ge 0. \]
+\end{definizione}
+\begin{osservazione}
+	In $\R$, una funzione monotona, nel senso dato sopra, altro non è che una funzione crescente. Infatti, se $\xi \le \eta$, l'unica possibilità per rispettare la disuguaglianza di monotonia è $a(\xi) \le a(\eta)$.
+\end{osservazione}
+
+Nel seguito, salvo diversa specificazione, supporremo sempre che $U$ sia un aperto limitato di $\R^n$ non vuoto con $\partial U$ di classe $C^\infty$ e che siano assegnati $f \in L^2(U)$ ed $a: \R^n \to \R^n$ di classe $C^\infty$ tale che
+\begin{itemize}
+	\item per ogni $\xi,\eta \in \R^n$
+	\[ (a(\xi) - a(\eta))\cdot (\xi - \eta) \ge 0. \]
+	In altre parole, $a$ è monotona,
+	\item esiste $C >0$ tale che per ogni $\xi \in \R^n$ 
+	\[ \abs{a(\xi)} \le C(1+\abs{\xi}).\]
+	In altre parole, $a$ è sub-lineare,
+	\item esistono $\alpha > 0$ e $\beta \ge 0$ tali che per ogni $\xi \in \R^n$
+	\[ a(\xi)\cdot \xi \ge \alpha \abs{\xi}^2 - \beta.\]
+	In altre parole, $a$ è coercitiva.
+\end{itemize}
+
+Vediamo, a titolo di esempio, che esistono funzioni $a$ con le ipotesi richieste.
+\begin{esempio}
+	Consideriamo $a = \textup{Id}$. Allora per ogni $\xi,\eta \in \R^n$
+	\[ (\xi - \eta) \cdot (\xi-\eta) = \abs{\xi - \eta}^2 \ge 0. \]
+	Inoltre,
+	\[ \abs{\xi}\le 1 + \abs{\xi} \]
+	e
+	\[ \xi \cdot \xi = \abs{\xi}^2. \]
+	Quindi l'identità, che è ovviamente di classe $C^\infty$, è una scelta ammissibile.
+\end{esempio}
+Con lievi variazioni rispetto all'esempio precedente si può dimostrare che se $a$ è lineare, allora è una scelta ammissibile. Se però ci fermassimo qui, potremmo tranquillamente tornare al capitolo \ref{Equazioni ellittiche lineari del secondo ordine} perché avremmo dei riscalamenti dell'equazione di Poisson. Vediamo che in realtà esistono anche applicazioni non lineari ammissibili.
+\begin{esempio}
+	Consideriamo l'applicazione $a(\xi) = \xi + \arctan \left( \xi_1\right) e_1$, chiaramente di classe $C^\infty$. Allora per ogni $\xi,\eta \in \R^n$
+	\begin{align*}
+		&\left( \left( \xi+\arctan \left( \xi_1\right) e_1 \right)  - \left( \eta+\arctan \left( \eta_1\right)e_1 \right) \right)  \cdot (\xi-\eta) = \\
+		&=\abs{\xi - \eta}^2 + (\arctan\xi_1-\arctan\eta_1)\cdot(\xi_1 - \eta_1) \ge 0.
+	\end{align*}
+	Inoltre,
+	\[ \abs{\xi + \arctan \left( \xi_1\right)e_1 }\le \abs{\xi} + \frac{\pi}{2} \le (1+\frac{\pi}{2})(1+\abs{\xi})\]
+	e, per la disuguaglianza di Young pesata con $\varepsilon = \frac{1}{2}$,
+	\[ (\xi+\arctan \left( \xi_1\right)e_1) \cdot \xi = \abs{\xi}^2 +\arctan \left( \xi_1\right)\xi_1 \ge \abs{\xi}^2 - \frac{\pi}{2}\abs{\xi} \ge  \frac{1}{2} \abs{\xi}^2 - \beta\]
+	con $\beta \ge 0$.
+\end{esempio}
+
+Vediamo ora come indebolire la definizione di soluzione del problema 
+\[ 	\begin{cases}
+	-\div(a(Du)) = f & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U.
+\end{cases} \]
+Se $f: U \to \R$ continua ed $u$ è una soluzione classica, allora per ogni $x \in U$
+\[ -\div(a(Du(x))) = f(x). \]
+Moltiplicando ambo i membri per una certa $\varphi \in C^\infty_c(U)$ ed integrando otteniamo 
+\[ -\int_U \div(a(Du)) \varphi d\mathcal{L}^n = \int_U f \varphi d\mathcal{L}^n. \]
+Per le formule di Gauss--Green abbiamo quindi, per ogni $\varphi \in C^\infty_c(U)$
+\[ \int_U a(Du) \cdot D\varphi d\mathcal{L}^n = \int_U f \varphi d\mathcal{L}^n. \]
+Osserviamo che l'equazione precedente ha significato con $f \in L^2(U)$ e $u,\varphi \in H^1_0(U)$.
+\begin{definizione}
+	Diciamo che $u \in H^1_0(U)$ è una \emph{soluzione debole}\index[analitico]{soluzione!debole} del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\div(a(Du)) = f & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	se per ogni $v \in H^1_0(U)$, 
+	\[ \int_U a(Du) \cdot Dv d\mathcal{L}^n = \int_U f v d\mathcal{L}^n. \]
+\end{definizione}
+\begin{osservazione}
+	La precedente definizione è ben posta, infatti, dalla sub-linearità di $a$,
+	\[ \int_U a(Du) \cdot Dv d\mathcal{L}^n \le \int_U \abs{a(Du)} \abs{Dv} d\mathcal{L}^n \le C \norm{Dv}_{L^2(U)}\left( \mathcal{L}^n(U)+\norm{Du}_{L^2(U)}\right)<+\infty  \]
+	e, chiaramente,
+	\[ \int_U f v d\mathcal{L}^n \le \norm{f}_{L^2(U)}\norm{v}_{L^2(U)} < +\infty.\]
+\end{osservazione}
+
+Volendo affrontare ora il problema dell'esistenza di soluzioni deboli, iniziamo con un risultato di carattere tecnico che ci sarà utile nel seguito.
+\begin{lemma}\label{tecnicopermetodidimonotonia}
+	Sia $v: \R^n \to \R^n$ un'applicazione continua. Se esiste $r> 0$ tale che per ogni $x \in \partial B(0,r)$
+	\[ v(x) \cdot x \ge 0, \]
+	allora esiste $x \in \overline{\B(0,r)}$ tale che $v(x) = 0$.
+\end{lemma}
+\begin{proof}
+	Per assurdo, supponiamo che per ogni $x \in \overline{\B(0,r)}$ si abbia $v(x) \ne 0$. Consideriamo l'applicazione $w: \overline{\B(0,r)} \to 	\partial \B(0,r)$ continua tale che 
+	\[ w(x) = -\frac{r}{\abs{v(x)}}v(x). \]
+	Per il Teorema di Brouwer, esiste $z \in \overline{\B(0,r)}$ tale che $w(z) = z$. In particolare deve essere $z \in \partial\B(0,r)$, quindi 
+	\[ r^2 = z \cdot z = w(z) \cdot z =  -\frac{r}{\abs{v(z)}}v(z) \cdot z \le 0,\]
+	che è assurdo.
+\end{proof}
+Siamo dunque pronti per dimostrare l'esistenza di soluzioni deboli per il problema che stiamo studiando: affronteremo la dimostrazione seguendo il cosiddetto  \emph{metodo di Browder e Minty}.
+\begin{teorema}
+	Esiste $u \in H^1_0(U)$ soluzione debole del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\div(a(Du)) = f & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U.
+	\end{cases} \]
+\end{teorema}
+\begin{proof}
+	Fissiamo innanzitutto $(w_j)$, una base hilbertiana liscia di $H^1_0(U)$.\footnote{Ottenibile, ad esempio, dall'operatore $-\Delta$ (debole), come visto alla fine del capitolo \ref{Equazioni ellittiche lineari del secondo ordine}.}
+	Fissato $m \in \N$, mostriamo che esiste $u_m \in H^1_0(U)$ tale che
+	\[ u_m = \sum_{j=0}^{m}d_jw_j \]
+	e per ogni $k = 0,\dots, m$
+	\[ \int_U a(Du_m)\cdot Dw_k d\mathcal{L}^n = \int_U fw_k d\mathcal{L}^n.\footnote{In altre parole, vorremmo scegliere i coefficienti $d_j$ in modo che $u_m$ sia soluzione debole della proiezione del problema 
+		\[ 	\begin{cases}
+			-\div(a(Du)) = f & \textup{in } U,\\
+			u = 0 & \textup{su } \partial U,
+		\end{cases} \]
+		sul sottospazio vettoriale di $H^1_0(U)$ di dimensione finita generato da $w_0,\dots,w_m$.}\]
+	Per fare ciò, consideriamo l'applicazione $v: \R^{m+1} \to \R^{m+1}$ tale che per ogni $k =0,\dots, m$
+	\[ v_k (d) = \int_U \left( a\left( \sum_{j=0}^{m}d_jDw_j\right) \cdot Dw_k -fw_k\right) d\mathcal{L}^n.\]
+	Dal fatto che $a$ è sub-lineare, l'applicazione $v$ è ben definita. Inoltre è continua per il Teorema della convergenza dominata. Ora, per ogni $d \in \R^m$ 
+	\begin{align*}
+		v(d) \cdot d &= \sum_{j=0}^{m}v_j(d)d_j = \sum_{j=0}^{m} \int_U \left(  a\left( \sum_{k=0}^{m}d_kDw_k\right) \cdot d_jDw_j -d_jfw_j\right) d\mathcal{L}^n = \\
+		&= \int_U \left( a\left( \sum_{k=0}^{m}d_kDw_k\right) \cdot \sum_{j=0}^{m}d_jDw_j -\sum_{j=0}^{m}d_jfw_j\right) d\mathcal{L}^n,
+	\end{align*}
+	quindi, per la coercitività di $a$,
+	\[ v(d) \cdot d \ge \alpha \int_U \abs*{\sum_{j=0}^{m}d_jDw_j}^2 d\mathcal{L}^n -\beta\mathcal{L}^n(U) - \sum_{j=0}^{m} d_j \int_U fw_jd\mathcal{L}^n. \]
+	Ora, nel primo integrale i doppi prodotti sono tutti nulli in quanto $w_0,\dots,w_m$ sono tra loro ortogonali in $H^1_0(U)$, quindi 
+	\[ \alpha \int_U \abs*{\sum_{j=0}^{m}d_jDw_j}^2 d\mathcal{L}^n = \alpha \sum_{j=0}^{m} d_j^2 \int_U \abs{Dw_j}^2d\mathcal{L}^n = \alpha \abs{d}^2 \]
+	Per quanto riguarda l'ultimo addendo invece, detta $u \in H^1_0(U)$ la soluzione debole del problema di Dirichlet
+	\[ \begin{cases}
+		-\Delta u = f & \textup{in } U,\\
+		u= 0 & \textup{su } \partial U,
+	\end{cases} \]
+	per la disuguaglianza di Young pesata con $\varepsilon = \frac{\alpha}{2}$, la formulazione variazionale e la disuguaglianza di Holder,
+	\begin{align*}
+		d_j  \int_U fw_jd\mathcal{L}^n &\le \abs{d_j} \abs*{ \int_U fw_jd\mathcal{L}^n}\le \frac{\alpha}{2} \abs{d_j}^2 + C \left( \int_U fw_j d\mathcal{L}^n\right) ^2 \le \\
+		&\le \frac{\alpha}{2} \abs{d_j}^2 + C\left( \int_U Du \cdot Dw_j d\mathcal{L}^n\right) ^2 \le \frac{\alpha}{2} \abs{d_j}^2 + C\norm{u}_{H^1_0(U)}^2\norm{w_j}_{H^1_0(U)}^2 \le \\
+		&\le \frac{\alpha}{2} \abs{d_j}^2 + C, 
+	\end{align*}
+	quindi
+	\[ - \sum_{j=0}^{m} d_j \int_U fw_jd\mathcal{L}^n \ge -\frac{\alpha}{2} \abs{d}^2 - C. \]
+	In definitiva, 
+	\[ v(d) \cdot d \ge  \frac{\alpha}{2} \abs{d}^2 - C.\]
+	Scelto $r\ge \sqrt{\frac{2C}{\alpha}}$, per il Lemma \eqref{tecnicopermetodidimonotonia}, esiste $d \in \overline{\B(0,r)}$ tale che $v(d) = 0$, ossia per ogni $k = 0,\dots, m$
+	\begin{equation}\label{projectionproblemmonotonia}
+		\int_U a(Du_m)\cdot Dw_k d\mathcal{L}^n = \int_U fw_k d\mathcal{L}^n.
+	\end{equation}
+	
+	Mostriamo ora che esiste $C$, dipendente solo da $U$ ed $a$, tale che per ogni $m \in \N$
+	\[ \norm{u_m}_{H^1_0(U)} \le C(1+\norm{f}_{L^2(U)}). \]
+	Per fare ciò, moltiplichiamo per $d_k$ ambo i membri di \eqref{projectionproblemmonotonia} e sommiamo per $k=0,\dots m$, ottenendo
+	\begin{equation}\label{miserve}
+		\int_U a(Du_m) \cdot Du_m d\mathcal{L}^n = \int_U fu_m d\mathcal{L}^n.
+	\end{equation}
+	Dalla coercitività di $a$, 
+	\[ \int_U a(Du_m) \cdot Du_m d\mathcal{L}^n \ge \alpha \int_U \abs{Du_m}^2d\mathcal{L}^n -\beta \mathcal{L}^n(U), \]
+	quindi combinando la disuguaglianza di Holder e la disuguaglianza di Poincaré,
+	\[ \alpha \int_U \abs{Du_m}^2d\mathcal{L}^n \le C +\int_U fu_m d\mathcal{L}^n \le C +\norm{f}_{L^2(U)}\norm{u_m}_{L^2(U)} \le C+C\norm{f}_{L^2(U)}\norm{u_m}_{H^1_0(U)}, \]
+	perciò, per la disuguaglianza di Young pesata con $\varepsilon = \frac{\alpha}{2C}$,
+	\[ \alpha \int_U \abs{Du_m}^2d\mathcal{L}^n \le C + \frac{\alpha}{2} \int_U \abs{Du_m}^2d\mathcal{L}^n +C\norm{f}_{L^2(U)}^2, \]
+	allora
+	\[ \frac{\alpha}{2} \int_U \abs{Du_m}^2d\mathcal{L}^n \le C(1 + \norm{f}_{L^2(U)}^2) \]
+	e, per la sub-additività della radice quadrata,
+	\[ \norm{u_m}_{H^1_0(U)} \le C(1+\norm{f}_{L^2(U)}). \]
+	
+	Da quanto appena dimostrato, si deduce che $(u_m)$ è limitata in $H^1_0(U)$, quindi, per il Teorema di Eberlein--Smulian, esistono $(u_{m_j})$ e $u\in H^1_0(U)$ tale che $u_{m_j} \rightharpoonup u$ in $H^1_0(U)$. %Per il Teorema di Rellich--Kondrachov combinato con l'unicità del limite debole, $u_{m_j} \to u$ in $L^2(U)$. 
+	In particolare, $u_{m_j} \rightharpoonup u$ in $L^2(U)$. Essendo $a$ sub-lineare, 
+	\[ \int_U \abs{a(Du_{m_j})}^2 d\mathcal{L}^n \le C(\mathcal{L}^n(U) + \norm{u_{m_j}}_{H^1_0(U)}^2)<+\infty, \]
+	quindi $(a(Du_{m_j}))$ limitata in $L^2(U;\R^n)$ e, per il Teorema di Eberlein--Smulian, esiste $\xi \in L^2(U;\R^n)$ tale che, a meno di un'ulteriore sottosuccessione, $a(Du_{m_j}) \rightharpoonup \xi$ in $L^2(U;\R^n)$. 
+	
+	Per ogni $v \in H^1_0(U)$, scrivendo l'equazione $\eqref{projectionproblemmonotonia}$ per $u_{m_j}$ e passando al limite per $j \to +\infty$ otteniamo per ogni $k \in \N$
+	\[ \int_U \xi \cdot Dw_k d\mathcal{L}^n = \int_U fw_k d\mathcal{L}^n \]
+	che moltiplicata ambo i membri per $(v|w_k)_{H^1_0(U)}$ e sommata su $k$ fornisce
+	\begin{equation}\label{esistenzamonotonia2}
+		\int_U \xi \cdot Dv d\mathcal{L}^n = \int_U fvd\mathcal{L}^n.
+	\end{equation}
+	
+	Dalla monotonia di $a$, per ogni $m \in \N$ e per ogni $w \in H^1_0(U)$,
+	\[ \int_U \left( a(Du_{m_j})- a(Dw)\right) \cdot (Du_{m_j}-Dw) d\mathcal{L}^n \ge 0,\]
+	ossia, utilizzando l'equazione \eqref{miserve},
+	\[ \int_U fu_{m_j} d\mathcal{L}^n  -  \int_U a(Dw)\cdot Du_{m_j} d\mathcal{L}^n - \int_U a(Du_{m_j})\cdot Dw d\mathcal{L}^n +\int_U a(Dw)\cdot Dw d\mathcal{L}^n\ge 0\]
+	che per $j \to +\infty$ diventa
+	\[ \int_U fu d\mathcal{L}^n  -  \int_U a(Dw)\cdot Du d\mathcal{L}^n - \int_U \xi\cdot Dw d\mathcal{L}^n +\int_U a(Dw)\cdot Dw d\mathcal{L}^n \ge 0,\]
+	che, utilizzando l'equazione \eqref{esistenzamonotonia2} con $v = u$, può essere scritta come
+	\[ \int_U (\xi -a(Dw)) \cdot (Du - Dw)d\mathcal{L}^n\ge 0.\]
+	A questo punto, fissato $v \in H^1_0(U)$, preso $w = u-\lambda v$, con $\lambda \in \left]0,1\right] $, dalla precedente equazione abbiamo 
+	\[ \int_U (\xi -a(Du-\lambda Dv)) \cdot Dvd\mathcal{L}^n\ge 0.\]
+	Dal fatto che $a$ è continua, 
+	\[ \lim\limits_{\lambda \to 0}a(Du-\lambda Dv)\cdot Dv = a(Du) \textup{ q.o. in } U, \]
+	inoltre, per la sub-linearità di $a$ e per la disuguaglianza di Young,
+	\begin{align*}
+		\abs{a(Du-\lambda Dv)\cdot Dv}&\le \abs{a(Du-\lambda Dv)}\abs{Dv}\le C(1+\abs{Du - \lambda Dv})\abs{Dv} \le \\
+		&\le  C(1 + \abs{Dv}^2 + \abs{Du}^2) \in L^1(U)
+	\end{align*}
+	quindi, per il Teorema della convergenza dominata, passando al limite per $\lambda \to 0$ si ottiene che per ogni $v \in H^1_0(U)$
+	\[ \int_U (\xi - a(Du))\cdot Dv d\mathcal{L}^n \ge 0. \]
+	A meno di scambiare $v$ con $-v$, vale anche
+	\[ \int_U (\xi - a(Du))\cdot Dv d\mathcal{L}^n \le 0, \]
+	quindi 
+	\[ \int_U (\xi - a(Du))\cdot Dv d\mathcal{L}^n = 0. \]
+	In particolare, dalla \eqref{esistenzamonotonia2}, per ogni $v \in H^1_0(U)$
+	\[ \int_U a(Du)\cdot Dv d\mathcal{L}^n = \int_U \xi \cdot Dv d\mathcal{L}^n = \int_U fv d\mathcal{L}^n, \]
+	da cui la tesi.
+\end{proof}
+\begin{osservazione}
+	Vale la pena osservare la strategia dimostrativa utilizzata per il Teorema precedente nasce per risolvere il seguente problema: a causa della non linearità di $a$, anche sapendo che $u_{m_j} \rightharpoonup u$ in $H^1_0(U)$, non è possibile dedurre che $a(Du_{m_j}) \rightharpoonup a(Du)$ in un qualche senso. La chiave per superare questo stallo è proprio la monotonia.
+\end{osservazione}
+\begin{definizione}
+	Diciamo che un'applicazione $a: \R^n \to \R^n$ è \emph{strettamente monotona}\index[index]{monotonia!stretta}, se esiste $\vartheta >0$ tale che per ogni $\xi,\eta \in \R^n$
+	\[ (a(\xi) - a(\eta))\cdot (\xi - \eta) \ge \vartheta \abs{\xi -\eta}^2. \]
+\end{definizione}
+\begin{teorema}
+	Se $a$ è strettamente monotona, allora la soluzione debole del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\div(a(Du)) = f & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	è unica.
+\end{teorema}
+\begin{proof}
+	Supponiamo esistano $u,\tilde{u}$ soluzioni deboli del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\div(a(Du)) = f & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U.
+	\end{cases} \]
+	Allora, per ogni $v \in H^1_0(U)$
+	\[ \int_U a(Du)\cdot Dv d\mathcal{L}^n = \int_U fv d\mathcal{L}^n = \int_U a(D\tilde{u})\cdot Dv d\mathcal{L}^n, \]
+	ossia 
+	\[ \int_U(a(Du)-a(D\tilde{u}))\cdot Dv d\mathcal{L}^n = 0. \]
+	Scelto $v = u - \tilde{u}$,
+	\[ 0 = \int_U(a(Du)-a(D\tilde{u}))\cdot (Du - D\tilde{u})d\mathcal{L}^n \ge \vartheta \int_U \abs{Du- D\tilde{u}}^2 d\mathcal{L}^n = \norm{u-\tilde{u}}_{H^1_0(U)}^2.\]
+	L'unica possibilità è $\norm{u-\tilde{u}}_{H^1_0(U)}^2 = 0$, ossia $u = \tilde{u}$ q.o. in $U$.
+\end{proof}
+
+Un'ampia classe di scelte per $a$ grazie alle quali abbiamo esistenza ed unicità della soluzione debole è la seguente.
+\begin{esempio}
+	Consideriamo $a(\xi) = \xi +b(\xi)$ dove 
+	\[ b(\xi) = (b_1(\xi_1),\dots,b_n(\xi_n)) \]
+	con $b_i : \R\to \R$ monotone crescenti, limitate e di classe $C^\infty$ per ogni $i=1,\dots,n$. Allora per ogni $\xi,\eta \in \R^n$
+	\begin{align*}
+		(a(\xi)-a(\eta))\cdot (\xi-\eta) &= \abs{\xi-\eta}^2 +(b(\xi)-b(\eta))\cdot(\xi-\eta) = \\
+		&=\abs{\xi-\eta}^2 + \sum_{i=1}^{n}(b_i(\xi_1)-b_i(\eta_i))(\xi_i-\eta_i) \ge \abs{\xi-\eta}^2.
+	\end{align*}
+	Inoltre,
+	\[ \abs{a(\xi)} \le \abs{\xi} + \abs{b(\xi)} \le \abs{\xi} + C \le (1+C)(1+\abs{\xi})\]
+	e, per la disuguaglianza di Cauchy--Schwarz e la disuguaglianza di Young pesata con $\varepsilon = \frac{1}{2}$
+	\[ a(\xi) \cdot \xi = \xi^2 + b(\xi) \cdot \xi \ge \xi^2 -\abs{b(x)} \abs{\xi} \ge  \frac{1}{2} \abs{\xi}^2 - \beta\]
+	con $\beta \ge 0$.
+\end{esempio}
+\begin{osservazione}
+	In ipotesi di stretta monotonia, è possibile ricondursi al \emph{Metodo di Stampacchia}, già usato nel capitolo \ref{Equazioni ellittiche lineari del secondo ordine}, per lo studio della regolarità delle soluzioni.
+\end{osservazione}
+
+\section{Metodo delle sopra/sotto-soluzioni}
+\begin{proposizione}\label{monotonia}
+Consideriamo $U\subseteq \R^n$ aperto limitato con bordo di classe $C^1$, $f_1,f_2 \in L^2(U)$ e $u_1,u_2 \in H^1_0(U)$ le soluzioni deboli dei problemi di Dirichlet
+\begin{align*}
+	&\begin{cases}
+		-\Delta u = f_1 & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} & &\begin{cases}
+	-\Delta u = f_2 & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U.
+	\end{cases}
+\end{align*}
+Se $f_2 \le f_1$ \emph{q.o.} in $U$, allora $u_2 \le u_1$ \emph{q.o.} in $U$.
+\end{proposizione}
+\begin{proof}
+Osserviamo, anzitutto, che $(u_2 - u_1)^+ \in H^1_0(U)$ con 
+\[ D(u_2-u_1)^+ = \begin{cases}
+	D(u_2-u_1) & \textup{se } u_2 \ge u_1, \\
+	0 & \textup{altrimenti}.
+\end{cases} \]
+
+Ora, per linearità, 
+\[ \int_U D(u_2-u_1) \cdot D(u_2-u_1)^+ d\mathcal{L}^n = \int_U (f_2 - f_1)(u_2-u_1)^+ d\mathcal{L}^n \le 0, \]
+ma
+\[ \int_U D(u_2-u_1) \cdot D(u_2-u_1)^+ d\mathcal{L}^n = \int_U \abs{D(u_2-u_1)^+}^2 d\mathcal{L}^n, \]
+allora $\norm{(u_2-u_1)^+}_{H^1_0(U)}\le 0$, da cui $(u_2-u_1)^+ = 0$ q.o. in $U$, cioè $u_2 \le u_1$ q.o. in $U$.
+\end{proof}
+
+\begin{definizione}
+	Consideriamo $U\subseteq \R^n$ aperto limitato con bordo di classe $C^\infty$, $C >0$ e $f: \R \to \R$ di classe $C^\infty$ tale che, per ogni $ x\in \R$, $\abs{f'(x)}\le C$.\footnote{In particolare, grazie alla disuguaglianza di Lagrange, $f$ è lipschitziana e sub-lineare.}
+	Diciamo che $u \in H^1_0(U)$ è una \emph{soluzione debole}\index[analitico]{soluzione!debole} del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\Delta u = f(u) & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	se per ogni $v \in H^1_0(U)$
+	\[ \int_U Du \cdot Dv d\mathcal{L}^n = \int_U f(u)vd\mathcal{L}^n. \]
+\end{definizione}
+\begin{definizione}
+Consideriamo $U\subseteq \R^n$ aperto limitato con bordo di classe $C^\infty$, $C >0$ e $f: \R \to \R$ di classe $C^\infty$ tale che, per ogni $ x\in \R$, $\abs{f'(x)}\le C$. Diciamo che $\overline{u} \in H^1(U)$ è una \emph{sopra-soluzione debole}\index[analitico]{sopra-soluzione debole} del problema di Dirichlet
+\[ 	\begin{cases}
+	-\Delta u = f(u) & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U,
+\end{cases} \]
+se per ogni $v \in H^1_0(U)$ tale che $v\ge 0$ \emph{q.o.} in $U$
+\[ \int_U D\overline{u} \cdot Dv d\mathcal{L}^n \ge \int_U f(\overline{u})vd\mathcal{L}^n. \]
+\end{definizione}
+\begin{definizione}
+	Consideriamo $U\subseteq \R^n$ aperto limitato con bordo di classe $C^\infty$, $C >0$ e $f: \R \to \R$ di classe $C^\infty$ tale che, per ogni $ x\in \R$, $\abs{f'(x)}\le C$.
+	Diciamo che $\underline{u} \in H^1(U)$ è una \emph{sotto-soluzione debole}\index[analitico]{sotto-soluzione debole} del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\Delta u = f(u) & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	se per ogni $v \in H^1_0(U)$ tale che $v\ge 0$ \emph{q.o.} in $U$
+	\[ \int_U D\underline{u} \cdot Dv d\mathcal{L}^n \le \int_U f(\underline{u})vd\mathcal{L}^n. \]
+\end{definizione}
+In particolare, una soluzione debole è sia sopra-soluzione che sotto-soluzione.
+
+Il principale risultato della sezione è il seguente: l'idea di base è che è più facile trovare sopra/sotto-soluzioni deboli rispetto che soluzioni deboli.
+\begin{teorema}\label{metodosubsuper}
+Consideriamo $U\subseteq \R^n$ aperto limitato con bordo di classe $C^\infty$, $C >0$ e $f: \R \to \R$ di classe $C^\infty$ tale che, per ogni $ x\in \R$, $\abs{f'(x)}\le C$. Se esistono una sopra-soluzione debole $\overline{u} \in H^1(U)$ ed una sotto-soluzione debole $\underline{u} \in H^1(U)$ del problema di Dirichlet
+\[ 	\begin{cases}
+	-\Delta u = f(u) & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U,
+\end{cases} \]
+ tali che $\underline{u} \le 0$ e $\overline{u} \ge 0$ su $\partial U$ nel senso delle tracce e $\underline{u} \le \overline{u}$ \emph{q.o.} in $U$, allora esiste una soluzione debole $u \in H^1_0(U)$ tale che $\underline{u} \le u \le \overline{u}$ \emph{q.o.} in $U$.
+\end{teorema}
+\begin{proof}
+Innanzitutto, essendo $f' \ge -C$, esiste $\lambda >0$ sufficientemente grande tale che 
+\[ f' + \lambda \ge 0, \]
+quindi l'applicazione $\left\lbrace x \mapsto f(x) + \lambda x\right\rbrace$ è crescente.
+
+Detta $u_0 = \underline{u}$, costruiamo ricorsivamente una successione $(u_k)$ in $H^1_0(U)$ tale che $u_{k+1}$ è la soluzione debole del problema di Dirichlet
+\[ 	\begin{cases}
+	-\Delta u_{k+1} + \lambda u_{k+1} = f(u_k) + \lambda u_k & \textup{in } U,\\
+	u_{k+1} = 0 & \textup{su } \partial U.
+\end{cases} \]
+Mostriamo, per induzione, che $(u_k)$ è crescente q.o. in $U$. Per prima cosa, detto $T$ l'operatore di traccia su $U$, siccome $T(u_0-u_1) = Tu_0 - Tu_1 \le 0$ q.o. in $U$, allora $T(u_0-u_1)^+ = 0$ q.o. in $U$, ossia $(u_0-u_1)^+ \in H^1_0(U)$ con 
+\[ D(u_0-u_1)^+ = \begin{cases}
+	D(u_0-u_1) & \textup{se } u_0 \ge u_1, \\
+	0 & \textup{altrimenti}.
+\end{cases} \]
+In particolare, sottraendo alla definizione di sotto-soluzione debole $u_0$ la formulazione variazionale del problema di Dirichlet che ha soluzione debole $u_1$, entrambe valutate per $v= (u_0-u_1)^+$, si ottiene
+\[ \int_U \left( D(u_0 - u_1) \cdot D(u_0-u_1)^+ + \lambda(u_0-u_1)(u_0-u_1)^+\right)  d\mathcal{L}^n \le 0,\]
+ma
+\begin{align*}
+	\int_U D(u_0-u_1) \cdot D(u_0-u_1)^+ d\mathcal{L}^n &= \int_U \abs{D(u_0-u_1)^+}^2 d\mathcal{L}^n, \\
+	 \int_U (u_0-u_1) \cdot (u_0-u_1)^+ d\mathcal{L}^n &= \int_U \abs{(u_0-u_1)^+}^2 d\mathcal{L}^n,
+\end{align*}
+quindi 
+\[ \int_{U} \left( \abs{D(u_0-u_1)^+}^2 + \lambda \abs{(u_0-u_1)^+}^2\right)  d\mathcal{L}^n \le 0, \]
+da cui $u_0 \le u_1$ q.o. in $U$. Supponiamo ora che $u_{k-1} \le u_k$ q.o. in $U$. Siccome $\left\lbrace x \mapsto f(x) + \lambda x\right\rbrace$ è crescente, $f(u_{k-1}) + \lambda u_{k-1} \le f(u_k) + \lambda u_k$ che, ragionando in modo analogo a quanto fatto sopra, da $u_k \le u_{k+1}$ q.o. in $U$.
+
+Mostriamo ora, per induzione, che per ogni $k \in \N$ 
+\[ u_k \le \overline{u} \textup{ q.o. in } U. \]
+Il caso $k = 0$ segue direttamente dalle ipotesi. Supponiamo quindi che $u_k \le \overline{u}$ q.o. in $U$. Sempre ragionando in modo analogo a quanto fatto sopra segue che $u_{k+1}\le \overline{u}$ q.o. in $U$.
+
+Riassumendo,
+\[ \underline{u}\le \dots \le u_k \le u_{k+1} \le \overline{u} \textup{ q.o. in } U,\]
+quindi per q.o. $x \in U$ esiste $u(x) = \lim\limits_{k} u_k(x)$. In particolare, $\underline{u} \le u \le \overline{u}$ q.o. in $U$, da cui 
+\[ \int_U \abs{u}^2 d\mathcal{L}^n \le \int_U \max\left\lbrace \abs{\underline{u}}^2,\abs{\overline{u}}^2\right\rbrace d\mathcal{L}^n < +\infty, \]
+che vuol dire $u \in L^2(U)$, e 
+\[ \forall\; k \in N: \abs{u_k-u}^2 \le 2 \max\left\lbrace \abs{\underline{u}}^2,\abs{\overline{u}}^2\right\rbrace \in L^1(U)\]
+che, combinato con il Teorema della convergenza dominata, da $u_k \to u$ in $L^2(U)$. Ora, per la sub-linearità di $f$,
+\[ \norm{f(u_k)}_{L^2(U)}\le C(1+ \norm{u_k}_{L^2(U)}), \]
+quindi, per la formulazione variazionale del problema di Dirichlet che ha soluzione debole $u_k$, valutata per $v=u_k$, e per la disuguaglianza di Young,
+\begin{align*}
+	\norm{u_k}_{H^1_0(U)}^2 &\le \int_{U} \left( \abs{Du_k}^2 +\lambda \abs{u_k}^2 \right) d\mathcal{L}^n = \int_U \left( f(u_{k-1})+\lambda u_{k-1}\right) u_k d\mathcal{L}^n \le \\
+	&\le \int_U \left( f(u_{k})+\lambda u_{k}\right) u_k d\mathcal{L}^n \le C(\norm{f(u_k)}^2_{L^2(U)} + \norm{u_k}_{L^2(U)}^2) \le \\
+	&\le C(1 + \norm{u_k}_{L^2(U)}^2) \le C<+\infty.
+\end{align*}
+In altre parole, $(u_k)$ è limitata in $H^1_0(U)$, quindi per il Teorema di Eberlein--Smulian, a meno di sottosuccessioni, per l'unicità del limite si ha $u_k \rightharpoonup u$ in $H^1_0(U)$. In modo analogo, siccome $(f(u_k))$ è limitata in $L^2(U)$, $f(u_k) \rightharpoonup f(u)$ in $L^2(U)$. Passando quindi al limite per $k \to +\infty$ nella formulazione variazionale del problema di Dirichlet che ha soluzione debole $u_k$ otteniamo per ogni $v \in H^1_0(U)$
+\[ \int_{U} \left( Du \cdot Dv +\lambda uv \right) d\mathcal{L}^n = \int_U \left( f(u)v + \lambda uv\right)  d\mathcal{L}^n, \]
+ossia
+\[ \int_{U} Du \cdot Dv  d\mathcal{L}^n = \int_Uf(u)v d\mathcal{L}^n, \]
+che è la tesi.
+\end{proof}
+
+Vediamo di seguito un esempio di applicazione del Teorema precedente.
+\begin{esempio}
+Consideriamo $U\subseteq \R^n$ aperto limitato con bordo di classe $C^\infty$, $C >0$ e $f: \R \to [1,2]$ di classe $C^\infty$ tale che, per ogni $x \in \R$, $\abs{f'(x)}\le C$. Sia $\underline{u} \in H^1_0(U)$ la soluzione debole del problema di Dirichlet
+\[ 	\begin{cases}
+	-\Delta \underline{u} = 1 & \textup{in } U,\\
+	\underline{u} = 0 & \textup{su } \partial U,
+\end{cases} \]
+allora per ogni $v \in H^1_0(U)$ con $v \ge 0$ \emph{q.o.} in $U$
+\[ \int_U D\underline{u}\cdot Dv d\mathcal{L}^n \le \int_U vd\mathcal{L}^n \le \int_U fv d\mathcal{L}^n, \]
+quindi $\underline{u}$ è sotto-soluzione debole per il problema di Dirichlet
+\[ 	\begin{cases}
+	-\Delta u = f(u) & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U.
+\end{cases} \]
+Analogamente, $\overline{u} \in H^1_0(U)$ tale che 
+\[ 	\begin{cases}
+	-\Delta \overline{u} = 2 & \textup{in } U,\\
+	\overline{u} = 0 & \textup{su } \partial U,
+\end{cases} \]
+è sopra-soluzione debole per il lo stesso problema di Dirichlet. Siccome $1\le 2$, dalla Proposizione \eqref{monotonia}, discende che $\underline{u} \le \overline{u}$ \emph{q.o.} in $U$. Inoltre, $\underline{u} = \overline{u} = 0$ su $\partial U$ nel senso delle tracce. Dal Teorema \eqref{metodosubsuper}, il problema di Dirichlet 
+\[ 	\begin{cases}
+	-\Delta u = f(u) & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U.
+\end{cases} \]
+ammette soluzione debole.
+\end{esempio}
+
+\section{Metodo dei punti critici}
+Nel seguito, salvo diversa specificazione, supporremo sempre che $n\ge3$, $U$ sia un aperto limitato di $\R^n$ non vuoto con $\partial U$ di classe $C^\infty$ e che siano assegnate due applicazioni $g: U \times \R \to \R$ di Carathéodory e 
+\[ G(x,s) = \int_0^sg(x,t)dt, \]
+tali che 
+\begin{enumerate}[$(i)$]
+	\item  per ogni $\varepsilon>0$ esista $a_\varepsilon \in L^{\frac{2n}{n+2}}(U)$ tale che per q.o. $x \in U$ e per ogni $s \in \R$
+	\[ \abs{g(x,s)} \le a_\varepsilon(x) + \varepsilon\abs{s}^{\frac{n+2}{n-2}},\footnote{Attenzione: $\frac{n+2}{n-2} = 2^\ast -1$.} \]
+	\item esistono $R>0$ e $q>2$ tali che per q.o. $x \in U$ e per ogni $s \in \R$ tale che $\abs{s} \ge R$
+	\[ 0 <qG(x,s) \le g(x,s)s, \]
+	\item per ogni $\varepsilon>0$ esista $C_\varepsilon \in \R$ tale che per q.o. $x \in U$ e per ogni $s \in \R$
+	\[ G(x,s) \le \varepsilon\abs{s}^2+C_\varepsilon\abs{s}^{2^\ast},\]
+\end{enumerate}
+ed un operatore differenziale $L$ uniformemente ellittico in forma di divergenza tale che
+\begin{itemize}
+	\item per ogni $i,j = 1,\dots, n$, 
+	\[ a_{ij}=a_{ji}. \]
+	In altre parole, $A$ è simmetrica,
+	\item per ogni $i,j = 1,\dots, n$, 
+	\[ a_{ij} \in L^\infty(U), b_i,c = 0. \]
+\end{itemize}
+
+\begin{definizione}
+Diciamo che $u \in H^{1}_0(U)$ è una \emph{soluzione debole}\index[analitico]{soluzione!debole} del problema di Dirichlet
+	\[ 	\begin{cases}
+		-\displaystyle\sum_{i,j=1}^n D_j(a_{ij}D_iu) = g(x,u) & \textup{in } U,\\
+		u = 0 & \textup{su } \partial U,
+	\end{cases} \]
+	se per ogni $v \in H^1_0(U)$ 
+	\[ \int_U \sum_{i,j=1}^{n}a_{ij}D_iuD_jv d\mathcal{L}^n = \int_U g(x,u)vd\mathcal{L}^n. \]
+\end{definizione}
+
+Consideriamo il funzionale continuo $J: H^1_0(U) \to \R$ tale che
+\[ J[u] = \frac{1}{2}\int_U\sum_{i,j=1}^{n}a_{ij}D_iuD_ju d\mathcal{L}^n - \int_U G(x,u)d\mathcal{L}^n. \]
+Innanzitutto, per ogni $u,v \in H^1_0(U)$
+\begin{align*}
+\lim\limits_{\tau \to 0} \frac{J[u+\tau v]- J[u]}{\tau} &= \lim\limits_{\tau \to 0}\left(  \dfrac{\displaystyle\int_U \sum_{i,j=1}^{n}a_{ij}(D_i(u+\tau v)D_j(u+\tau v)-D_iuD_ju) d\mathcal{L}^n}{2\tau} \right. +\\
+&-\left. \dfrac{\displaystyle\int_U (G(x,u+\tau v)-G(x,u)) d\mathcal{L}^n}{\tau}\right),
+\end{align*}
+ma 
+\[ \lim\limits_{\tau \to 0}  \dfrac{\displaystyle\int_U \sum_{i,j=1}^{n}a_{ij}(D_i(u+\tau v)D_j(u+\tau v)-D_iuD_ju) d\mathcal{L}^n}{2\tau} = \int_U \sum_{i,j=1}^{n}a_{ij}D_iuD_jv d\mathcal{L}^n \]
+e, detta $\varphi(t) = G(u+t\tau v)$, per il Teorema di Lagrange, esiste $\sigma \in \left] 0,1\right[ $ tale che
+\begin{align*}
+\lim\limits_{\tau \to 0}\dfrac{\displaystyle\int_U (G(x,u+\tau v)-G(x,u)) d\mathcal{L}^n}{\tau} &= \lim\limits_{\tau \to 0}\dfrac{\displaystyle\int_U (\varphi(1)-\varphi(0)) d\mathcal{L}^n}{\tau} = \lim\limits_{\tau \to 0}\dfrac{\displaystyle\int_U \varphi'(\sigma) d\mathcal{L}^n}{\tau} = \\
+&= \lim\limits_{\tau \to 0}\int_U g(u+\sigma \tau v) d\mathcal{L}^n = \int_U g(x,u)vd\mathcal{L}^n,
+\end{align*}
+dove nell'ultimo passaggio abbiamo usato la continuità dell'operatore di Nemytskij, quindi
+\[ \braket{dJ[u],v} = J'[u](v) = \lim\limits_{\tau \to 0} \frac{J[u+\tau v]- J[u]}{\tau} = \int_U \sum_{i,j=1}^{n}a_{ij}D_iuD_jv d\mathcal{L}^n - \int_U g(x,u)vd\mathcal{L}^n.\footnote{Attenzione al cambio di notazione rispetto ai capitoli precedenti.}\]
+In particolare, $J$ è derivabile ed è il funzionale associato al problema di Dirichlet in esame, nel senso delle equazioni di Eulero--Lagrange. Inoltre, $J$ è differenziabile, infatti, detta $\varphi(t) = G(x,u+tv)-tg(x,u)v$,
+\begin{align*}
+	&\abs{J[u+v]-J[u]-\braket{dJ[u],v}} = \\
+	&\left| \frac{1}{2}\left(\sum_{i,j=1}^{n} \int_U a_{ij}\left( D_i(u+v)D_j(u+v)-D_iuD_ju-2D_iuD_jv\right) d\mathcal{L}^n\right) + \right.\\
+	&\left. -\int_U \left( G(x,u+v)-G(x,u)-g(x,u)v\right) d\mathcal{L}^n\right|  \le \\
+	&\le \frac{1}{2} \abs*{\sum_{i,j=1}^{n}\int_U a_{ij}D_iuD_jvd\mathcal{L}^n} + \abs*{\int_U (\varphi(1)-\varphi(0))d\mathcal{L}^n},
+\end{align*}
+quindi, per il Teorema di Lagrange, esiste $\sigma \in \left] 0,1\right[ $ tale che
+\begin{align*}
+\abs{J[u+v]-J[u]-\braket{dJ[u],v}} &\le \frac{1}{2} \abs*{\sum_{i,j=1}^{n}\int_U a_{ij}D_iuD_jvd\mathcal{L}^n} + \abs*{\int_U \varphi'(\sigma)d\mathcal{L}^n} \le \\
+&\le C\norm{v}_{H^1_0(U)}^2 + \int_U \abs{g(u+\sigma v)-g(u)}\abs{v}d\mathcal{L}^n
+\end{align*}
+e, per la Disuguaglianza di Holder ed il Teorema di Sobolev,
+\begin{align*}
+	\abs{J[u+v]-J[u]-\braket{dJ[u],v}} &\le C\norm{v}_{H^1_0(U)}^2 +\norm{g(u+tv)-g(u)}_{L^{\frac{2n}{n+2}}(U)} \norm{v}_{L^{\frac{2n}{n-2}}(U)}\le  \\
+	&\le C\norm{v}_{H^1_0(U)} \left( \norm{v}_{H^1_0(U)} + \norm{g(u+tv)-g(u)}_{L^{\frac{2n}{n+2}}(U)}\right),
+\end{align*}
+quindi, per la continuità dell'operatore di Nemytskij,
+\[ \lim\limits_{v \to 0} \frac{J[u+v]-J[u]-\braket{dJ[u],v}}{\norm{v}_{H^1_0(U)}}  =0. \]
+In modo simile, si vede che $J$ è di classe $C^1$.
+
+\begin{lemma}\label{lemma_tech_minorazioneG}
+Per \emph{q.o.} $x \in U$ e per ogni $s \in \R$ tale che $\abs{s}\ge R$, esiste $k(x)$ tale che
+\[ G(x,s) \ge k \abs{s}^q. \]
+\end{lemma}
+\begin{proof}
+Vediamo dapprima il caso $s\ge R$. Detta $\varphi(s) = \frac{G(x,s)}{s^q}$, si ha, per la $(ii)$,
+\[ \varphi'(s) = \frac{g(x,s)s-qG(x,s)}{s^{q+1}} \ge0, \]
+quindi $\varphi(s) \ge \varphi(R)$, ossia
+\[ \frac{G(x,s)}{s^q} \ge \frac{G(x,R)}{R^q} \]
+o, in altre parole,
+\[ G(x,s) \ge k s^q. \]
+Il caso $s\le -R$ può essere trattato in modo simile.
+\end{proof}
+\begin{lemma}\label{Lemma_JPS}
+$J$ soddisfa la condizione di Palais--Smale.
+\end{lemma}
+\begin{proof}
+Sia $(u_h)$ in $H^1_0(U)$ tale che $(J[u_h])$ sia limitata e $dJ[u_h] \to 0$ in $H^{-1}(U)$.\footnote{Attenzione: non stiamo applicando il Teorema della rappresentazione di Riesz; vedremo che è molto più comodo ragionare così.}
+Per il Teorema di Bolzano--Weierstrass, esistono $(u_{h_k})$ e $m \in \R$ tali che 
+\begin{align*}
+	J[u_{h_k}] &\to m, & dJ[u_{h_k}] &\to 0.
+\end{align*}
+In particolare, esiste una successione $(\alpha_k)$ in $\R$ tale che $\alpha_k \to 0$ e
+\[ \frac{1}{2} \int_U \sum_{i,j=1}^{n} a_{ij}D_iu_{h_k}D_ju_{h_k}d\mathcal{L}^n-\int_U G(x,u_{h_k}) d\mathcal{L}^n = m + \alpha_k.\]
+Sottraendo, a quest'ultima equazione moltiplicata per $q$, 
+\[ \int_U \sum_{i,j=1}^{n}a_{ij}D_iu_{h_k}D_ju_{h_k} d\mathcal{L}^n - \int_U g(x,u_{h_k})u_{h_k}d\mathcal{L}^n = \braket{dJ[u_{h_k}],u_{h_k}} \]
+otteniamo, a meno di rinominare la successione $\alpha_k$,
+\begin{align*}
+	&\frac{q-2}{2} \int_U \sum_{i,j=1}^{n} a_{ij}D_i u_{h_k} D_j u_{h_k} d\mathcal{L}^n + \\
+	&+ \int_U \left( g(x,u_{h_k})u_{h_k}-qG(x,u_{h_k})\right) d\mathcal{L}^n = qm + \alpha_k - \braket{dJ[u_{h_k}],u_{h_k}}, 
+\end{align*}
+che può anche essere scritta nella forma
+\begin{align*}
+	&\frac{q-2}{2} \int_U \sum_{i,j=1}^{n} a_{ij}D_i u_{h_k} D_j u_{h_k} d\mathcal{L}^n + \int_{U \cap \left\lbrace \abs{u_{h_k}}\ge R\right\rbrace}  \left( g(x,u_{h_k})u_{h_k}-qG(x,u_{h_k})\right) d\mathcal{L}^n\\
+	&+ \int_{U \cap \left\lbrace \abs{u_{h_k}}\le R\right\rbrace } \left( g(x,u_{h_k})u_{h_k}-qG(x,u_{h_k})\right) d\mathcal{L}^n = qm + \alpha_k - \braket{dJ[u_{h_k}],u_{h_k}}. 
+\end{align*}
+Ora, per uniforme ellitticità,
+\[ \frac{q-2}{2} \int_U \sum_{i,j=1}^{n} a_{ij}D_i u_{h_k} D_j u_{h_k} d\mathcal{L}^n  \ge  \frac{q-2}{2} \nu \norm{u_{h_k}}^2_{H^1_0(U)}, \]
+per la $(ii)$,
+\[ \int_{U \cap \left\lbrace \abs{u_{h_k}}\ge R\right\rbrace}  \left( g(x,u_{h_k})u_{h_k}-qG(x,u_{h_k})\right) d\mathcal{L}^n \ge 0, \]
+per la $(i)$,
+\[ \int_{U \cap \left\lbrace \abs{u_{h_k}}\le R\right\rbrace } \left( g(x,u_{h_k})u_{h_k}-qG(x,u_{h_k})\right) d\mathcal{L}^n \ge C_R, \]
+quindi possiamo scrivere, utilizzando la continuità del differenziale,
+\[  \frac{q-2}{2} \nu \norm*{u_{h_k}}^2_{H^1_0(U)} \le qm +\alpha_k + \norm{dJ[u_{h_k}]}_{H^{-1}}\norm{u_{h_k}}_{H^1_0(U)} + C_R \]
+che, a seguito di un'applicazione della disuguaglianza di Young pesata sul terzo addendo a secondo membro, diventa
+\[ \norm{u_{h_k}}^2_{H^1_0(U)} \le C <+\infty, \]
+ossia $(u_{h_k})$ è limitata in $H^1_0(U)$. A meno di sottosuccessioni, per il Teorema di Eberlein--Smulian, il Teorema di Rellich--Kondrachov, le proprietà degli spazi $L^p$ e l'unicità del limite debole, esiste $u \in H^1_0(U)$ tale che per ogni $p < 2^\ast$ si abbia
+\begin{align*}
+	u_{h_k} \rightharpoonup u & \textup{ in } H^1_0(U), & u_{h_k} \to u & \textup{ in } L^p(U).
+\end{align*}
+Tuttavia, per uniforme ellitticità,
+\begin{align*}
+\nu \norm{Du_{h_k}-Du}_{L^2(U)}^2 &\le \int_U \sum_{i,j=1}^{n} a_{ij} D_i(u_{h_k}-u)D_j(u_{h_k}-u) d\mathcal{L}^n = \\
+&= \int_U \sum_{i,j=1}^{n} a_{ij}D_iu_{h_k} D_j u_{h_k} d\mathcal{L}^n - 2 \int_U \sum_{i,j=1}^{n}D_iu_{h_k}D_ju d\mathcal{L}^n + \\
+&+\int_U \sum_{i,j=1}^{n}D_iuD_ju d\mathcal{L}^n = \\
+&= \int_U g(x,u_{h_k})u_{h_k}d\mathcal{L}^n + \braket{dJ[u_{h_k}],u_{h_k}} - 2 \int_U \sum_{i,j=1}^{n}D_iu_{h_k}D_ju d\mathcal{L}^n + \\
+&+ \int_U \sum_{i,j=1}^{n}D_iuD_ju d\mathcal{L}^n.
+\end{align*}
+A questo punto, osservando che $\braket{dJ[u_{h_k}],u_{h_k}} \to 0$\footnote{Si tratta di un fatto generale. Consideriamo $(X,\norm{\;}_X)$ uno spazio normato su $\K$, $(x;h)$ in $X$ e $(\varphi_h)$ in $X'$. Se esistono $x \in X$ e $\varphi \in X'$ tali che $x_h \rightharpoonup x$ in $X$ e $\varphi_h \to \varphi$ in $X'$, allora $\braket{\varphi_h,x_h} \to \braket{\varphi,x}$.
+
+Infatti, siccome la convergenza debole implica la limitatezza,
+\begin{align*}
+\abs{\braket{\varphi_h,x_h}-\braket{\varphi,x}}&\le \abs{\braket{\varphi_h,x_h} - \braket{\varphi,x_h}} + \abs{\braket{\varphi,x_h} - \braket{\varphi,x_h}} \le \\
+&\le \norm{\varphi_h - \varphi}_{X'}\norm{x_h}_X + \abs{\braket{\varphi,x_h} - \braket{\varphi,x_h}} \le \\
+&\le C\norm{\varphi_h - \varphi}_{X'} + \abs{\braket{\varphi,x_h} - \braket{\varphi,x_h}} \to 0.
+\end{align*}
+}
+per ogni $\varepsilon >0$ esiste $N_1 \ge 0 $ tale che per ogni $k\ge N_1$
+\[ \braket{dJ[u_{h_k}],u_{h_k}} < \frac{\nu \varepsilon}{3}.  \]
+Siccome $u_{h_k} \rightharpoonup u$ in $H^1_0(U)$, essendo $a_{ij}D_ju \in L^2(U)$ per ogni $i,j=1,\dots,n$, esiste $N_2\ge0$ tale che per ogni $k\ge N_2$
+\[ \int_U \sum_{i,j=1}^{n}D_iu_{h_k}D_ju d\mathcal{L}^n > \int_U \sum_{i,j=1}^{n}D_iuD_ju d\mathcal{L}^n - \frac{\nu \varepsilon}{6}, \] 
+quindi, per $k \ge \max\left\lbrace N_1,N_2\right\rbrace$,
+\[ \nu \norm{Du_{h_k}-Du}_{L^2(U)}^2 < \int_U g(x,u_{h_k})u_{h_k}d\mathcal{L}^n - \int_U \sum_{i,j=1}^{n}D_iuD_ju d\mathcal{L}^n + \frac{2}{3} \nu \varepsilon. \]
+Siccome per ogni $v \in H^1_0(U)$ si ha $\braket{J[u_{h_k}],v} \to 0$, $u_{h_k} \rightharpoonup u$ in $H^1_0(U)$ e $a_{ij}D_ju \in L^2(U)$ per ogni $i,j=1,\dots,n$, per la continuità dell'operatore di Nemytskij (in $H^{-1}(U)$)\footnote{Prestiamo attenzione al fatto che $g$ non dipende dai gradienti, quindi le convergenze che abbiamo sono sufficienti.}, passando al limite nell'espressione di $\braket{J[u_{h_k}],v}$ si trova
+\[ \int_U \sum_{i,j=1}^{n}D_iuD_jv d\mathcal{L}^n = \int_U g(x,u)vd\mathcal{L}^n.\footnote{Potrebbe sembrare che già qui abbiamo trovato una soluzione debole del nostro problema. Attenzione però: noi, già a priori, sappiamo che il problema ammette la soluzione nulla. Stiamo cercando soluzioni non banali. A questo livello nulla ci garantisce che $u$ non sia la soluzione banale.} \]
+In particolare, 
+\[ \nu \norm{Du_{h_k}-Du}_{L^2(U)}^2 < \int_U g(x,u_{h_k})u_{h_k}d\mathcal{L}^n - \int_U g(x,u)ud\mathcal{L}^n + \frac{2}{3} \nu \varepsilon. \]
+Sempre per la continuità dell'operatore di Nemytskij (su $H^{-1}(U)$) e siccome $u_{h_k} \rightharpoonup u$ in $H^1_0(U)$, esiste $N_3 \ge 0$ tale che se $k \ge N_3$
+\[ \int_U g(x,u_{h_k})u_{h_k}d\mathcal{L}^n -  \int_U g(x,u)ud\mathcal{L}^n < \frac{\nu \varepsilon}{3}, \]
+quindi per ogni $k \ge \max\left\lbrace N_1,N_2,N_3\right\rbrace $
+\[ \norm{Du_{h_k}-Du}_{L^2(U)}^2 < \varepsilon,  \]
+ossia $u_{h_k} \to u$ in $H^1_0(U)$, da cui la tesi.
+\end{proof}
+
+\begin{teorema}
+Esiste $u \in H^{1}_0(U)\setminus \left\lbrace 0\right\rbrace $ soluzione debole del problema di Dirichlet
+\[ 	\begin{cases}
+	-\displaystyle\sum_{i,j=1}^n D_j(a_{ij}(x)D_iu(x)) = g(x,u) & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U.
+\end{cases} \]
+\end{teorema}
+\begin{proof}
+Innanzitutto, per il Lemma \eqref{Lemma_JPS}, il funzionale $J$ soddisfa la condizione di Palais--Smale. Chiaramente, $J[0] = 0$.
+	
+Mostriamo che esistono $a,r >0$ tali che per ogni $u \in \partial \B(0,r) \subseteq H^1_0(U)$
+\[ J[u] \ge a. \] 
+In primo luogo, per uniforme ellitticità e per la $(iii)$,
+\[ J[u] \ge \frac{1}{2} \nu \int_U \abs{Du}^2 d\mathcal{L}^n - \varepsilon \int_U \abs{u}^2 d\mathcal{L}^n - C_\varepsilon \int_U \abs{u}^{2^\ast}d\mathcal{L}^n. \]
+A questo punto, per la disuguaglianza di Poincaré ed il Teorema di Sobolev,
+\[ J[u] \ge \frac{\nu}{2} \norm{u}_{H^1_0(U)}^2 -\varepsilon C_p\norm{u}_{H^1_0(U)}^2 - C_\varepsilon C_s \norm{u}_{H^1_0(U)}^{2^\ast} = \frac{\nu}{2} r^2 -\varepsilon C_pr^2 - C_\varepsilon C_s r^{2^\ast}.  \]
+Se scegliamo $\varepsilon$ tale che $\frac{\nu}{2}> \varepsilon C_p$, è sufficiente scegliere $a,r$ tali che 
+\[ \left( \frac{\nu}{2} -\varepsilon C_p\right) r^2 - C_\varepsilon C_s r^{2^\ast} \ge a>0. \]
+
+Mostriamo che esiste $v \in H^1_0(U)$ tale che $\norm{v}_{H^1_0(U)}>r$ e $J[v]\le 0$. Per il Lemma \eqref{lemma_tech_minorazioneG} e la $(i)$, fissato $\overline{u} \in H^1_0(U)\setminus \left\lbrace 0\right\rbrace$,
+\begin{align*}
+	J[t\overline{u}] &\le Ct^2 \norm{\overline{u}}_{H^1_0(U)}^2 - \int_{U \cap \left\lbrace \abs{t\overline{u}} \ge R\right\rbrace} G(x,t\overline{u})d\mathcal{L}^n -\int_{U \cap \left\lbrace \abs{t\overline{u}} \le R\right\rbrace} G(x,t\overline{u})d\mathcal{L}^n \le \\
+	&\le C t^2\norm{\overline{u}}_{H^1_0(U)}^2 -\int_{U \cap \left\lbrace \abs{t\overline{u}} \ge R\right\rbrace} k\abs{t\overline{u}}^qd\mathcal{L}^n -\int_{U \cap \left\lbrace \abs{t\overline{u}} \le R\right\rbrace} G(x,t\overline{u})d\mathcal{L}^n = \\
+	&=  C t^q\norm{\overline{u}}_{H^1_0(U)}^2 - t^q\int_U k\abs{\overline{u}}^q\mathcal{L}^n +\int_{U \cap \left\lbrace \abs{t\overline{u}} \le R\right\rbrace}(k\abs{t\overline{u}}^q-G(x,t\overline{u}))d\mathcal{L}^n \le \\
+	&\le Ct^q\norm{\overline{u}}_{H^1_0(U)}^2 - t^q\int_U k\abs{\overline{u}}^q\mathcal{L}^n + C_R.
+\end{align*}
+Si tratta quindi di scegliere $v = t\overline{u}$ per $t$ sufficientemente grande da garantire 
+\[ \begin{cases}
+	Ct^q\norm{\overline{u}}_{H^1_0(U)}^2 - t^q\int_U k\abs{\overline{u}}^q\mathcal{L}^n + C_R \le 0, \\
+	t \norm{\overline{u}}_{H^1_0(U)} > r.
+\end{cases} \]
+
+Per il Teorema del passo montano, detto 
+\[ \Gamma = \left\lbrace g \in C([0,1];H^1_0(U)): g(0) = 0, g(1) = v\right\rbrace,  \]
+si ha che 
+\[ c = \underset{g \in \Gamma}{\inf}\; \underset{t \in [0,1]}{\max}\; J[g(t)] \]
+è un valore critico per $J$, ossia esiste $u \in H^1_0(U)$ tale che $J[u]=c$ e $J'[u] = 0$. In altre parole, $u$ è soluzione debole non banale dell'equazione di Eulero--Lagrange di $J$, ossia del problema di Dirichlet
+\[ 	\begin{cases}
+	-\displaystyle\sum_{i,j=1}^n D_j(a_{ij}(x)D_iu(x)) = g(x,u) & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U,
+\end{cases} \]
+da cui la tesi.
+\end{proof}
+
+Un esempio modello è il seguente.
+\begin{esempio}
+Consideriamo il problema di Dirichlet
+\[ 	\begin{cases}
+	-\Delta u = \abs{u}^{p-1}u & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U,
+\end{cases} \]
+dove $p \in \left] 1,\frac{n+2}{n-2}\right[$, corrispondente alla scelta $a_{ij}= \delta_{ij}$, chiaramente ammissibile, e $g(x,s) = \abs{s}^{p-1}s$. 
+
+Vediamo che la scelta di $g$ è ammissibile. Innanzitutto, chiaramente è di Carathéodory e possiamo scegliere $G(x,s) = \frac{\abs{s}^{p+1}}{p+1}$.
+Poi, la $(i)$ segue dalla disuguaglianza di Young pesata\footnote{Con uno degli esponenti $\frac{2^\ast-1}{p}$.} e dal fatto che, essendo $U$ limitato, le costanti sono elementi di $L^{\frac{2n}{n+2}}(U)$, infatti  
+\[ \abs{s}^p \le C + \varepsilon \abs{s}^{\frac{n+2}{n-2}}.\]
+La $(ii)$ segue dalla scelta $q= p+1$. Per quanto riguarda la $(iii)$, segue dalla disuguaglianza di Young pesata, infatti presto $t \in \left] 0,1\right[ $ tale che $p+1 = 2t + 2^\ast(1-t)$, si ha
+\[ \frac{\abs{s}^{p+1}}{p+1} = \frac{1}{p+1}\abs{s}^{2t}\abs{s}^{2^\ast(1-t)} \le \varepsilon \abs{s}^2 + C_\varepsilon \abs{s}^{2^\ast}.  \]
+
+Il funzionale associato, in questo caso, è $J: H^1_0(U) \to \R$ tale che
+\[ J[u] = \frac{1}{2}\int_U \abs{Du}^2 d\mathcal{L}^n - \frac{1}{p+1} \int_U \abs{u}^{p+1}d\mathcal{L}^n, \]
+infatti, per ogni $u,v \in H^1_0(U)$
+\[ J'[u](v) = \int_U Du \cdot Dvd\mathcal{L}^n - \int_U \abs{u}^{p-1}uv d\mathcal{L}^n, \]
+da cui la corrispondenza tra soluzioni deboli dell'equazione di Eulero--Lagrange e del problema posto sopra.
+\end{esempio}
+\section{Non esistenza di soluzioni}
+Nel seguito, salvo diversa specificazione, supporremo sempre che $n\ge3$, $U$ sia un aperto limitato di $\R^n$ non vuoto con $\partial U$ di classe $C^\infty$. Dato $p \in \left] 1,+\infty\right[$, consideriamo il problema di Dirichlet
+\begin{equation}\label{modelloapotenza}
+\begin{cases}
+	-\Delta u = \abs{u}^{p-1}u & \textup{in } U,\\
+	u = 0 & \textup{su } \partial U.
+\end{cases}
+\end{equation}
+
+Nella sezione precedente abbiamo potuto osservare che nel caso $p \in \left] 1,\frac{n+2}{n-2}\right[$, mediante il Metodo dei punti critici, il problema \eqref{modelloapotenza} ammette una soluzione non banale. In realtà, siccome il funzionale $J$ associato è pari, è possibile dimostrare che esistono infinite soluzioni $u_j \in H^1_0(U)$ non banali e a segni alterni tali che $J[u_j]\to +\infty$.
+
+Studiamo ora il caso  $p \in \left[ \frac{n+2}{n-2}, +\infty\right[$.
+
+\begin{lemma}\label{normaleperPohozaev}
+Supponiamo che $U$ sia stellato rispetto a $0$. Allora per ogni $x \in \partial U$ si ha
+\[ x \cdot \nu(x) \ge 0. \]
+\end{lemma}
+\begin{proof}
+Fissiamo $x \in \partial U$. Mostriamo, innanzitutto, che, per ogni $\varepsilon>0$ esiste $\delta >0$ tale che per ogni $y \in \overline{U}$ tale che $\abs{x-y}<\delta$ si ha 
+\[ \nu(x)\cdot \frac{y-x}{\abs{y-x}} \le \varepsilon. \]
+Se, per assurdo, esiste $\varepsilon >0$ tale che per ogni $j \in \N$ esiste $y_j \in \B(x, \frac{1}{j}) \cap U$ tale che
+\[ \nu(x) \cdot \frac{y_j-x}{\abs{y_j -x}} >\varepsilon>0, \]
+dal fatto che $y_j \to x$, si avrebbe $\varepsilon \le 0$, assurdo. In particolare, 
+\[ \underset{\underset{y \in \overline{U}}{y \to x}}{\limsup}\; \nu(x)\cdot \frac{y-x}{\abs{y-x}} \le 0.  \]
+Dal fatto che $U$ è stellato rispetto a $0$, per ogni $\lambda \in [0,1]$ $y = \lambda x \in U \subseteq \overline{U}$, allora
+\[ \nu(x) \cdot \frac{x}{\abs{x}} = - \lim\limits_{\lambda \to 1^-} \nu(x) \cdot \frac{\lambda x-x}{\abs{\lambda x -x}} \ge 0, \]
+da cui la tesi.  
+\end{proof}
+Vediamo che, sotto l'ipotesi che $U$ sia stellato rispetto a $0$, non esistono soluzioni non banali per il problema \eqref{modelloapotenza}.
+\begin{teorema}
+Supponiamo che $U$ sia stellato rispetto a $0$ e $p \in \left] \frac{n+2}{n-2}, +\infty\right[$. Se $u \in C^2(\overline{U})$ è una soluzione del problema \eqref{modelloapotenza}, allora $u = 0$ in $U$.
+\end{teorema}
+\begin{proof}
+Innanzitutto, dal fatto che $u$ è una soluzione classica di \eqref{modelloapotenza}, per ogni $x \in U$ si ha
+\[ 	-\Delta u(x) = \abs{u(x)}^{p-1}u(x). \]
+Moltiplicando ambo i membri per $x \cdot Du$ ed integrando su $U$ otteniamo 
+\[ \int_U (-\Delta u(x))(x \cdot Du(x))d\mathcal{L}^n(x) = \int_U \abs{u(x)}^{p-1}u(x) (x\cdot Du)d\mathcal{L}^n(x). \]
+Per quanto riguarda il primo membro, per le formule di Gauss--Green, 
+\begin{align*}
+	&\int_U (-\Delta u(x))(x \cdot Du(x))d\mathcal{L}^n(x) = -\sum_{i,j=1}^{n}\int_U D^2_{i,i}u x_j D_ju d\mathcal{L}^n(x) = \\
+	&= \sum_{i,j=1}^{n}\int_U D_iu D_i(x_j D_ju) d\mathcal{L}^n(x) - \sum_{i,j=1}^{n}\int_{\partial U} D_iu x_j D_ju \nu_i d\mathcal{H}^{n-1}(x)= \\
+	&= \sum_{i,j=1}^{n} \int_U D_i u \delta_{ij} D_ju d\mathcal{L}^n + \sum_{i,j=1}^{n} \int_U D_iu x_j D^2_{i,j}u d\mathcal{L}^n(x) - \sum_{i,j=1}^{n}\int_{\partial U} D_iu x_j D_ju \nu_i d\mathcal{H}^{n-1}(x)= \\
+	&= \sum_{i=1}^{n}\int_{U} \abs{D_iu}^2 d\mathcal{L}^{n} + \frac{1}{2}\sum_{j=1}^{n}\int_U D_j\left( \abs{Du}^2\right)  x_j d\mathcal{L}^n(x) - \sum_{i,j=1}^{n}\int_{\partial U} D_iu x_j D_ju \nu_i d\mathcal{H}^{n-1}(x)=\\
+	&= \int_{U} \abs{Du}^2 d\mathcal{L}^{n} + \frac{1}{2}\left( -\sum_{j=1}^{n} \int_U \abs{Du}^2 d\mathcal{L}^n + \sum_{j=1}^{n}\int_{\partial U} \abs{Du}^2 x_j\nu_j d\mathcal{H}^{n-1}(x)\right) + \\
+	&- \sum_{i,j=1}^{n}\int_{\partial U} D_iu x_j D_ju \nu_i d\mathcal{H}^{n-1}(x) = \\
+	&= -\frac{n-2}{2} \int_U \abs{Du}^2 d\mathcal{L}^n + \frac{1}{2}\int_{\partial U} \abs{Du}^2 (x \cdot \nu)d\mathcal{H}^{n-1}(x) -  \sum_{i,j=1}^{n}\int_{\partial U} D_iu x_j D_ju \nu_i d\mathcal{H}^{n-1}(x),
+\end{align*}
+ma siccome $u = 0$ su $\partial U$, $Du$ è parallelo a $\nu$ su $\partial U$, ossia $Du = \pm \abs{Du}\nu$. In particolare, per ogni $i=1,\dots,n$ si ha $D_iu = \pm \abs{Du}\nu_i$, quindi 
+\begin{align*}
+	&\int_U (-\Delta u(x))(x \cdot Du(x))d\mathcal{L}^n(x) = \\
+	&=\frac{2-n}{2} \int_U \abs{Du}^2 d\mathcal{L}^n + \frac{1}{2}\int_{\partial U} \abs{Du}^2 (x \cdot \nu)d\mathcal{H}^{n-1}(x) - \sum_{i,j=1}^{n}\int_{\partial U} \abs{Du}^2\nu_i x_j\nu_j \nu_i d\mathcal{H}^{n-1}(x) = \\
+	&= \frac{2-n}{2} \int_U \abs{Du}^2 d\mathcal{L}^n - \frac{1}{2}\int_{\partial U} \abs{Du}^2 (x \cdot \nu)d\mathcal{H}^{n-1}(x). 
+\end{align*}
+Per quanto riguarda il secondo membro, invece, sempre per le formule di Gauss--Green ed il fatto che $u = 0$ su $\partial U$, 
+\begin{align*}
+\int_U \abs{u(x)}^{p-1}u(x) (x\cdot Du)d\mathcal{L}^n(x) &= \sum_{j=1}^{n} \int_U \abs{u}^{p-1} u x_j D_ju d\mathcal{L}^n(x) = \\
+	&= \frac{1}{p+1} \sum_{j=1}^{n}\int_U D_j\left( \abs{u}^{p+1}\right)  x_j d\mathcal{L}^n(x) = \\
+	&= -\frac{n}{p+1}\int_U \abs{u}^{p+1}d\mathcal{L}^n.
+\end{align*}
+Riassumendo, 
+\begin{equation}\label{Derrick--Pohozaevidentity}
+ \frac{n-2}{2} \int_U \abs{Du}^2 d\mathcal{L}^n + \frac{1}{2}\int_{\partial U} \abs{Du}^2 (x \cdot \nu)d\mathcal{H}^{n-1}(x) = \frac{n}{p+1}\int_U \abs{u}^{p+1}d\mathcal{L}^n.\footnote{Nota come \emph{identità di Derrick--Pohozaev}\index[analitico]{identità!di Derrick--Pohozaev}.}
+\end{equation}
+
+Combinando la \eqref{Derrick--Pohozaevidentity} con il Lemma \eqref{normaleperPohozaev}, possiamo scrivere
+\[  \frac{n-2}{2} \int_U \abs{Du}^2 d\mathcal{L}^n \le \frac{n}{p+1}\int_U \abs{u}^{p+1}d\mathcal{L}^n.  \]
+ 
+Tuttavia, la formulazione variazionale del problema \eqref{modelloapotenza}, per $v =u$, conduce a 
+\[ \int_U \abs{Du}^2 d\mathcal{L}^n = \int_U \abs{u}^{p+1}d\mathcal{L}^n, \]
+quindi 
+\[ \left(  \frac{n-2}{2} - \frac{n}{p+1}\right) \int_U \abs{Du}^2 d\mathcal{L}^n \le 0.   \]
+Siccome 
+\[ \frac{n-2}{2} - \frac{n}{p+1} >0,\footnote{Si tratta di un calcolo diretto,
+		\[ \frac{n-2}{2} - \frac{n}{p+1} >0 \Longleftrightarrow  (p+1)(n-2) > 2n \Longleftrightarrow  (n-2)p + n-2 > 2n \Longleftrightarrow  (n-2)p > n+2, \]
+	quindi,
+	\[ 	\frac{n-2}{2} - \frac{n}{p+1} >0 \Longleftrightarrow p > \frac{n+2}{n-2}. \]
+} \]
+l'unica possibilità è che $u = 0$, da cui la tesi.
+\end{proof}
+
+\begin{osservazione}
+Nel caso $p = \frac{n+2}{n-2}$, la formulazione variazionale del problema \eqref{modelloapotenza}, per $v =u$, combinata con \eqref{Derrick--Pohozaevidentity}, conduce a 
+\[\int_{\partial U} \abs{Du}^2 (x \cdot \nu)d\mathcal{H}^{n-1}(x) = 0. \]
+Se $x \cdot \nu >0$ su una porzione di $\partial U$ di misura positiva,  dal fatto che $u = 0$ su $\partial U$, tramite una \emph{proprietà di continuazione unica}\index[analitico]{continuazione unica}, si può affermare anche in questo caso che $u=0$ su $U$. I dettagli della dimostrazione esulano dai nostri scopi.
+\end{osservazione}
+
+\begin{osservazione}
+Nel caso $p= \frac{n+2}{n-2}$, se $U$ non è stellato rispetto a $0$, è possibile fornire, sotto opportune ipotesi tecniche, dei risultati di esistenza di soluzioni non banali: si tratta però, principalmente, di scenari molto specialistici che esulano dai nostri scopi.
+\end{osservazione}
+
+Vediamo, infine, un caso che esula dalla nostra trattazione, ma comunque degno di nota.
+\begin{esempio}
+Consideriamo il problema di Dirichlet
+\[ 	\begin{cases}
+	-\Delta u = u^{\frac{n+2}{n-2}} & \textup{in } \R^n,\\
+	u > 0 & \textup{in } \R^n.\\
+\end{cases} \]
+Intorno al 1976, Giorgio Talenti ha lavorato su questo problema esibendo come soluzione
+\[ \mathcal{T}_0(x) = \left( n(n-2)\right) ^{\frac{n-2}{4}} \frac{1}{(1+\abs{x}^2)^{\frac{n-2}{2}}}.\]
+Addirittura, ogni elemento della \emph{famiglia delle talentiane}\index[analitico]{applicazione!talentiana}, ossia  
+\[ \mathcal{T}_\varepsilon(x) = \varepsilon^{\frac{n-2}{2}}\mathcal{T}_0\left( \varepsilon(x-x_0)\right), \qquad \varepsilon>0,x_0\in \R^n, \]
+è una soluzione. Infatti, 
+\begin{align*}
+ -\Delta \mathcal{T}_\varepsilon &= -\varepsilon^{\frac{n-2}{2}} \Delta \left(\mathcal{T}_0\left( \varepsilon(x-x_0)\right)  \right) = -\varepsilon^{\frac{n-2}{2}+ 2} (\Delta \mathcal{T}_0)(\varepsilon(x-x_0)) = \\
+ &= \varepsilon^{\frac{n-2}{2}+2} \mathcal{T}_0\left( \varepsilon(x-x_0)\right)^{\frac{n+2}{n-2}} = \varepsilon^{\frac{n-2}{2}+2} \mathcal{T}_0\left( \varepsilon(x-x_0)\right)^{\frac{n+2}{n-2}} \left( \frac{\varepsilon^{\frac{n-2}{2}}}{\varepsilon^{\frac{n-2}{2}}}\right)^{\frac{n+2}{n-2}} = \\
+ &=\varepsilon^{\frac{n-2}{2}+2 -\frac{n-2}{2}}\mathcal{T}_\varepsilon(x)^{\frac{n+2}{n-2}} = \mathcal{T}_\varepsilon(x)^{\frac{n+2}{n-2}}. 
+\end{align*}
+\end{esempio}

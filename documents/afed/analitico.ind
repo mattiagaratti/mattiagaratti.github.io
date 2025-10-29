@@ -1,0 +1,195 @@
+\begin{theindex}
+
+  \item $c$-sottolivello, \hyperpage{173}
+
+  \indexspace
+
+  \item algebra, \hyperpage{33}
+    \subitem che non si annulla, \hyperpage{33}
+    \subitem che separa i punti, \hyperpage{33}
+  \item applicazione
+    \subitem di Carathéodory, \hyperpage{92}
+    \subitem misurabile
+      \subsubitem fortemente, \hyperpage{36}
+    \subitem semplice, \hyperpage{35}
+    \subitem sommabile, \hyperpage{36}
+    \subitem talentiana, \hyperpage{235}
+  \item autovalore
+    \subitem principale, \hyperpage{137}
+
+  \indexspace
+
+  \item biduale topologico, \hyperpage{7}
+
+  \indexspace
+
+  \item condizione
+    \subitem di coercitività, \hyperpage{156}
+    \subitem di Palais--Smale, \hyperpage{173}
+  \item coniugato di Sobolev, \hyperpage{64}
+  \item continuazione unica, \hyperpage{235}
+  \item convergenza
+    \subitem  debole, \hyperpage{26}
+    \subitem  in misura, \hyperpage{16}
+    \subitem debole*, \hyperpage{27}
+    \subitem quasi uniforme, \hyperpage{14}
+
+  \indexspace
+
+  \item derivata
+    \subitem debole, \hyperpage{38}, \hyperpage{89}
+  \item disuguaglianza
+    \subitem  di Gagliardo--Nirenberg--Sobolev, \hyperpage{64}
+    \subitem  di Holder generalizzata, \hyperpage{10}
+    \subitem  di interpolazione, \hyperpage{10}
+    \subitem  di Morrey, \hyperpage{71}
+    \subitem  di Poincaré, \hyperpage{67}
+      \subsubitem duale, \hyperpage{68}
+    \subitem di Clarkson, \hyperpage{18}
+    \subitem di Hardy, \hyperpage{77}
+    \subitem di Harnack, \hyperpage{129}
+  \item duale topologico, \hyperpage{7}
+
+  \indexspace
+
+  \item equazione
+    \subitem di Eulero--Lagrange, \hyperpage{147}, \hyperpage{152}
+  \item estensione, \hyperpage{58}
+
+  \indexspace
+
+  \item forma bilineare
+    \subitem aggiunta, \hyperpage{109}
+    \subitem associata ad un operatore in forma di divergenza, 
+		\hyperpage{105}
+  \item frontiera
+    \subitem libera, \hyperpage{169}
+
+  \indexspace
+
+  \item identità
+    \subitem di Derrick--Pohozaev, \hyperpage{234}
+  \item immersioni
+    \subitem  di Sobolev, \hyperpage{80}
+  \item iniezione canonica, \hyperpage{7}
+
+  \indexspace
+
+  \item lagrangiana, \hyperpage{145}, \hyperpage{151}
+    \subitem nulla, \hyperpage{152}
+  \item lemma
+    \subitem di caratterizzazione topologica della densità, 
+		\hyperpage{20}
+    \subitem di Hopf, \hyperpage{125}
+    \subitem di Urysohm, \hyperpage{185}
+
+  \indexspace
+
+  \item matrice
+    \subitem dei cofattori, \hyperpage{153}
+  \item mollificatori, \hyperpage{47}
+  \item moltiplicatore
+    \subitem di Lagrange, \hyperpage{166}, \hyperpage{172}
+
+  \indexspace
+
+  \item operatore
+    \subitem aggiunto, \hyperpage{109}
+    \subitem di Nemytskij, \hyperpage{93}
+  \item ostacolo, \hyperpage{166}
+
+  \indexspace
+
+  \item partizione dell'unità, \hyperpage{49}
+  \item principio
+    \subitem  variazionale
+      \subsubitem  per l'autovalore principale, \hyperpage{137}
+    \subitem del massimo
+      \subsubitem debole, \hyperpage{123}
+      \subsubitem forte, \hyperpage{128}
+  \item punto
+    \subitem critico, \hyperpage{173}
+      \subsubitem al livello $c$, \hyperpage{173}
+    \subitem di Lebesgue, \hyperpage{47}
+
+  \indexspace
+
+  \item rapporto incrementale, \hyperpage{51}
+
+  \indexspace
+
+  \item soluzione
+    \subitem classica, \hyperpage{104}, \hyperpage{204}, 
+		\hyperpage{208}
+    \subitem debole, \hyperpage{105}, \hyperpage{200}, \hyperpage{205}, 
+		\hyperpage{211}, \hyperpage{219}, \hyperpage{224}
+      \subsubitem dell'equazione di Eulero--Lagrange, \hyperpage{160}
+    \subitem forte, \hyperpage{105}
+  \item sopra-soluzione debole, \hyperpage{219}
+  \item sotto-soluzione debole, \hyperpage{220}
+  \item spazio
+    \subitem  di Holder, \hyperpage{71}
+    \subitem di Sobolev, \hyperpage{40}
+    \subitem riflessivo, \hyperpage{7}
+    \subitem topologico
+      \subsubitem $T_0$, \hyperpage{183}
+      \subsubitem $T_1$, \hyperpage{184}
+      \subsubitem $T_2$, \hyperpage{184}
+      \subsubitem $T_3$, \hyperpage{184}
+      \subsubitem $T_4$, \hyperpage{185}
+      \subsubitem di Hausdorff, \hyperpage{184}
+      \subsubitem normale, \hyperpage{185}
+      \subsubitem regolare, \hyperpage{184}
+    \subitem uniformemente convesso, \hyperpage{9}
+
+  \indexspace
+
+  \item teorema
+    \subitem  di esistenza di soluzioni deboli, I, \hyperpage{108}
+    \subitem  di esistenza di soluzioni deboli, II, \hyperpage{110}
+    \subitem  di esistenza di soluzioni deboli, III, \hyperpage{112}
+    \subitem  di Morrey, \hyperpage{74}
+    \subitem  di Rellich--Kondrachov, \hyperpage{81}, \hyperpage{88}
+    \subitem  di Severini--Egorov, \hyperpage{14}
+    \subitem  di Sobolev, \hyperpage{66}
+    \subitem delle contrazioni, \hyperpage{179}
+    \subitem di approssimazione di Weierstrass, \hyperpage{30}
+    \subitem di Banach--Caccioppoli, \hyperpage{179}
+    \subitem di Brouwer, \hyperpage{179}
+    \subitem di deformazione, \hyperpage{173}
+    \subitem di Eberlein--Smulian, \hyperpage{27}
+    \subitem di estensione, \hyperpage{54}
+    \subitem di invarianza
+      \subsubitem del dominio, \hyperpage{188}
+      \subsubitem della dimensione, \hyperpage{192}
+    \subitem di Kolmogorov--M. Riesz--Fréchet, \hyperpage{12}
+    \subitem di Peano, \hyperpage{194}
+    \subitem di Rademacher, \hyperpage{77}
+    \subitem di Schaefer, \hyperpage{202}
+    \subitem di Schauder, \hyperpage{193}
+    \subitem di Stone--Weierstrass, \hyperpage{33}
+    \subitem di Tietze, \hyperpage{185}
+    \subitem di traccia, \hyperpage{59}
+    \subitem di Tychonoff, \hyperpage{195}
+    \subitem fondamentale dell'Algebra, \hyperpage{192}
+    \subitem sui punti di Lebesgue, \hyperpage{46}
+  \item traccia, \hyperpage{61}
+  \item troncatura, \hyperpage{24}
+
+  \indexspace
+
+  \item uniforme ellitticità, \hyperpage{103}
+
+  \indexspace
+
+  \item valore
+    \subitem critico, \hyperpage{173}
+  \item variazione
+    \subitem prima, \hyperpage{146}, \hyperpage{151}
+    \subitem seconda, \hyperpage{146}, \hyperpage{151}
+  \item vincolo
+    \subitem integrale, \hyperpage{162}
+    \subitem puntuale, \hyperpage{169}
+    \subitem unilatero, \hyperpage{166}
+
+\end{theindex}
