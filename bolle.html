@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolle di sapone e superfici minime</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-image: linear-gradient(to bottom, #ffffff 0%, #f0f8ff 100%);
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-top: 20px;
+            border: 1px solid #eaeaea;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #4a90e2;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3eeff 100%);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .authors {
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .centered-img {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .centered-img img {
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .quote {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        section {
+            margin: 40px 0;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        h2:before {
+            content: "•";
+            color: #3498db;
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        h3 {
+            color: #3498db;
+            font-size: 1.5rem;
+            margin: 25px 0 15px 0;
+        }
+
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        strong, b {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        em, i {
+            color: #e74c3c;
+            font-style: italic;
+        }
+
+        .definition {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 5px solid #3498db;
+        }
+
+        .definition h4 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .theorem {
+            background-color: #f9f7e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 5px solid #f1c40f;
+        }
+
+        .theorem h4 {
+            color: #d35400;
+            margin-top: 0;
+        }
+
+        .figure-container {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #eaeaea;
+        }
+
+        .figure-content {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .figure-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        ol, ul {
+            margin-left: 30px;
+            margin-bottom: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        ol li {
+            padding-left: 10px;
+        }
+
+        .plateau-laws {
+            background-color: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 2px dashed #3498db;
+        }
+
+        .plateau-laws h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .plateau-laws ol {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .math-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow-x: auto;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .mjx-chtml {
+            font-size: 1.2em !important;
+        }
+
+        .footnote {
+            font-size: 0.9rem;
+            color: #95a5a6;
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border-left: 5px solid #ff9800;
+        }
+
+        .conclusion p {
+            font-size: 1.2rem;
+            color: #5d4037;
+        }
+
+        .historical-note {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            color: #666;
+            border-left: 3px solid #95a5a6;
+        }
+
+        .highlight {
+            background-color: #fffacd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            section {
+                padding: 15px;
+            }
+            
+            .figure-content {
+                max-width: 100%;
+                overflow-x: auto;
+            }
+        }
+
+        /* Stili per i diagrammi TikZ */
+        .tikz-diagram {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Stili per le citazioni */
+        .quote-author {
+            text-align: right;
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-style: normal;
+        }
+
+        /* Animazioni */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Stili per gli autori famosi */
+        .famous-author {
+            color: #e74c3c;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+
+        /* Stili per i box delle formule */
+        .formula-box {
+            background-color: #f0f7ff;
+            border: 1px solid #cce5ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        /* Stili per le note a piè di pagina */
+        .footnote-ref {
+            vertical-align: super;
+            font-size: 0.8em;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        /* Stili per le immagini mancanti */
+        .missing-image {
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            line-height: 150px;
+            font-weight: bold;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Effetti di hover per elementi interattivi */
+        .interactive:hover {
+            cursor: pointer;
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Bolle di sapone e superfici minime</h1>
+            <div class="authors">Luca Tamanini & Mattia Garatti</div>
+            <div class="centered-img">
+                <div class="missing-image">Plateau<br>Immagine</div>
+            </div>
+            <div class="quote">
+                Quanta matematica si nasconde in una bolla di sapone?
+                <div class="quote-author">Una domanda che apre mondi</div>
+            </div>
+            <p class="subtitle">Molta più di quanto possiate immaginare!</p>
+        </header>
+
+        <section id="plateau-problem">
+            <h2>Il problema di Plateau</h2>
+            <p>Intorno al 1760, il matematico torinese <span class="famous-author">Joseph Louis Lagrange</span> (1736-1813) pose il seguente quesito: data una curva chiusa nello spazio, trovare una superficie con <strong>area minima</strong> che la ricopra (tali superfici prendono il nome di <em>superfici minime</em>). Successivamente, nella prima metà del diciannovesimo secolo, il fisico belga <span class="famous-author">Joseph Plateau</span> (1801-1833) ideò una serie di esperimenti utilizzando solamente telai metallici e soluzioni saponose. Era mosso dalla curiosità di scoprire che tipo di superficie si sarebbe formata immergendo il telaio nella soluzione. Durante i suoi studi arrivò a formulare delle leggi empiriche, oggi note come <strong>leggi di Plateau</strong>:</p>
+            
+            <div class="plateau-laws">
+                <h3>Leggi di Plateau</h3>
+                <ol>
+                    <li>la <strong>curvatura media</strong> di ogni porzione regolare di superficie minima è costante,</li>
+                    <li>le porzioni regolari di superfici minime si incontrano due a due lungo bordi formando angoli di \(120^\circ\),</li>
+                    <li>le porzioni regolari di superfici minime si incontrano quattro a quattro lungo bordi formando angoli tetraedrici (circa \(109,47^\circ\)).</li>
+                </ol>
+            </div>
+            
+            <p>La comunità scientifica porta avanti studi di questo tipo tutt'oggi, ma la connessione tra pellicole di sapone e superfici minime fu stabilita da <span class="famous-author">Carl Friedrich Gauss</span> (1777-1855) nel 1830, mentre lavorava sui problemi di capillarità: scoprì che, all'equilibrio, qualsiasi superficie liquida minimizza l'energia potenziale causata dalle forze molecolari (per le pellicole di sapone tale energia è proprio proporzionale all'area). In altre parole, in virtù della tensione superficiale, <em>le pellicole di sapone possono essere viste come modelli fisici di superfici minime stabili</em>.</p>
+        </section>
+
+        <section id="minimal-surfaces">
+            <h2>Superfici minime e curvatura media</h2>
+            <p>Con l'introduzione di strumenti geometrici sempre più raffinati, è oggi possibile in molti casi descrivere in modo molto rapido ed elegante una superficie minima (regolare). Per fare ciò è sufficiente introdurre il concetto di <strong>curvatura media</strong>. Per definirlo è sufficiente avere in mente però il concetto di curvatura per una curva.</p>
+            
+            <div class="definition">
+                <h4>Definizione (Curvatura per una curva)</h4>
+                <p>Consideriamo una curva piana \(\mathcal{C}\), sufficientemente regolare. Preso un punto \(P\) su \(\mathcal{C}\), costruiamo il cerchio che meglio approssima la curva nelle vicinanze di \(P\). Chiamiamo <em>curvatura</em> di \(\mathcal{C}\) in \(P\) il reciproco del raggio del cerchio precedentemente costruito.</p>
+            </div>
+            
+            <div class="figure-container">
+                <div class="figure-content">
+                    <!-- Diagramma 1: Parabola -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#ff9800"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Assi cartesiani -->
+                        <line x1="50" y1="200" x2="350" y2="200" stroke="#ccc" stroke-width="1"/>
+                        <line x1="200" y1="50" x2="200" y2="220" stroke="#ccc" stroke-width="1"/>
+                        
+                        <!-- Parabola y = 0.1*(x-200)^2 + 50 -->
+                        <path d="M 50 195 Q 200 50 350 195" stroke="#3498db" stroke-width="3" fill="none"/>
+                        
+                        <!-- Punto P -->
+                        <circle cx="275" cy="120" r="5" fill="#e74c3c"/>
+                        <text x="285" y="115" font-family="Arial" font-size="14" fill="#e74c3c">P</text>
+                        
+                        <!-- Centro C -->
+                        <circle cx="200" cy="200" r="5" fill="#2ecc71"/>
+                        <text x="210" y="195" font-family="Arial" font-size="14" fill="#2ecc71">C</text>
+                        
+                        <!-- Cerchio osculatore -->
+                        <circle cx="200" cy="200" r="82" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                        
+                        <!-- Raggio r -->
+                        <line x1="200" y1="200" x2="275" y2="120" stroke="#ff9800" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <text x="230" y="170" font-family="Arial" font-size="14" fill="#ff9800">r</text>
+                        
+                        <!-- Etichette assi -->
+                        <text x="340" y="220" font-family="Arial" font-size="14" fill="#666">x</text>
+                        <text x="180" y="60" font-family="Arial" font-size="14" fill="#666">y</text>
+                    </svg>
+                </div>
+                <div class="figure-caption">Figura 1: Un primo esempio, semplice, con una parabola.</div>
+            </div>
+            
+            <div class="figure-container">
+                <div class="figure-content">
+                    <!-- Diagramma 2: Curva sinusoidale -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#ff9800"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Assi cartesiani -->
+                        <line x1="50" y1="125" x2="350" y2="125" stroke="#ccc" stroke-width="1"/>
+                        <line x1="200" y1="25" x2="200" y2="225" stroke="#ccc" stroke-width="1"/>
+                        
+                        <!-- Curva sinusoidale -->
+                        <path d="M 50 125 C 100 80, 150 170, 200 125 C 250 80, 300 170, 350 125" stroke="#3498db" stroke-width="3" fill="none"/>
+                        
+                        <!-- Punto P -->
+                        <circle cx="250" cy="100" r="5" fill="#e74c3c"/>
+                        <text x="260" y="95" font-family="Arial" font-size="14" fill="#e74c3c">P</text>
+                        
+                        <!-- Centro C -->
+                        <circle cx="225" cy="175" r="5" fill="#2ecc71"/>
+                        <text x="235" y="170" font-family="Arial" font-size="14" fill="#2ecc71">C</text>
+                        
+                        <!-- Cerchio osculatore -->
+                        <circle cx="225" cy="175" r="78" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                        
+                        <!-- Raggio r -->
+                        <line x1="225" y1="175" x2="250" y2="100" stroke="#ff9800" stroke-width="3" marker-end="url(#arrowhead2)"/>
+                        <text x="240" y="140" font-family="Arial" font-size="14" fill="#ff9800">r</text>
+                        
+                        <!-- Etichette assi -->
+                        <text x="340" y="140" font-family="Arial" font-size="14" fill="#666">x</text>
+                        <text x="180" y="40" font-family="Arial" font-size="14" fill="#666">y</text>
+                    </svg>
+                </div>
+                <div class="figure-caption">Figura 2: Un esempio più fantasioso.</div>
+            </div>
+            
+            <div class="definition">
+                <h4>Definizione (Curvatura media per una superficie)</h4>
+                <p>Consideriamo una superficie \(S\), sufficientemente regolare, nello spazio euclideo. Preso un punto \(P\) su \(S\), costruiamo due curve<span class="footnote">Sono necessariamente curve piane.</span> passanti per \(P\) le cui curvature in \(P\) sono la maggiore e la minore tra tutte quelle delle curve che giacciono su \(S\). Chiamiamo <em>curvatura media</em> di \(S\) in \(P\) la media aritmetica tra le curvature, con segno (dipendente dal verso normale uscente dalla superficie), delle curve appena costruite.</p>
+            </div>
+            
+            <div class="figure-container">
+                <div class="figure-content">
+                    <!-- Diagramma 3: Superficie 3D -->
+                    <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="surfaceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#e3f2fd"/>
+                                <stop offset="100%" stop-color="#bbdefb"/>
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Superficie 3D stilizzata -->
+                        <ellipse cx="200" cy="150" rx="120" ry="80" fill="url(#surfaceGradient)" stroke="#3498db" stroke-width="2" opacity="0.8"/>
+                        
+                        <!-- Curve principali -->
+                        <path d="M 80 150 C 140 100, 260 100, 320 150" stroke="#2ecc71" stroke-width="3" fill="none"/>
+                        <path d="M 200 70 C 180 180, 220 180, 200 230" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                        
+                        <!-- Punto P -->
+                        <circle cx="200" cy="150" r="6" fill="#ff9800"/>
+                        <text x="210" y="145" font-family="Arial" font-size="14" fill="#ff9800">P</text>
+                        
+                        <!-- Assi 3D -->
+                        <line x1="50" y1="250" x2="150" y2="200" stroke="#666" stroke-width="1.5"/>
+                        <line x1="150" y1="200" x2="350" y2="200" stroke="#666" stroke-width="1.5"/>
+                        <line x1="150" y1="200" x2="100" y2="100" stroke="#666" stroke-width="1.5"/>
+                        
+                        <!-- Etichette assi -->
+                        <text x="160" y="220" font-family="Arial" font-size="14" fill="#666">x</text>
+                        <text x="360" y="210" font-family="Arial" font-size="14" fill="#666">y</text>
+                        <text x="90" y="90" font-family="Arial" font-size="14" fill="#666">z</text>
+                        
+                        <!-- Legenda curve -->
+                        <rect x="280" y="50" width="100" height="60" fill="white" stroke="#ccc" stroke-width="1" rx="5"/>
+                        <line x1="290" y1="70" x2="310" y2="70" stroke="#2ecc71" stroke-width="2"/>
+                        <text x="320" y="75" font-family="Arial" font-size="12" fill="#333">Curva 1</text>
+                        <line x1="290" y1="90" x2="310" y2="90" stroke="#e74c3c" stroke-width="2"/>
+                        <text x="320" y="95" font-family="Arial" font-size="12" fill="#333">Curva 2</text>
+                    </svg>
+                </div>
+                <div class="figure-caption">Figura 3: Un esempio con un paraboloide iperbolico.</div>
+            </div>
+            
+            <p>Una volta che ci è quindi chiaro questo concetto di curvatura per una superficie, possiamo definire le superfici minime (regolari) nel seguente modo.</p>
+            
+            <div class="theorem">
+                <h4>Teorema</h4>
+                <p>Se una superficie \(S\), sufficientemente regolare, nello spazio (euclideo) ha, punto per punto, curvatura media nulla, allora è una superficie minima.</p>
+            </div>
+            
+            <p>Qual è la superficie minima più semplice che vi viene in mente?</p>
+            
+            <div class="figure-container">
+                <div class="figure-content">
+                    <!-- Diagramma 4: Piano come superficie minima -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="planeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#e8f5e9"/>
+                                <stop offset="100%" stop-color="#c8e6c9"/>
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Piano -->
+                        <polygon points="100,100 300,80 280,180 120,200" fill="url(#planeGradient)" stroke="#4caf50" stroke-width="2" opacity="0.8"/>
+                        
+                        <!-- Assi cartesiani -->
+                        <line x1="50" y1="220" x2="350" y2="220" stroke="#666" stroke-width="1.5"/>
+                        <line x1="200" y1="50" x2="200" y2="240" stroke="#666" stroke-width="1.5"/>
+                        <line x1="200" y1="220" x2="150" y2="150" stroke="#666" stroke-width="1.5"/>
+                        
+                        <!-- Etichette assi -->
+                        <text x="340" y="235" font-family="Arial" font-size="14" fill="#666">x</text>
+                        <text x="180" y="60" font-family="Arial" font-size="14" fill="#666">y</text>
+                        <text x="140" y="140" font-family="Arial" font-size="14" fill="#666">z</text>
+                        
+                        <!-- Testo piano -->
+                        <text x="200" y="140" font-family="Arial" font-size="16" fill="#2e7d32" text-anchor="middle" font-weight="bold">Piano</text>
+                        <text x="200" y="160" font-family="Arial" font-size="14" fill="#2e7d32" text-anchor="middle">(Superficie minima banale)</text>
+                    </svg>
+                </div>
+                <div class="figure-caption">Figura 4: Un esempio, banale, di superficie minima.</div>
+            </div>
+        </section>
+
+        <section id="examples">
+            <h2>Alcuni esempi di superfici minime</h2>
+            <p>Se il contorno è costituito da due cerchi paralleli sufficientemente vicini, la superficie che osserviamo non è un cilindro, come potremmo pensare. Si tratta invece di una superficie di rotazione chiamata <strong>catenoide</strong> (ottenuta da una catenaria fatta ruotare rispetto a una retta verticale). Si tratta della forma delle centrali nucleari: la scelta è fatta appunto per minimizzare i materiali utilizzati.</p>
+            
+            <div class="figure-container">
+                <div class="figure-content">
+                    <!-- Catenoide stilizzato -->
+                    <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="catenoidGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fff3e0"/>
+                                <stop offset="100%" stop-color="#ffcc80"/>
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Catenoide -->
+                        <ellipse cx="200" cy="100" rx="80" ry="20" fill="none" stroke="#ff9800" stroke-width="2" stroke-dasharray="5,3"/>
+                        <ellipse cx="200" cy="150" rx="100" ry="30" fill="url(#catenoidGradient)" stroke="#ff9800" stroke-width="2" opacity="0.7"/>
+                        <ellipse cx="200" cy="200" rx="80" ry="20" fill="none" stroke="#ff9800" stroke-width="2" stroke-dasharray="5,3"/>
+                        
+                        <!-- Linee verticali -->
+                        <line x1="120" y1="100" x2="100" y2="200" stroke="#ff9800" stroke-width="1.5" opacity="0.6"/>
+                        <line x1="280" y1="100" x2="300" y2="200" stroke="#ff9800" stroke-width="1.5" opacity="0.6"/>
+                        
+                        <!-- Etichetta -->
+                        <text x="200" y="240" font-family="Arial" font-size="16" fill="#e65100" text-anchor="middle" font-weight="bold">CATENOIDE</text>
+                        <text x="200" y="260" font-family="Arial" font-size="12" fill="#e65100" text-anchor="middle">(Superficie minima di rotazione)</text>
+                    </svg>
+                </div>
+                <div class="figure-caption">Figura 5: Rappresentazione schematica di un catenoide.</div>
+            </div>
+            
+            <p>Da un punto di vista teorico, possiamo accettare superfici che si autointersecano, anche se in questi casi le soluzioni reali sarebbero probabilmente diverse.</p>
+            
+            <p>Possiamo notare anche che con il medesimo contorno si possono ottenere lamine fra loro diverse: non solo per l'aspetto, ma anche per le loro caratteristiche geometriche o topologiche (superfici con o senza "buchi", nastri di Möbius, eccetera). Alcune corrispondono a minimi assoluti dell'energia, altre a minimi relativi.</p>
+            
+            <p>Inoltre, ci possono essere singolarità anche piuttosto complesse.</p>
+        </section>
+
+        <section id="application">
+            <h2>Un'applicazione interessante</h2>
+            <p>Vogliamo trovare il percorso minimo che congiunge \(n\) punti.</p>
+            
+            <p>Analizziamo sperimentalmente il caso \(n=4\). In particolare, supponiamo che i punti si trovino ai vertici di un quadrato. La soluzione non è data dalle diagonali del quadrato, come potrebbe sembrare a prima vista. La forma della rete minima è una sorta di via di mezzo fra una X e una H: ci sono due punti di diramazione, da cui si staccano segmenti a \(120^\circ\).</p>
+            
+            <div class="figure-container">
+                <div class="figure-content">
+                    <!-- Percorso minimo per 4 punti -->
+                    <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <marker id="arrowhead3" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+                                <polygon points="0 0, 8 3, 0 6" fill="#9c27b0"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Quadrato -->
+                        <rect x="100" y="100" width="200" height="200" fill="none" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Vertici -->
+                        <circle cx="100" cy="100" r="6" fill="#9c27b0"/>
+                        <circle cx="300" cy="100" r="6" fill="#9c27b0"/>
+                        <circle cx="100" cy="300" r="6" fill="#9c27b0"/>
+                        <circle cx="300" cy="300" r="6" fill="#9c27b0"/>
+                        
+                        <!-- Percorso minimo (Steiner) -->
+                        <line x1="100" y1="100" x2="180" y2="200" stroke="#ff5722" stroke-width="3"/>
+                        <line x1="300" y1="100" x2="220" y2="200" stroke="#ff5722" stroke-width="3"/>
+                        <line x1="100" y1="300" x2="180" y2="200" stroke="#ff5722" stroke-width="3"/>
+                        <line x1="300" y1="300" x2="220" y2="200" stroke="#ff5722" stroke-width="3"/>
+                        <line x1="180" y1="200" x2="220" y2="200" stroke="#ff5722" stroke-width="3"/>
+                        
+                        <!-- Punti di diramazione -->
+                        <circle cx="180" cy="200" r="8" fill="#ff5722"/>
+                        <circle cx="220" cy="200" r="8" fill="#ff5722"/>
+                        
+                        <!-- Angoli -->
+                        <path d="M 180,200 L 170,190 L 190,190 Z" fill="#ff5722" opacity="0.5"/>
+                        <path d="M 220,200 L 210,190 L 230,190 Z" fill="#ff5722" opacity="0.5"/>
+                        
+                        <!-- Etichette -->
+                        <text x="90" y="90" font-family="Arial" font-size="14" fill="#9c27b0">A</text>
+                        <text x="310" y="90" font-family="Arial" font-size="14" fill="#9c27b0">B</text>
+                        <text x="90" y="320" font-family="Arial" font-size="14" fill="#9c27b0">C</text>
+                        <text x="310" y="320" font-family="Arial" font-size="14" fill="#9c27b0">D</text>
+                        <text x="170" y="180" font-family="Arial" font-size="14" fill="#ff5722">120°</text>
+                        <text x="230" y="180" font-family="Arial" font-size="14" fill="#ff5722">120°</text>
+                        
+                        <!-- Titolo -->
+                        <text x="200" y="50" font-family="Arial" font-size="18" fill="#673ab7" text-anchor="middle" font-weight="bold">Problema di Steiner per 4 punti</text>
+                    </svg>
+                </div>
+                <div class="figure-caption">Figura 6: Il percorso minimo che collega 4 punti (problema di Steiner).</div>
+            </div>
+        </section>
+
+        <section id="deeper-look">
+            <h2>Uno sguardo più profondo</h2>
+            <p>Qualcuno potrebbe essersi accorto che abbiamo un po' imbrogliato. Abbiamo sempre considerato solo superfici regolari nella nostra trattazione astratta. In realtà, e di questo siamo debitori al più grande matematico italiano del secolo scorso, <span class="famous-author">Ennio De Giorgi</span> (1928-1996), esistono superfici minime non regolari. Un esempio carino è il cosiddetto <em>cono di Simons</em> in dimensione \(8\) (che chiaramente non possiamo mostrarvi).</p>
+            
+            <div class="figure-container">
+                <div class="figure-content">
+                    <div class="missing-image">Ennio De Giorgi<br>Immagine</div>
+                </div>
+                <div class="figure-caption">Figura 7: Ennio De Giorgi.</div>
+            </div>
+            
+            <div class="conclusion">
+                <p>Si apre, però, la possibilità di fare un piccolo discorso conclusivo. Non sempre è possibile effettuare l'esperimento a mano per vedere se e come si forma la superficie. Qui entra in gioco la Matematica, in particolare una disciplina nota come <em>Calcolo delle Variazioni</em>, di cui De Giorgi è stato uno dei massimi esponenti. Mediante la pura astrazione formale e il ragionamento deduttivo è possibile dimostrare che è possibile, o non possibile, formare una superficie minima da un dato telaio. Successivamente, in casi favorevoli, con delle simulazioni numeriche, si può anche sperare di vederla. La Matematica ci apre in sostanza l'occhio della mente, permettendoci di vedere ciò che, altrimenti, ci sarebbe precluso.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Documento generato da codice LaTeX originale - Convertito in HTML con MathJax</p>
+            <p>Le formule matematiche sono renderizzate tramite MathJax v3.2</p>
+            <p class="historical-note">Nota: Le immagini referenziate nel documento originale (plateau.png, De_Giorgi.jpeg) sono state sostituite con rappresentazioni SVG per dimostrazione.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Script per migliorare l'interattività
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aggiungi numeri di pagina dinamici alle sezioni
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                const sectionNumber = document.createElement('div');
+                sectionNumber.style.cssText = `
+                    position: absolute;
+                    right: 20px;
+                    top: 20px;
+                    background: #3498db;
+                    color: white;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 0.9rem;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                `;
+                sectionNumber.textContent = index + 1;
+                section.style.position = 'relative';
+                section.appendChild(sectionNumber);
+            });
+
+            // Aggiungi effetto hover alle formule matematiche
+            const mathElements = document.querySelectorAll('.mjx-chtml');
+            mathElements.forEach(math => {
+                math.style.transition = 'all 0.3s ease';
+                math.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#f0f7ff';
+                    this.style.padding = '5px';
+                    this.style.borderRadius = '5px';
+                    this.style.boxShadow = '0 2px 8px rgba(52, 152, 219, 0.3)';
+                });
+                math.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '';
+                    this.style.padding = '';
+                    this.style.borderRadius = '';
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // Smooth scroll per i link interni (se presenti)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Highlight dei nomi degli autori famosi al click
+            const famousAuthors = document.querySelectorAll('.famous-author');
+            famousAuthors.forEach(author => {
+                author.style.cursor = 'pointer';
+                author.addEventListener('click', function() {
+                    this.style.backgroundColor = '#fffacd';
+                    this.style.padding = '2px 5px';
+                    this.style.borderRadius = '3px';
+                    this.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+                    
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                        this.style.padding = '';
+                        this.style.borderRadius = '';
+                        this.style.boxShadow = '';
+                    }, 2000);
+                });
+            });
+
+            // Aggiungi tooltip alle figure
+            const figures = document.querySelectorAll('.figure-container');
+            figures.forEach(figure => {
+                figure.title = "Clicca per ingrandire (funzionalità dimostrativa)";
+                figure.style.cursor = 'pointer';
+                figure.addEventListener('click', function() {
+                    const content = this.querySelector('.figure-content');
+                    content.style.transform = content.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
+                    content.style.transition = 'transform 0.3s ease';
+                    content.style.zIndex = '1000';
+                });
+            });
+
+            // Inizializza MathJax per il rendering delle formule
+            if (window.MathJax) {
+                MathJax.typesetPromise().then(() => {
+                    console.log('MathJax rendering completato');
+                }).catch(err => {
+                    console.log('MathJax errore:', err);
+                });
+            }
+        });
+
+        // Gestione della modalità scura (opzionale)
+        const darkModeToggle = document.createElement('button');
+        darkModeToggle.innerHTML = '🌙';
+        darkModeToggle.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        `;
+        document.body.appendChild(darkModeToggle);
+
+        let darkMode = false;
+        darkModeToggle.addEventListener('click', function() {
+            darkMode = !darkMode;
+            
+            if (darkMode) {
+                document.body.style.backgroundColor = '#1a1a1a';
+                document.body.style.color = '#e0e0e0';
+                document.querySelector('.container').style.backgroundColor = '#2d2d2d';
+                document.querySelector('.container').style.color = '#e0e0e0';
+                darkModeToggle.innerHTML = '☀️';
+                darkModeToggle.style.background = '#f1c40f';
+                darkModeToggle.style.color = '#2c3e50';
+                
+                // Modifica colori delle sezioni
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    section.style.backgroundColor = '#3d3d3d';
+                    section.style.borderColor = '#555';
+                });
+                
+                // Modifica colori degli header
+                const headers = document.querySelectorAll('h1, h2, h3, h4');
+                headers.forEach(header => {
+                    header.style.color = '#3498db';
+                });
+            } else {
+                document.body.style.backgroundColor = '';
+                document.body.style.color = '';
+                document.querySelector('.container').style.backgroundColor = '';
+                document.querySelector('.container').style.color = '';
+                darkModeToggle.innerHTML = '🌙';
+                darkModeToggle.style.background = '';
+                darkModeToggle.style.color = '';
+                
+                // Ripristina colori delle sezioni
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    section.style.backgroundColor = '';
+                    section.style.borderColor = '';
+                });
+                
+                // Ripristina colori degli header
+                const headers = document.querySelectorAll('h1, h2, h3, h4');
+                headers.forEach(header => {
+                    header.style.color = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
