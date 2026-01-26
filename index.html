@@ -153,7 +153,6 @@
     	const newsSection = document.getElementById('four');
 
     	btn.addEventListener('click', function() {
-        	// Controlliamo se le news sono attualmente visibili
         	const isExpanded = extraNews[0].classList.contains('is-visible');
 
         	extraNews.forEach(item => {
@@ -163,14 +162,21 @@
         	if (isExpanded) {
             	// Stato: CHIUSURA
             	btn.textContent = 'See others';
-            	newsTitle.textContent = 'Recent news'; // Torna al titolo originale
+           	 	newsTitle.textContent = 'Recent news';
             
-            	// Scroll fluido verso l'alto della sezione
-            	newsSection.scrollIntoView({ behavior: 'smooth' });
+          	  	// Calcoliamo la posizione della sezione
+          	  	const offset = 80; // Regola questo numero (pixel) per decidere quanto spazio lasciare in alto
+          	  	const sectionPosition = newsSection.getBoundingClientRect().top + window.pageYOffset;
+            
+          	  	// Scroll personalizzato
+          	  	window.scrollTo({
+          	      	top: sectionPosition - offset,
+                	behavior: 'smooth'
+            	});
         	} else {
             	// Stato: APERTURA
             	btn.textContent = 'Show less';
-            	newsTitle.textContent = 'My journey through maths'; // Nuovo titolo
+            	newsTitle.textContent = 'My journey through maths';
         	}
     	});
 	</script>
