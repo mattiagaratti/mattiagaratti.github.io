@@ -83,9 +83,9 @@
 			</section>
 
 			<section id="four" class="wrapper alt style1">
-				<div class="inner">
-					<h2 class="major">Recent news</h2>
-					<section class="features">
+    			<div class="inner">
+        			<h2 class="major" id="news-title">Recent news</h2>
+        			<section class="features">
 						<article>
 							<a href="#" class="image"><img src="images/calanques.jpg" alt="" /></a>
 							<h3 class="major">January 12, 2025 - </br>January 16, 2025</h3>
@@ -149,10 +149,11 @@
 	<script>
     	const btn = document.getElementById('load-more-btn');
     	const extraNews = document.querySelectorAll('.extra-news');
-    	const newsSection = document.getElementById('four'); // L'ID della sezione Recent News
+    	const newsTitle = document.getElementById('news-title');
+    	const newsSection = document.getElementById('four');
 
     	btn.addEventListener('click', function() {
-        	// Verifichiamo se il primo elemento extra è già visibile
+        	// Controlliamo se le news sono attualmente visibili
         	const isExpanded = extraNews[0].classList.contains('is-visible');
 
         	extraNews.forEach(item => {
@@ -160,13 +161,16 @@
         	});
 
         	if (isExpanded) {
-            	// Se stiamo chiudendo
+            	// Stato: CHIUSURA
             	btn.textContent = 'See others';
-            	// Opzionale: scroll automatico verso l'alto della sezione quando si chiude
+            	newsTitle.textContent = 'Recent news'; // Torna al titolo originale
+            
+            	// Scroll fluido verso l'alto della sezione
             	newsSection.scrollIntoView({ behavior: 'smooth' });
         	} else {
-            // Se stiamo aprendo
+            	// Stato: APERTURA
             	btn.textContent = 'Show less';
+            	newsTitle.textContent = 'My journey through maths'; // Nuovo titolo
         	}
     	});
 	</script>
