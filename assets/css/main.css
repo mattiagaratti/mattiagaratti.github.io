@@ -4130,6 +4130,16 @@ input, select, textarea {
 					margin: 0 0 2em 1.75em;
 				}
 
+			.cta-btn--resume, a[href*=".pdf"] {
+        		display: inline-block !important;
+        		white-space: nowrap !important; /* Blocca la deformazione del testo */
+        		line-height: 1 !important;      /* Toglie lo spazio vuoto eccessivo */
+        		padding: 15px 25px !important;  /* Regola lo spazio interno */
+        		margin: 10px auto !important;   /* Lo centra e gli dà respiro */
+        		font-size: 0.8em !important;    /* Lo proporziona allo schermo piccolo */
+        		height: auto !important;        /* Forza l'altezza a seguire il testo */
+    }
+
 		}
 
 		@media screen and (max-width: 480px) {
@@ -4303,6 +4313,8 @@ input, select, textarea {
 		}
 
 	}
+
+
 
 	.extra-news {
     display: none; /* Nasconde gli elementi con questa classe */
