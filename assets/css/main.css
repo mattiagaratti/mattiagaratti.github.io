@@ -20,36 +20,18 @@
  }
 
 .logo.m-logo {
-    font-family: 'Euler Script';
-    font-size: 3em;
-    /* Aumentiamo leggermente il diametro del cerchio (da 1.8 a 2.2) 
-       per dare spazio a MathJax su Instagram senza rimpicciolire la M */
-    width: 2.2em; 
-    height: 2.2em;
-    border-radius: 50%;
-    background-color: #003153;
-    color: #ffffff;
-    
-    /* Centratura assoluta */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    margin: 0 auto 1em auto;
-    
-    /* Impedisce alla M di "scappare" fuori dal cerchio se il calcolo dei pixel sballa */
-    overflow: hidden; 
-}
-
-/* FIX SPECIFICO PER INSTAGRAM/MATHJAX */
-/* Questo serve a resettare i margini automatici che MathJax aggiunge spesso */
-.logo.m-logo mjx-container, 
-.logo.m-logo .MathJax {
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    line-height: 0 !important;
+	font-family: 'Euler Script';
+	font-size: 3em;
+	width: 1.8em;
+	height: 1.8em;
+	border-radius: 50%;
+	background-color: #003153;
+	color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid rgba(255, 255, 255, 0.25);
+	margin: 0 auto 1em auto;
 }
 
 
