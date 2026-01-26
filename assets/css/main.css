@@ -21,9 +21,9 @@
 
 .logo.m-logo {
 	font-family: 'Euler Script';
-	font-size: 3em;
-	width: 1.8em;
-	height: 1.8em;
+	font-size: 3.5em;
+	width: 1.5em;
+	height: 1.5em;
 	border-radius: 50%;
 	background-color: #003153;
 	color: #ffffff;
@@ -4313,6 +4313,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 	.extra-news {
     display: none; /* Nasconde gli elementi con questa classe */
