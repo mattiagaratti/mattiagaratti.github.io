@@ -4314,24 +4314,3 @@ input, select, textarea {
     display: block; /* Li mostra quando aggiungiamo la classe via JS */
 	opacity: 1;
 }
-
-/* Fix per il pulsante Open CV */
-.cta-btn--resume, .button, a[href*=".pdf"] {
-    display: inline-block !important;
-    white-space: nowrap !important;   /* Impedisce al testo di spezzarsi su due righe */
-    text-align: center;
-    padding: 0.5em 1.5em !important; /* Spaziatura interna equilibrata */
-    vertical-align: middle;
-    line-height: 1 !important;        /* Reset dell'interlinea del body */
-    margin-top: 1em;
-    border: solid 2px rgba(255, 255, 255, 0.25);
-    border-radius: 4px;
-}
-
-@media screen and (max-width: 480px) {
-    .cta-btn--resume, .button, a[href*=".pdf"] {
-        font-size: 0.9em !important; /* Leggermente più piccolo su telefoni stretti */
-        width: auto;                  /* Evita che si allunghi a tutta larghezza */
-        max-width: 90%;               /* Non esce dallo schermo */
-    }
-}
