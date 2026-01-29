@@ -57,11 +57,18 @@
 /* Fix specifico per il template su mobile */
 @media screen and (max-width: 736px) {
     #banner .logo.m-logo {
-        margin: 0 1.5em 1.5em 0 !important;
+        margin: 0 0 1.5em 0 !important;
         left: 0 !important;
-        /* Assicura che la dimensione rimanga costante */
         min-width: 1.6em;
         min-height: 1.6em;
+    }
+    #banner {
+        text-align: left !important;
+        display: block !important;
+    }
+    #banner h1, #banner p {
+        text-align: left !important;
+        margin-left: 0 !important;
     }
 }
 
