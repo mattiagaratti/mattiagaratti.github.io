@@ -48,10 +48,15 @@
 .logo.m-logo .MathJax {
     margin: 0 !important;
     padding: 0 !important;
-    display: block !important;
+    display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
     line-height: 1 !important;
     /* Se la M sembra ancora un po' bassa su mobile, usa questo: */
     transform: translateY(-2px); 
+	
+	width: auto !important;
+    height: auto !important;
 }
 
 /* Fix specifico per il template su mobile */
