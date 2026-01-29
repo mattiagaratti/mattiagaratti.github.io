@@ -19,11 +19,13 @@
 	--READINGS_BG: var(--GRADIENT), url(../../images/background_readings.jpg);
  }
 
+
+/* LOGO SITO WEB */
 .logo.m-logo {
 	font-family: 'Euler Script';
 	font-size: 3.5em;
-	width: 1.5em;
 	height: 1.5em;
+	width: 1.5em;
 	border-radius: 50%;
 	background-color: #003153;
 	color: #ffffff;
@@ -32,6 +34,21 @@
 	justify-content: center;
 	border: 2px solid rgba(255, 255, 255, 0.25);
 	margin: 0 auto 1em auto;
+	text-align: center;
+}
+
+.logo.m-logo .mjx-chtml {
+    margin: 0 !important;      /* Rimuove margini spuri di MathJax */
+    line-height: 1;
+}
+
+/* Mobile check: Instagram e browser piccoli */
+@media screen and (max-width: 736px) {
+    #banner .logo.m-logo {
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;               /* Reset nel caso il template usi posizionamenti assoluti */
+    }
 }
 
 
