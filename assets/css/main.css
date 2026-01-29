@@ -20,10 +20,10 @@
  }
 
 
-/* LOGO SITO WEB - STABILIZZATO */
+/* LOGO SITO WEB*/
 .logo.m-logo {
     font-size: 3.5em;
-    height: 1.6em; /* Leggermente aumentato per dare respiro */
+    height: 1.6em;
     width: 1.6em;
     border-radius: 50%;
     background-color: #003153;
@@ -37,7 +37,6 @@
     border: 2px solid rgba(255, 255, 255, 0.25);
     margin: 0 auto 1em auto;
     
-    /* Impedisce a Instagram/Mobile di aggiungere spazi strani */
     line-height: 0 !important;
     padding: 0 !important;
     overflow: hidden; 
