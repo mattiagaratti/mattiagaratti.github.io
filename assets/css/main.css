@@ -20,33 +20,49 @@
  }
 
 
-/* LOGO SITO WEB */
+/* LOGO SITO WEB - STABILIZZATO */
 .logo.m-logo {
-	font-family: 'Euler Script';
-	font-size: 3.5em;
-	height: 1.5em;
-	width: 1.5em;
-	border-radius: 50%;
-	background-color: #003153;
-	color: #ffffff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid rgba(255, 255, 255, 0.25);
-	margin: 0 auto 1em auto;
+    font-size: 3.5em;
+    height: 1.6em; /* Leggermente aumentato per dare respiro */
+    width: 1.6em;
+    border-radius: 50%;
+    background-color: #003153;
+    color: #ffffff;
+    
+    /* Centramento assoluto */
+    display: flex !important; 
+    align-items: center !important;
+    justify-content: center !important;
+    
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    margin: 0 auto 1em auto;
+    
+    /* Impedisce a Instagram/Mobile di aggiungere spazi strani */
+    line-height: 0 !important;
+    padding: 0 !important;
+    overflow: hidden; 
+    position: relative;
 }
 
-.logo.m-logo .mjx-chtml {
-    margin: 0 !important;      /* Rimuove margini spuri di MathJax */
-    line-height: 1;
+/* Forza MathJax a stare al centro senza offset */
+.logo.m-logo .mjx-chtml, 
+.logo.m-logo .MathJax {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    line-height: 1 !important;
+    /* Se la M sembra ancora un po' bassa su mobile, usa questo: */
+    transform: translateY(-2px); 
 }
 
-/* Mobile check: Instagram e browser piccoli */
+/* Fix specifico per il template su mobile */
 @media screen and (max-width: 736px) {
     #banner .logo.m-logo {
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;               /* Reset nel caso il template usi posizionamenti assoluti */
+        margin: 0 auto 1.5em auto !important;
+        left: 0 !important;
+        /* Assicura che la dimensione rimanga costante */
+        min-width: 1.6em;
+        min-height: 1.6em;
     }
 }
 
