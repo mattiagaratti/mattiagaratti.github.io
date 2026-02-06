@@ -4368,3 +4368,43 @@ input, select, textarea {
     display: block; /* Li mostra quando aggiungiamo la classe via JS */
 	opacity: 1;
 }
+
+/* Contenitore principale */
+.features {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start; /* Allinea a sinistra */
+    gap: 20px; /* Spazio uniforme tra i riquadri */
+}
+
+/* Regola per i singoli riquadri (Desktop) */
+.features article {
+    /* Calcolo: (100% / 3) meno un po' di margine per il gap */
+    width: calc(33.33% - 14px) !important; 
+    margin: 0 !important; /* Resettiamo i margini vecchi del template */
+    display: none; /* Nascosti di default per lo script */
+    flex-direction: column;
+}
+
+/* Mostra i riquadri iniziali */
+.features article:not(.extra-news) {
+    display: flex !important;
+}
+
+/* Mostra gli extra quando clicchi il tasto */
+.features article.extra-news.is-visible {
+    display: flex !important;
+}
+
+/* --- Responsive: Mobile --- */
+@media screen and (max-width: 980px) {
+    .features article {
+        width: calc(50% - 10px) !important; /* 2 per riga su tablet */
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .features article {
+        width: 100% !important; /* 1 per riga su smartphone */
+    }
+}
