@@ -229,13 +229,63 @@ html {
 
 body {
 	background-color: var(--BODY_COLOR);
-	background-image: var(--GRADIENT);
-	background-size: auto,
-		cover;
-	background-attachment: fixed,
-		fixed;
-	background-position: center,
-		center;
+}
+
+/* --- NUOVA GESTIONE SFONDO FISSO (COMPATIBILE CON IPHONE) --- */
+
+/* Creiamo un elemento virtuale che fa da sfondo */
+body::before {
+	content: "";
+	position: fixed;
+	/* Questo è il segreto per iPhone */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	/* Copre tutto lo schermo */
+	z-index: -1;
+	/* Sta dietro a tutto il testo */
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	/* Impostiamo uno sfondo di default */
+	background-image: var(--GRADIENT), url(../../images/background_index.jpg);
+}
+
+/* Ora riassegniamo le immagini corrette per ogni pagina al "::before" */
+body.index::before {
+	background-image: var(--HOME_BG);
+}
+
+body.materials::before {
+	background-image: var(--MATERIALS_BG);
+}
+
+body.cv::before {
+	background-image: var(--CV_BG);
+}
+
+body.private_lessons::before {
+	background-image: var(--PRIVATE_LESSONS_BG);
+}
+
+body.readings::before {
+	background-image: var(--READINGS_BG);
+}
+
+/* Rimuovi l'immagine di sfondo dai container interni per evitare duplicati */
+body.index #banner,
+body.index #footer,
+body.materials #banner,
+body.materials #footer,
+body.cv #banner,
+body.cv #footer,
+body.private_lessons #banner,
+body.private_lessons #footer,
+body.readings #banner,
+body.readings #footer {
+	background-image: none !important;
+	background-color: transparent !important;
 }
 
 body.is-preload *,
@@ -4546,18 +4596,20 @@ body.is-preload #banner p {
 	}
 }
 
-@media screen and (max-width: 1024px) {
+/* Fix per il Logo su Mobile */
+@media screen and (max-width: 736px) {
+	.logo.m-logo {
+		/* 1. Riduciamo la dimensione generale del logo su mobile */
+		font-size: 3em;
+	}
 
-	body,
-	body.index,
-	body.private_lessons,
-	body.materials,
-	body.cv,
-	body.readings,
-	#banner,
-	#footer,
-	body.index #banner,
-	body.index #footer {
-		background-attachment: scroll !important;
+	/* 2. Forziamo la "M" a rimpicciolirsi dentro il cerchio */
+	.logo.m-logo mjx-container,
+	.logo.m-logo .MathJax {
+		transform: scale(0.85);
+		/* Rimpicciolisce la lettera all'85% */
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
 	}
 }
