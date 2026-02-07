@@ -4358,13 +4358,13 @@ input, select, textarea {
 	}
 
 
-	.extra-news {
+.extra-news {
     display: none; /* Nasconde gli elementi con questa classe */
 	opacity: 0;
     transition: opacity 0.5s ease;
 }
 
-	.extra-news.is-visible {
+.extra-news.is-visible {
     display: block; /* Li mostra quando aggiungiamo la classe via JS */
 	opacity: 1;
 }
