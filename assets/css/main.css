@@ -44,6 +44,34 @@
 	line-height: 1;
 }
 
+/* --- GESTIONE AVANZATA LOGO MOBILE --- */
+
+/* 1. Regola STANDARD per Mobile (Android e default) */
+@media screen and (max-width: 736px) {
+	.logo.m-logo {
+		font-size: 3em;
+		overflow: hidden;
+		line-height: 1;
+	}
+
+	.logo.m-logo mjx-container,
+	.logo.m-logo .MathJax {
+		transform: scale(0.75);
+		transform-origin: center;
+	}
+}
+
+/* 2. Regola SPECIFICA per iOS (iPhone/iPad - Safari & Chrome su iOS) */
+@supports (-webkit-touch-callout: none) {
+	@media screen and (max-width: 736px) {
+
+		.logo.m-logo mjx-container,
+		.logo.m-logo .MathJax {
+			transform: scale(1) !important;
+		}
+	}
+}
+
 
 html,
 body,
@@ -4593,23 +4621,5 @@ body.is-preload #banner p {
 	.features article {
 		width: 100% !important;
 		/* 1 per riga su smartphone */
-	}
-}
-
-/* Fix per il Logo su Mobile */
-@media screen and (max-width: 736px) {
-	.logo.m-logo {
-		/* 1. Riduciamo la dimensione generale del logo su mobile */
-		font-size: 3em;
-	}
-
-	/* 2. Forziamo la "M" a rimpicciolirsi dentro il cerchio */
-	.logo.m-logo mjx-container,
-	.logo.m-logo .MathJax {
-		transform: scale(0.85);
-		/* Rimpicciolisce la lettera all'85% */
-		display: flex !important;
-		justify-content: center;
-		align-items: center;
 	}
 }
