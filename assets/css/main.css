@@ -40,6 +40,8 @@
 	justify-content: center;
 	border: 2px solid rgba(255, 255, 255, 0.25);
 	margin: 0 auto 1em auto;
+	overflow: hidden;
+	line-height: 1;
 }
 
 
@@ -4541,5 +4543,21 @@ body.is-preload #banner p {
 	.features article {
 		width: 100% !important;
 		/* 1 per riga su smartphone */
+	}
+}
+
+@media screen and (max-width: 1024px) {
+
+	body,
+	body.index,
+	body.private_lessons,
+	body.materials,
+	body.cv,
+	body.readings,
+	#banner,
+	#footer,
+	body.index #banner,
+	body.index #footer {
+		background-attachment: scroll !important;
 	}
 }
