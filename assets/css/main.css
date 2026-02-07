@@ -57,7 +57,6 @@
 	.logo.m-logo mjx-container,
 	.logo.m-logo .MathJax {
 		transform: scale(0.75);
-		transform-origin: center;
 	}
 }
 
