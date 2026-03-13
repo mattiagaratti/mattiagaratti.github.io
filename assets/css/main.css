@@ -3027,27 +3027,27 @@ ul.contact li.custom-icon:before {
     transform: translateY(-50%); /* Centra perfettamente */
 }
 
-/* Reset specifico per la lista delle icone social */
-ul.actions.custom-social-container {
+/* Contenitore principale */
+.custom-social-row {
     display: flex !important;
-    justify-content: center !important; /* Centra orizzontalmente */
-    align-items: center !important;    /* Centra verticalmente */
-    gap: 15% !important;              /* Spazio fisso tra le icone */
-    padding: 0 !important;
-    margin: 2em 0 !important;          /* Spazio sopra e sotto la riga */
+    justify-content: center !important;
+    align-items: center !important;
     list-style: none !important;
-    border: none !important;           /* Toglie eventuali bordi del template */
-}
-
-/* Forza i LI a non occupare spazio extra */
-ul.actions.custom-social-container li {
     padding: 0 !important;
-    margin: 0 !important;
-    width: auto !important;
+    margin: 3em 0 !important; /* Spazio sopra e sotto */
+    width: 100% !important;
+    clear: both;
 }
 
-/* Il cerchio vero e proprio */
-.custom-social-link {
+/* Rimuove i pallini della lista e margini strani */
+.custom-social-row li {
+    margin: 0 15% !important; /* Distanza tra i cerchi */
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* Il cerchio */
+.social-circle {
     display: block !important;
     width: 3.5em !important;
     height: 3.5em !important;
@@ -3056,13 +3056,15 @@ ul.actions.custom-social-container li {
     background-size: 60% !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
     transition: all 0.2s ease;
 }
 
-.custom-social-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.8) !important;
-    transform: scale(1.1); /* Un piccolo effetto al passaggio del mouse */
+.social-circle:hover {
+    border-color: rgba(255, 255, 255, 1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-3px); /* Effetto salto in alto */
 }
 
 @media screen and (max-width: 736px) {
