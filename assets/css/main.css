@@ -4662,3 +4662,25 @@ button.button {
 button.button:hover {
     background-color: rgba(255, 255, 255, 0.05);
 }
+
+/* Correzione distanza foto profilo */
+#one .inner .image {
+    margin-right: 2.5em !important; /* Spazio a destra della foto */
+    margin-bottom: 1em !important; /* Spazio sotto se il testo va a capo */
+    flex-shrink: 0;                /* Impedisce alla foto di rimpicciolirsi troppo */
+}
+
+/* Ottimizzazione per Mobile (quando NON sei in modalità sito desktop) */
+@media screen and (max-width: 736px) {
+    #one .inner {
+        display: flex;
+        flex-direction: column !important; /* Foto sopra, testo sotto */
+        align-items: center;
+        text-align: center;
+    }
+    
+    #one .inner .image {
+        margin-right: 0 !important;
+        margin-bottom: 2em !important;
+    }
+}
