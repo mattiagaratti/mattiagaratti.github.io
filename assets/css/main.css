@@ -3027,38 +3027,39 @@ ul.contact li.custom-icon:before {
     transform: translateY(-50%); /* Centra perfettamente */
 }
 
-/* Contenitore principale */
 .custom-social-row {
     display: flex !important;
+    flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
     list-style: none !important;
     padding: 0 !important;
-    margin: 3em 0 !important; /* Spazio sopra e sotto */
+    margin: 3em 0 !important;
     width: 100% !important;
-    clear: both;
+    
+    /* SPAZIATURA DINAMICA: */
+    /* Su mobile sarà minimo 20px, su desktop crescerà fino all'8% della larghezza schermo */
+    gap: clamp(20px, 8vw, 200px) !important; 
 }
 
-/* Rimuove i pallini della lista e margini strani */
+/* Rimuoviamo i margini fissi dai LI per lasciare che sia il 'gap' a gestire tutto */
 .custom-social-row li {
-    margin: 0 15% !important; /* Distanza tra i cerchi */
+    margin: 0 !important;
     padding: 0 !important;
-    list-style: none !important;
+    width: auto !important;
 }
 
 /* Il cerchio */
 .social-circle {
     display: block !important;
-    width: 3.5em !important;
-    height: 3.5em !important;
+    width: 3.2em !important;  /* Leggermente più piccole per stare comode su mobile */
+    height: 3.2em !important;
     border-radius: 50% !important;
     border: solid 2px rgba(255, 255, 255, 0.2) !important;
     background-size: 60% !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-    background-color: transparent !important;
     text-decoration: none !important;
-    transition: all 0.2s ease;
 }
 
 .social-circle:hover {
