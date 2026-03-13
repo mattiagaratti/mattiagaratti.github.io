@@ -3027,34 +3027,42 @@ ul.contact li.custom-icon:before {
     transform: translateY(-50%); /* Centra perfettamente */
 }
 
-.custom-social {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.actions li.custom-social {
+/* Reset specifico per la lista delle icone social */
+ul.actions.custom-social-container {
+    display: flex !important;
+    justify-content: center !important; /* Centra orizzontalmente */
+    align-items: center !important;    /* Centra verticalmente */
+    gap: 15% !important;              /* Spazio fisso tra le icone */
     padding: 0 !important;
-    width: 3em !important;
-    height: 3em !important;
+    margin: 2em 0 !important;          /* Spazio sopra e sotto la riga */
+    list-style: none !important;
+    border: none !important;           /* Toglie eventuali bordi del template */
 }
 
-.custom-social a {
-    display: block;
-    width: 3em;
-    height: 3em;
-    border-radius: 100%;
-    border: solid 2px rgba(255, 255, 255, 0.125);
-    background-size: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    text-decoration: none;
+/* Forza i LI a non occupare spazio extra */
+ul.actions.custom-social-container li {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
 }
 
-.custom-social a:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.5);
+/* Il cerchio vero e proprio */
+.custom-social-link {
+    display: block !important;
+    width: 3.5em !important;
+    height: 3.5em !important;
+    border-radius: 50% !important;
+    border: solid 2px rgba(255, 255, 255, 0.2) !important;
+    background-size: 60% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transition: all 0.2s ease;
+}
+
+.custom-social-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8) !important;
+    transform: scale(1.1); /* Un piccolo effetto al passaggio del mouse */
 }
 
 @media screen and (max-width: 736px) {
