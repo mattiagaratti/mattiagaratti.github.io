@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Mattia Garatti | Publications</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="192x192" href="images/favicon.ico" type="image/x-icon">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload publications">
+
+    <div id="page-wrapper">
+
+        <header id="header">
+            <h1><a href="index.html">Mattia Garatti</a></h1>
+            <nav><a href="#menu">Menu</a></nav>
+        </header>
+
+        <nav id="menu">
+            <div class="inner">
+                <h2>Menu</h2>
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cv.html">Curriculum Vitae</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="materials.html">Miscellanea</a></li>
+                    <li><a href="readings.html">Suggested Readings</a></li>
+					<li><a href="private_lessons.html">Private lessons</a></li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </nav>
+
+        <section id="banner">
+            <header>
+                <div class="inner">
+                    <h2>Publications</h2>
+                </div>
+            </header>
+        </section>
+
+        <div class="wrapper">
+            <div class="inner">
+                <div id="publications-list"></div>
+
+                <br><br><br><br><br><br><br><br><br><br>
+
+                <p style="text-align: center;">
+                    <strong>Page under construction</strong>
+                </p>
+
+                <br><br><br><br><br><br><br><br><br><br>
+            </div>
+        </div>
+
+        <div id="pubModal" class="modal">
+            <div class="modal-content">
+                <div id="modal-body">
+                    </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="inner">
+                <ul class="copyright">
+                    <li>&copy; Mattia Garatti | All rights reserved.</li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        const pubData = {
+            // "pub1": {
+            //     year: 2026,
+            //     title: "A note on Benamou–Brenier formula for the Schrödinger problem",
+            //     authors: "Mattia Garatti, Luca Nenna, Luca Tamanini",
+            //     journal: "Preprint",
+            //     abstract: "We studied the Benamou–Brenier formulation of the Schrödinger problem, focusing on a gap between theoretical results and applications, that often involve measures with unbounded support. While the existing proof in the literature relies on the compactness of the marginals’ supports to ensure the necessary regularity of the Schrödinger potentials, we extend the validity of the Benamou–Brenier formula to the larger class of sub-Gaussian probability measures. Exploiting fine estimates on the Hessian of the potentials and the entropic interpolation, we provide an almost self-contained proof that establishes the existence of a velocity field with the appropriate polynomial growth that ensures the right integrability. This result justifies the use of the dynamic formulation in more general settings, such as Gaussian and mixture-of-Gaussians models, important also for the applications.",
+            //     bibtex: "Not available",
+            //     links: { 
+            //         // pdf: "#", 
+            //         arxiv: "#", // Link "Preprint"
+            //         // doi: "#"     // Link Rivista
+            //     }
+            // }
+        };
+
+        $(document).ready(function() {
+            const $container = $('#publications-list');
+            if (!$container.length) return;
+
+            const years = [...new Set(Object.values(pubData).map(p => p.year))].sort((a, b) => b - a);
+
+            years.forEach(year => {
+                $container.append(`<h3 class="major">${year}</h3>`);
+                let ul = $('<ul class="alt"></ul>');
+                
+                Object.keys(pubData).forEach(id => {
+                    const pub = pubData[id];
+                    if (pub.year === year) {
+                        let dynamicLinks = '';
+                        if(pub.links.pdf) dynamicLinks += `<a href="${pub.links.pdf}" target="_blank">[PDF]</a>`;
+                        if(pub.links.arxiv) dynamicLinks += `<a href="${pub.links.arxiv}" target="_blank">[ARXIV]</a>`;
+
+                        ul.append(`
+                            <li class="pub-item" data-pub="${id}">
+                                <div class="pub-title">${pub.title}</div>
+                                <p class="pub-info">
+                                    ${pub.authors.replace('Mattia Garatti', '<strong>Mattia Garatti</strong>')} — ${pub.journal}
+                                </p>
+                            </li>
+                        `);
+                    }
+                });
+                $container.append(ul);
+            });
+
+            $(document).on('click', '.pub-item', function(e) {
+    if ($(e.target).closest('a').length) return;
+
+    const id = $(this).data('pub');
+    const data = pubData[id];
+
+    if (data) {
+        // 1. Riga Source: mostriamo sempre Journal e Anno
+        let sourceHTML = `<strong>Source:</strong> ${data.journal} (${data.year})<br>`;
+
+        // 2. Logica Links: mostriamo solo quello che serve
+        let extraLinks = [];
+        
+        // Il PDF lo mettiamo sempre se presente
+        if(data.links.pdf) {
+            extraLinks.push(`<a href="${data.links.pdf}" target="_blank" style="color: #fff; text-decoration: underline;">[PDF]</a>`);
+        }
+
+        // Se c'è un DOI, aggiungiamo il link all'editore
+        if(data.links.doi) {
+            extraLinks.push(`<a href="${data.links.doi}" target="_blank" style="color: #fff; text-decoration: underline;">[Publisher Site]</a>`);
+        }
+
+        // Aggiungiamo ArXiv se presente
+        if(data.links.arxiv) {
+            extraLinks.push(`<a href="${data.links.arxiv}" target="_blank" style="color: #fff; text-decoration: underline;">[ArXiv]</a>`);
+        }
+        
+        let linksHTML = extraLinks.length > 0 ? `<strong>Links:</strong> ${extraLinks.join(' — ')}` : '';
+
+        const content = `
+            <span class="close-modal">&times;</span>
+            <h2 class="major">${data.title}</h2>
+            <p style="font-size: 0.9em; line-height: 1.8;">
+                <strong>Authors:</strong> ${data.authors}<br>
+                ${sourceHTML}
+                ${linksHTML}
+            </p>
+            <h3 class="major" style="font-size: 1em; margin-bottom: 10px;">Abstract</h3>
+            <p class="abstract-text">${data.abstract}</p>
+            <hr />
+            <h3 class="major" style="font-size: 1em; margin-bottom: 10px;">Cite (BibTeX)</h3>
+            <pre><code>${data.bibtex}</code></pre>
+        `;
+
+        $('#modal-body').html(content);
+        $('#pubModal').fadeIn(300);
+        $('body').css('overflow', 'hidden'); 
+    }
+});
+
+            $(document).on('click', '.close-modal', function() {
+                $('#pubModal').fadeOut(300);
+                $('body').css('overflow', 'auto');
+            });
+
+            $(window).on('click', function(e) {
+                if ($(e.target).is('#pubModal')) {
+                    $('#pubModal').fadeOut(300);
+                    $('body').css('overflow', 'auto');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

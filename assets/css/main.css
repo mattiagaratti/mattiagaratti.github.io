@@ -23,6 +23,7 @@
 	--CV_BG: var(--GRADIENT), url(../../images/background_cv.jpg);
 	--PRIVATE_LESSONS_BG: var(--GRADIENT), url(../../images/background_private_lessons.jpg);
 	--READINGS_BG: var(--GRADIENT), url(../../images/background_readings.jpg);
+	--PUBLICATIONS_BG: var(--GRADIENT), url(../../images/background_publications.jpg);
 }
 
 
@@ -264,6 +265,11 @@ body.private_lessons::before {
 body.readings::before {
 	background-image: var(--READINGS_BG);
 }
+
+body.publications::before {
+	background-image: var(--PUBLICATIONS_BG);
+}
+
 
 /* Rimuovi l'immagine di sfondo dai container interni per evitare duplicati */
 body.index #banner,
@@ -4683,4 +4689,124 @@ button.button:hover {
         margin-right: 0 !important;
         margin-bottom: 2em !important;
     }
+}
+
+/* --- STILE LISTA (HOVER CARD) --- */
+#page-wrapper .pub-item {
+    cursor: pointer !important;
+    padding: 20px !important;
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease !important;
+    border-radius: 4px !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
+    text-decoration: none !important;
+}
+
+#page-wrapper .pub-item:hover {
+    background-color: var(--MENU_HOVER_COLOR) !important;
+}
+
+#page-wrapper .pub-title {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 1.2em !important;
+    display: inline-block !important;
+    margin-bottom: 5px !important;
+}
+
+#page-wrapper .pub-item:hover .pub-title {
+    text-decoration: underline !important;
+    color: #fff !important;
+}
+
+#page-wrapper .pub-info {
+    font-size: 0.9em !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin: 0 !important;
+}
+
+#page-wrapper .pub-links {
+    margin-top: 10px !important;
+}
+
+#page-wrapper .pub-links a {
+    font-size: 0.8em !important;
+    color: #fff !important;
+    margin-right: 15px !important;
+    font-weight: bold !important;
+    border-bottom: none !important;
+    padding-left: 0 !important;
+}
+
+/* Rimuove frecce/icone circolari ovunque nella lista */
+#page-wrapper .pub-item::before, 
+#page-wrapper .pub-item::after, 
+#page-wrapper .pub-links a::before, 
+#page-wrapper .pub-links a::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* --- STILE POP-UP (MODAL) --- */
+#pubModal.modal {
+    display: none;
+    position: fixed !important;
+    z-index: 10000 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: var(--BG_OVERLAY) !important;
+    backdrop-filter: blur(5px) !important;
+    overflow-y: auto !important; /* Questo permette lo scroll se il testo è lungo */
+}
+
+#pubModal .modal-content {
+    background-color: var(--ARTICLE_COLOR) !important;
+    margin: 40px auto !important;
+    padding: 40px !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    width: 90% !important;
+    max-width: 800px !important;
+    border-radius: 8px !important;
+    position: relative !important;
+}
+
+#pubModal .close-modal {
+    color: #fff !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 10px !important;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+#pubModal .abstract-text {
+    text-align: justify !important;
+    line-height: 1.6 !important;
+    margin-top: 20px !important;
+}
+
+#pubModal pre code {
+    display: block !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    border-radius: 4px !important;
+    font-size: 0.85em !important;
+    overflow-x: auto !important;
+    color: #ccc !important;
+    white-space: pre-wrap !important;
+}
+
+#pubModal .modal-content a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+#pubModal .modal-content a:hover {
+    text-decoration: underline !important;
+    color: #fff !important;
 }
