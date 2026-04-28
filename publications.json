@@ -26,5 +26,19 @@
       "arxiv": "#",
       "doi": "#"
     }
+  },
+  {
+    "id": "pub3",
+    "year": 2002,
+    "title": "Test2",
+    "authors": "Mattia Garatti, Test User",
+    "journal": "Test Journal",
+    "abstract": "Test",
+    "bibtex": null,
+    "links": {
+      "pdf": "#",
+      "arxiv": "#",
+      "doi": "#"
+    }
   }
 ]
