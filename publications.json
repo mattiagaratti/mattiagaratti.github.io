@@ -1,4 +1,18 @@
 [
+   {
+    "id": "pub0",
+    "year": 2001,
+    "title": "Test",
+    "authors": "Mattia Garatti, Test User",
+    "journal": "Test Journal",
+    "abstract": "Test",
+    "bibtex": null,
+    "links": {
+      "pdf": "#",
+      "arxiv": "#",
+      "doi": "#"
+    }
+  }
   {
     "id": "pub1",
     "year": 2026,
