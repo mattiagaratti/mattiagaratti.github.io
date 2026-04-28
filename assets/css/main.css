@@ -280,6 +280,8 @@ body.cv #banner,
 body.cv #footer,
 body.private_lessons #banner,
 body.private_lessons #footer,
+body.publications #banner,
+body.publications #footer,
 body.readings #banner,
 body.readings #footer {
 	background-image: none !important;
@@ -320,6 +322,12 @@ body.cv {
 body.private_lessons {
 	background-color: var(--BODY_COLOR);
 	background-image: var(--PRIVATE_LESSONS_BG);
+	background-size: auto, cover;
+}
+
+body.publications {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--PUBLICATIONS_BG);
 	background-size: auto, cover;
 }
 
@@ -372,6 +380,14 @@ body.cv #footer {
 body.readings #banner,
 body.readings #footer {
 	background-image: var(--READINGS_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.publications #banner,
+body.publications #footer {
+	background-image: var(--PUBLICATIONS_BG);
 	background-size: auto, cover;
 	background-attachment: fixed, fixed;
 	background-position: center, center;
