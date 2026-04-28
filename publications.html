@@ -89,115 +89,102 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        const pubData = {
-            // "pub1": {
-            //     year: 2026,
-            //     title: "A note on Benamou–Brenier formula for the Schrödinger problem",
-            //     authors: "Mattia Garatti, Luca Nenna, Simona Rota Nodari, Luca Tamanini",
-            //     journal: "Preprint",
-            //     abstract: "We studied the Benamou–Brenier formulation of the Schrödinger problem, focusing on a gap between theoretical results and applications, that often involve measures with unbounded support. While the existing proof in the literature relies on the compactness of the marginals’ supports to ensure the necessary regularity of the Schrödinger potentials, we extend the validity of the Benamou–Brenier formula to the larger class of sub-Gaussian probability measures. Exploiting fine estimates on the Hessian of the potentials and the entropic interpolation, we provide an almost self-contained proof that establishes the existence of a velocity field with the appropriate polynomial growth that ensures the right integrability. This result justifies the use of the dynamic formulation in more general settings, such as Gaussian and mixture-of-Gaussians models, important also for the applications.",
-            //     bibtex: "Not available",
-            //     links: { 
-            //         // pdf: "#", 
-            //         arxiv: "#", // Link "Preprint"
-            //         // doi: "#"     // Link Rivista
-            //     }
-            // }
-        };
+    // Inizializziamo la variabile globale
+    let pubData = [];
 
-        $(document).ready(function() {
+    async function initPublications() {
+        try {
+            // Carichiamo il file JSON esterno
+            const response = await fetch('./publications.json');
+            if (!response.ok) throw new Error("Errore nel caricamento del file");
+            pubData = await response.json();
+            
             const $container = $('#publications-list');
             if (!$container.length) return;
 
-            const years = [...new Set(Object.values(pubData).map(p => p.year))].sort((a, b) => b - a);
+            // Puliamo il contenitore prima di riempirlo
+            $container.empty();
+
+            // Creiamo la lista degli anni unici, ordinati dal più recente al più vecchio
+            const years = [...new Set(pubData.map(p => p.year))].sort((a, b) => b - a);
 
             years.forEach(year => {
                 $container.append(`<h3 class="major">${year}</h3>`);
                 let ul = $('<ul class="alt"></ul>');
                 
-                Object.keys(pubData).forEach(id => {
-                    const pub = pubData[id];
-                    if (pub.year === year) {
-                        let dynamicLinks = '';
-                        if(pub.links.pdf) dynamicLinks += `<a href="${pub.links.pdf}" target="_blank">[PDF]</a>`;
-                        if(pub.links.arxiv) dynamicLinks += `<a href="${pub.links.arxiv}" target="_blank">[ARXIV]</a>`;
-
-                        ul.append(`
-                            <li class="pub-item" data-pub="${id}">
-                                <div class="pub-title">${pub.title}</div>
-                                <p class="pub-info">
-                                    ${pub.authors.replace('Mattia Garatti', '<strong>Mattia Garatti</strong>')} — ${pub.journal}
-                                </p>
-                            </li>
-                        `);
-                    }
+                // Filtriamo le pubblicazioni per anno
+                pubData.filter(p => p.year === year).forEach(pub => {
+                    ul.append(`
+                        <li class="pub-item" data-pub="${pub.id}">
+                            <div class="pub-title">${pub.title}</div>
+                            <p class="pub-info">
+                                ${pub.authors.replace('Mattia Garatti', '<strong>Mattia Garatti</strong>')} — ${pub.journal}
+                            </p>
+                        </li>
+                    `);
                 });
                 $container.append(ul);
             });
-
-            $(document).on('click', '.pub-item', function(e) {
-    if ($(e.target).closest('a').length) return;
-
-    const id = $(this).data('pub');
-    const data = pubData[id];
-
-    if (data) {
-        // 1. Riga Source: mostriamo sempre Journal e Anno
-        let sourceHTML = `<strong>Source:</strong> ${data.journal} (${data.year})<br>`;
-
-        // 2. Logica Links: mostriamo solo quello che serve
-        let extraLinks = [];
-        
-        // Il PDF lo mettiamo sempre se presente
-        if(data.links.pdf) {
-            extraLinks.push(`<a href="${data.links.pdf}" target="_blank" style="color: #fff; text-decoration: underline;">[PDF]</a>`);
+        } catch (error) {
+            console.error("Errore nel caricamento del database:", error);
         }
-
-        // Se c'è un DOI, aggiungiamo il link all'editore
-        if(data.links.doi) {
-            extraLinks.push(`<a href="${data.links.doi}" target="_blank" style="color: #fff; text-decoration: underline;">[Publisher Site]</a>`);
-        }
-
-        // Aggiungiamo ArXiv se presente
-        if(data.links.arxiv) {
-            extraLinks.push(`<a href="${data.links.arxiv}" target="_blank" style="color: #fff; text-decoration: underline;">[ArXiv]</a>`);
-        }
-        
-        let linksHTML = extraLinks.length > 0 ? `<strong>Links:</strong> ${extraLinks.join(' — ')}` : '';
-
-        const content = `
-            <span class="close-modal">&times;</span>
-            <h2 class="major">${data.title}</h2>
-            <p style="font-size: 0.9em; line-height: 1.8;">
-                <strong>Authors:</strong> ${data.authors}<br>
-                ${sourceHTML}
-                ${linksHTML}
-            </p>
-            <h3 class="major" style="font-size: 1em; margin-bottom: 10px;">Abstract</h3>
-            <p class="abstract-text">${data.abstract}</p>
-            <hr />
-            <h3 class="major" style="font-size: 1em; margin-bottom: 10px;">Cite (BibTeX)</h3>
-            <pre><code>${data.bibtex}</code></pre>
-        `;
-
-        $('#modal-body').html(content);
-        $('#pubModal').fadeIn(300);
-        $('body').css('overflow', 'hidden'); 
     }
-});
 
-            $(document).on('click', '.close-modal', function() {
+    $(document).ready(function() {
+        // Avviamo l'inizializzazione
+        initPublications();
+
+        // Gestione del click sulla singola pubblicazione
+        $(document).on('click', '.pub-item', function(e) {
+            if ($(e.target).closest('a').length) return;
+
+            const id = $(this).data('pub');
+            const data = pubData.find(p => p.id === id); // Cerchiamo nell'array
+
+            if (data) {
+                let sourceHTML = `<strong>Source:</strong> ${data.journal} (${data.year})<br>`;
+                let extraLinks = [];
+                
+                if(data.links.pdf && data.links.pdf !== "#") extraLinks.push(`<a href="${data.links.pdf}" target="_blank" style="color: #fff; text-decoration: underline;">[PDF]</a>`);
+                if(data.links.doi && data.links.doi !== "#") extraLinks.push(`<a href="${data.links.doi}" target="_blank" style="color: #fff; text-decoration: underline;">[Publisher Site]</a>`);
+                if(data.links.arxiv && data.links.arxiv !== "#") extraLinks.push(`<a href="${data.links.arxiv}" target="_blank" style="color: #fff; text-decoration: underline;">[ArXiv]</a>`);
+                
+                let linksHTML = extraLinks.length > 0 ? `<strong>Links:</strong> ${extraLinks.join(' — ')}` : '';
+
+                const content = `
+                    <span class="close-modal">&times;</span>
+                    <h2 class="major">${data.title}</h2>
+                    <p style="font-size: 0.9em; line-height: 1.8;">
+                        <strong>Authors:</strong> ${data.authors}<br>
+                        ${sourceHTML}
+                        ${linksHTML}
+                    </p>
+                    <h3 class="major" style="font-size: 1em; margin-bottom: 10px;">Abstract</h3>
+                    <p class="abstract-text">${data.abstract}</p>
+                    <hr />
+                    <h3 class="major" style="font-size: 1em; margin-bottom: 10px;">Cite (BibTeX)</h3>
+                    <pre><code>${data.bibtex || "Not available"}</code></pre>
+                `;
+
+                $('#modal-body').html(content);
+                $('#pubModal').fadeIn(300);
+                $('body').css('overflow', 'hidden'); 
+            }
+        });
+
+        // Gestione chiusura modale
+        $(document).on('click', '.close-modal', function() {
+            $('#pubModal').fadeOut(300);
+            $('body').css('overflow', 'auto');
+        });
+
+        $(window).on('click', function(e) {
+            if ($(e.target).is('#pubModal')) {
                 $('#pubModal').fadeOut(300);
                 $('body').css('overflow', 'auto');
-            });
-
-            $(window).on('click', function(e) {
-                if ($(e.target).is('#pubModal')) {
-                    $('#pubModal').fadeOut(300);
-                    $('body').css('overflow', 'auto');
-                }
-            });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
