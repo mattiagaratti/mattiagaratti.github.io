@@ -88,7 +88,7 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <script>
+<script>
     // Inizializziamo la variabile globale
     let pubData = [];
 
@@ -148,6 +148,7 @@
                 if(data.links.pdf && data.links.pdf !== "#") extraLinks.push(`<a href="${data.links.pdf}" target="_blank" style="color: #fff; text-decoration: underline;">[PDF]</a>`);
                 if(data.links.doi && data.links.doi !== "#") extraLinks.push(`<a href="${data.links.doi}" target="_blank" style="color: #fff; text-decoration: underline;">[Publisher Site]</a>`);
                 if(data.links.arxiv && data.links.arxiv !== "#") extraLinks.push(`<a href="${data.links.arxiv}" target="_blank" style="color: #fff; text-decoration: underline;">[ArXiv]</a>`);
+                if(data.links.hal && data.links.hal !== "#") extraLinks.push(`<a href="${data.links.hal}" target="_blank" style="color: #fff; text-decoration: underline;">[HAL]</a>`);
                 
                 let linksHTML = extraLinks.length > 0 ? `<strong>Links:</strong> ${extraLinks.join(' — ')}` : '';
 
