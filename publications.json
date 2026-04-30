@@ -6,12 +6,12 @@
     "authors": "Mattia Garatti, Luca Nenna, Simona Rota Nodari, Luca Tamanini",
     "journal": "Preprint",
     "abstract": "We studied the Benamou–Brenier formulation of the Schrödinger problem, focusing on a gap between theoretical results and applications, that often involve measures with unbounded support. While the existing proof in the literature relies on the compactness of the marginals’ supports to ensure the necessary regularity of the Schrödinger potentials, we extend the validity of the Benamou–Brenier formula to the larger class of sub-Gaussian probability measures. Exploiting fine estimates on the Hessian of the potentials and the entropic interpolation, we provide an almost self-contained proof that establishes the existence of a velocity field with the appropriate polynomial growth that ensures the right integrability. This result justifies the use of the dynamic formulation in more general settings, such as Gaussian and mixture-of-Gaussians models, important also for the applications.",
-    "bibtex": "@unpublished{garatti:hal-05605890,\n  TITLE = {{A PDE approach to Benamou-Brenier formula for the Schr{\\\"o}dinger problem}},\n  AUTHOR = {Garatti, Mattia and Nenna, Luca and Rota Nodari, Simona and Tamanini, Luca},\n  URL = {https://hal.science/hal-05605890},\n  NOTE = {working paper or preprint},\n  YEAR = {2026},\n  MONTH = Apr,\n  KEYWORDS = {Benamou-Brenier formula ; Schr{\\\"o}dinger problem},\n  PDF = {https://hal.science/hal-05605890v1/file/BB_PDEapproach.pdf},\n  HAL_ID = {hal-05605890},\n  HAL_VERSION = {v1}\n}",
+    "bibtex": "@misc{garatti2026pdeapproachbenamoubrenierformula,\n title={A PDE approach to Benamou--Brenier formula for the Schr\"odinger problem},\n author={Mattia Garatti and Luca Nenna and Simona Rota Nodari and Luca Tamanini},\n year={2026},\n eprint={2604.26023},\n archivePrefix={arXiv},\n primaryClass={math.OC},\n url={https://arxiv.org/abs/2604.26023}}",
     "links": {
-      "pdf": "#",
-      "arxiv": "#",
+      "pdf": "https://arxiv.org/pdf/2604.26023",
+      "arxiv": "https://arxiv.org/abs/2604.26023",
       "hal": "https://hal.science/hal-05605890v1/file/BB_PDEapproach.pdf",
-      "doi": "#"
+      "doi": "https://doi.org/10.48550/arXiv.2604.26023"
     }
   }
 ]
