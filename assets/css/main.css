@@ -24,6 +24,7 @@
 	--PRIVATE_LESSONS_BG: var(--GRADIENT), url(../../images/background_private_lessons.jpg);
 	--READINGS_BG: var(--GRADIENT), url(../../images/background_readings.jpg);
 	--PUBLICATIONS_BG: var(--GRADIENT), url(../../images/background_publications.jpg);
+	--TASSELLAZIONI_BG: var(--GRADIENT), url(../../images/background_tassellazioni.jpg);
 }
 
 
@@ -270,6 +271,9 @@ body.publications::before {
 	background-image: var(--PUBLICATIONS_BG);
 }
 
+body.tassellazioni::before {
+	background-image: var(--TASSELLAZIONI_BG);
+}
 
 /* Rimuovi l'immagine di sfondo dai container interni per evitare duplicati */
 body.index #banner,
@@ -282,6 +286,8 @@ body.private_lessons #banner,
 body.private_lessons #footer,
 body.publications #banner,
 body.publications #footer,
+body.tassellazioni #banner,
+body.tassellazioni #footer,
 body.readings #banner,
 body.readings #footer {
 	background-image: none !important;
@@ -330,7 +336,11 @@ body.publications {
 	background-image: var(--PUBLICATIONS_BG);
 	background-size: auto, cover;
 }
-
+body.tassellazioni {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--TASSELLAZIONI_BG);
+	background-size: auto, cover;
+}
 body.index {
 	background-color: var(--BODY_COLOR);
 	background-image: var(--HOME_BG);
@@ -388,6 +398,14 @@ body.readings #footer {
 body.publications #banner,
 body.publications #footer {
 	background-image: var(--PUBLICATIONS_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.tassellazioni #banner,
+body.tassellazioni #footer {
+	background-image: var(--TASSELLAZIONI_BG);
 	background-size: auto, cover;
 	background-attachment: fixed, fixed;
 	background-position: center, center;
@@ -4898,3 +4916,57 @@ button.button:hover {
         box-sizing: border-box !important;
     }
 }
+
+ /* Griglia flessibile per i gruppi di immagini */
+        .tassellazioni-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 1.5rem !important;
+            margin: 2rem 0 !important;
+        }
+
+        /* Griglia per le immagini singole o più grandi */
+        .tassellazioni-grid.grid-large {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        }
+
+        /* Contenitore della singola figura/miniatura */
+        .tassellazioni-grid .grid-item {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 6px !important;
+            padding: 1rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+
+        /* Impedisce alle immagini geometriche di diventare giganti o sgranate */
+        .tassellazioni-grid .grid-item img {
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: 220px !important;
+            object-fit: contain !important;
+            border-radius: 4px !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        /* Stile per le didascalie sotto le immagini */
+        .tassellazioni-grid .grid-item span {
+            font-size: 0.85rem !important;
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-style: italic !important;
+        }
+
+        /* Layout ottimizzato per smartphone (forza 2 colonne ordinate invece di immagini giganti a tutto schermo) */
+        @media screen and (max-width: 480px) {
+            .tassellazioni-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.8rem !important;
+            }
+            .tassellazioni-grid .grid-item img {
+                max-height: 140px !important;
+            }
+        }
