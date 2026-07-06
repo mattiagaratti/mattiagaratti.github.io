@@ -4844,15 +4844,15 @@ button.button:hover {
         padding: 0 !important;
     }
 
-    /* Riquadro grigio: azzeriamo il padding laterale e superiore per far riempire l'immagine */
+    /* Riquadro grigio: azzeriamo il padding nativo per controllare i margini internamente */
     body.materials .features article {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 0 2em 0 !important;
-        padding: 0 0 2em 0 !important; /* Mantieni il padding solo sotto per il testo */
+        padding: 0 0 2.5em 0 !important; /* Spazio in fondo alla scheda */
         float: none !important;
         box-sizing: border-box !important;
-        overflow: hidden !important; /* Taglia l'immagine se ha angoli arrotondati */
+        overflow: hidden !important;
     }
 
     /* L'elemento link dell'immagine deve occupare il 100% senza margini */
@@ -4864,20 +4864,35 @@ button.button:hover {
         border: 0 !important;
     }
 
-    /* L'immagine vera e propria si allarga da bordo a bordo del riquadro */
+    /* L'immagine vera e propria si allarga da bordo a bordo */
     body.materials .features article .image img {
         display: block !important;
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
         margin: 0 !important;
-        object-fit: cover !important; /* Si assicura che copra lo spazio senza distorcersi */
+        object-fit: cover !important;
     }
 
-    /* Riporta i testi (Titolo e descrizione) ad avere il loro spazio interno */
-    body.materials .features article h3,
+    /* GESTIONE TITOLI (H3) */
+    body.materials .features article h3 {
+        padding-left: 1.5em !important;
+        padding-right: 1.5em !important;
+        box-sizing: border-box !important;
+        /* Se il titolo è la prima cosa del riquadro (senza immagine sopra), gli diamo il giusto spazio dal soffitto */
+        margin-top: 2em !important; 
+    }
+
+    /* Se invece il titolo si trova DOPO un'immagine, riduciamo il margine superiore per non distanziarlo troppo */
+    body.materials .features article .image + h3,
+    body.materials .features article screen + h3 {
+        margin-top: 0.5em !important;
+    }
+
+    /* Riporta gli altri testi (descrizioni e link) ad avere il loro spazio interno laterale */
     body.materials .features article p,
-    body.materials .features article .special {
+    body.materials .features article .special,
+    body.materials .features article ul {
         padding-left: 1.5em !important;
         padding-right: 1.5em !important;
         box-sizing: border-box !important;
