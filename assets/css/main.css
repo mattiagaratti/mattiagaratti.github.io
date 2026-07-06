@@ -4826,3 +4826,52 @@ button.button:hover {
     text-decoration: underline !important;
     color: #fff !important;
 }
+
+@media screen and (max-width: 736px) {
+
+    /* 1. Forza il contenitore principale a occupare tutto lo spazio corretto */
+    .wrapper {
+        padding: 3em 1.5em 1.5em 1.5em !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .wrapper .inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Trasforma la griglia dei blocchi grigi in una colonna singola perfettamente centrata */
+    section.features {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 3. Sistema i singoli riquadri grigi delle tesi e delle note */
+    section.features article {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 2em 0 !important; /* Rimuove i vecchi margini laterali distorsivi */
+        padding: 2em !important;
+        box-sizing: border-box;
+    }
+
+    /* 4. Centra le immagini (frontespizi bianchi) all'interno dei riquadri grigi */
+    section.features article .image {
+        display: block !important;
+        text-align: center !important;
+        margin: 0 auto 1.5em auto !important;
+        width: 100% !important;
+    }
+
+    section.features article .image img {
+        display: inline-block !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
