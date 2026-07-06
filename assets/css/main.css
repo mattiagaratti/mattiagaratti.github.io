@@ -4880,7 +4880,7 @@ button.button:hover {
         padding-right: 1.5em !important;
         box-sizing: border-box !important;
         /* Se il titolo è la prima cosa del riquadro (senza immagine sopra), gli diamo il giusto spazio dal soffitto */
-        margin-top: 2em !important; 
+        margin-top: 3em !important; 
     }
 
     /* Se invece il titolo si trova DOPO un'immagine, riduciamo il margine superiore per non distanziarlo troppo */
