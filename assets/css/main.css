@@ -4828,22 +4828,17 @@ button.button:hover {
 }
 
 @media screen and (max-width: 736px) {
-
-    /* 1. Forza il contenitore principale a occupare tutto lo spazio corretto */
-    .wrapper {
-        padding: 3em 1.5em 1.5em 1.5em !important;
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    .wrapper .inner {
+    body.materials .wrapper,
+    body.materials #page-wrapper .wrapper {
+        padding: 2em 1em !important;
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
 
-    /* 2. Trasforma la griglia dei blocchi grigi in una colonna singola perfettamente centrata */
-    section.features {
+    body.materials .row,
+    body.materials .features {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
@@ -4852,26 +4847,29 @@ button.button:hover {
         padding: 0 !important;
     }
 
-    /* 3. Sistema i singoli riquadri grigi delle tesi e delle note */
-    section.features article {
+    body.materials .features article,
+    body.materials .row > * {
         width: 100% !important;
         max-width: 100% !important;
-        margin: 0 0 2em 0 !important; /* Rimuove i vecchi margini laterali distorsivi */
-        padding: 2em !important;
-        box-sizing: border-box;
+        margin: 0 0 2em 0 !important;
+        padding: 1.5em !important;
+        float: none !important;
+        box-sizing: border-box !important;
     }
 
-    /* 4. Centra le immagini (frontespizi bianchi) all'interno dei riquadri grigi */
-    section.features article .image {
+    body.materials .features article .image,
+    body.materials article .image.featured {
         display: block !important;
+        width: 100% !important;
         text-align: center !important;
         margin: 0 auto 1.5em auto !important;
-        width: 100% !important;
     }
 
-    section.features article .image img {
+    body.materials .features article .image img,
+    body.materials article .image.featured img {
         display: inline-block !important;
         max-width: 100% !important;
         height: auto !important;
+        margin: 0 auto !important;
     }
 }
