@@ -4828,48 +4828,58 @@ button.button:hover {
 }
 
 @media screen and (max-width: 736px) {
-    body.materials .wrapper,
-    body.materials #page-wrapper .wrapper {
+    
+    /* Evita che l'intera pagina abbia strani vuoti a destra */
+    body.materials .wrapper {
         padding: 2em 1em !important;
         width: 100% !important;
-        max-width: 100% !important;
         box-sizing: border-box !important;
-        overflow-x: hidden !important;
     }
 
-    body.materials .row,
+    /* Forza i blocchi ad incolonnarsi occupando tutta la larghezza disponibile */
     body.materials .features {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
+        display: block !important;
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
     }
 
-    body.materials .features article,
-    body.materials .row > * {
+    /* Riquadro grigio: azzeriamo il padding laterale e superiore per far riempire l'immagine */
+    body.materials .features article {
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 0 2em 0 !important;
-        padding: 1.5em !important;
+        padding: 0 0 2em 0 !important; /* Mantieni il padding solo sotto per il testo */
         float: none !important;
         box-sizing: border-box !important;
+        overflow: hidden !important; /* Taglia l'immagine se ha angoli arrotondati */
     }
 
-    body.materials .features article .image,
-    body.materials article .image.featured {
+    /* L'elemento link dell'immagine deve occupare il 100% senza margini */
+    body.materials .features article .image {
         display: block !important;
         width: 100% !important;
-        text-align: center !important;
-        margin: 0 auto 1.5em auto !important;
+        margin: 0 0 1.5em 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
     }
 
-    body.materials .features article .image img,
-    body.materials article .image.featured img {
-        display: inline-block !important;
+    /* L'immagine vera e propria si allarga da bordo a bordo del riquadro */
+    body.materials .features article .image img {
+        display: block !important;
+        width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
-        margin: 0 auto !important;
+        margin: 0 !important;
+        object-fit: cover !important; /* Si assicura che copra lo spazio senza distorcersi */
+    }
+
+    /* Riporta i testi (Titolo e descrizione) ad avere il loro spazio interno */
+    body.materials .features article h3,
+    body.materials .features article p,
+    body.materials .features article .special {
+        padding-left: 1.5em !important;
+        padding-right: 1.5em !important;
+        box-sizing: border-box !important;
     }
 }
