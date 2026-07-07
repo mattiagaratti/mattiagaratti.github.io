@@ -2,214 +2,238 @@
 <html lang="it">
 
 <head>
-	<title>Tassellazioni del piano - Mattia Garatti</title>
-	<!-- <meta name="description" content=""> -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Expires" content="0" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Tassellazioni del piano - Mattia Garatti</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body class="is-preload tassellazioni">
 
-	<div id="page-wrapper">
+    <div id="page-wrapper">
 
-		<header id="header">
-			<h1><a href="index.html">BACK</a></h1>
-		</header>
+        <header id="header">
+            <h1><a href="index.html">BACK</a></h1>
+        </header>
 
-		<section id="wrapper">
-			<header>
-				<div class="inner">
-					<h2>Tassellazioni del piano</h2>
-				</div>
-			</header>
+        <section id="wrapper">
+            <header>
+                <div class="inner">
+                    <h2>Tassellazioni del piano</h2>
+                </div>
+            </header>
 
-			<div class="wrapper">
-				<div class="inner">
+            <div class="wrapper">
+                <div class="inner">
 
-					<section id="introduzione">
-						<h2 class="major">Introduzione alle tassellazioni</h2>
-						<p style="text-align: justify;">Una tassellazione è una configurazione costituita da poligoni o figure, ditto tasselli, uguali o differenti tra loro, che ricoprono una porzione di piano, l'intero piano o l'intero spazio. I due requisiti essenziali sono che il ricoprimento sia completo, senza spazi tra i tasselli, e non vi siano sovrapposizioni tra le tessere.</p>
+                    <section id="introduzione">
+                        <h2 class="major">Introduzione alle tassellazioni</h2>
+                        <p style="text-align: justify;">Una tassellazione è una configurazione costituita da poligoni o figure, ditto tasselli, uguali o differenti tra loro, che ricoprono una porzione di piano, l'intero piano o l'intero spazio. I due requisiti essenziali sono che il ricoprimento sia completo, senza spazi tra i tasselli, e non vi siano sovrapposizioni tra le tessere.</p>
 
-						<blockquote>
-							Sulla base di questa immagine mentale, quali possono essere esempi di tassellazioni che si incontrano quotidianamente? 
-						</blockquote>
+                        <blockquote>
+                            Sulla base di questa immagine mentale, quali possono essere esempi di tassellazioni che si incontrano quotidianamente? 
+                        </blockquote>
 
-						<p style="text-align: justify;">Alcuni esempi sono sicuramente le piastrellature di pavimenti o pareti, oppure particolari decorazioni artistiche, come quelle dell'Alhambra a Granada. </p>
-						<p style="text-align: justify;">Le prime tassellazioni risalgono ai Sumeri, mentre il primo matematico che le ha studiate in tempi più recenti è Keplero: ne troviamo infatti traccia nel trattato "<span class="emphasis">Le armonie del mondo</span>" del 1619.</p>
+                        <p style="text-align: justify;">Alcuni esempi sono sicuramente le piastrellature di pavimenti o pareti, oppure particolari decorazioni artistiche, come quelle dell'Alhambra a Granada. </p>
+                        <p style="text-align: justify;">Le prime tassellazioni risalgono ai Sumeri, mentre il primo matematico che le ha studiate in tempi più recenti è Keplero: ne troviamo infatti traccia nel trattato "<span class="emphasis">Le armonie del mondo</span>" del 1619.</p>
 
-						<div class="tassellazioni-grid grid-large">
-							<div class="grid-item" style="text-align: center; margin-bottom: 2em;">
-								<img src="images/tassellazioni/pp,550x550.u2.jpg" alt="Tassellazione periodica storica" style="max-width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
-								<p style="font-style: italic; font-size: 0.9em; margin-top: 0.5em;">Particolare di decorazione artistiche, Alhambra (Granada).</p>
-							</div>
-						</div>
+                        <div class="tassellazioni-grid grid-large">
+                            <div class="grid-item" style="text-align: center; margin-bottom: 2em;">
+                                <img src="images/tassellazioni/pp,550x550.u2.jpg" alt="Tassellazione periodica storica" style="max-width: 500px; width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+                                <p style="font-style: italic; font-size: 0.9em; margin-top: 0.5em;">Particolare di decorazione artistiche, Alhambra (Granada).</p>
+                            </div>
+                        </div>
 
                         <p style="text-align: justify;">Una definizione più rigorsa è la seguente.</p>
 
-						<div class="box">
-							<h3 class="major">Definizione</h3>
-							<p>Consideriamo un insieme <em>S</em>, lo <em>spazio</em>, e un sottoinsieme <em>P</em> di <em>S</em>, i <em>prototipi dei tasselli</em>, che assumiamo essere senza buchi, limitati e formati da un pezzo solo ciascuno (ossia <em>connessi</em>). Preso un sottoinsieme <em>X</em> di S, una <em>tassellazione</em> di <em>X</em> di tipo <em>P</em> è un insieme finito, o infinito numerabile, <em>T</em> di tasselli con le seguenti proprietà:</p>
-							<ol style="list-style-type: lower-alpha;">
-								<li>l'unione di tutti i tasselli è <em>X</em>,</li>
-								<li>tasselli distinti hanno parti interne disgiunte.</li>
-							</ol>
-						</div>
+                        <div class="box">
+                            <h3 class="major">Definizione</h3>
+                            <p>Consideriamo un insieme <em>S</em>, lo <em>spazio</em>, e un sottoinsieme <em>P</em> di <em>S</em>, i <em>prototipi dei tasselli</em>, che assumiamo essere senza buchi, limitati e formati da un pezzo solo ciascuno (ossia <em>connessi</em>). Preso un sottoinsieme <em>X</em> di S, una <em>tassellazione</em> di <em>X</em> di tipo <em>P</em> è un insieme finito, o infinito numerabile, <em>T</em> di tasselli con le seguenti proprietà:</p>
+                            <ol style="list-style-type: lower-alpha;">
+                                <li>l'unione di tutti i tasselli è <em>X</em>,</li>
+                                <li>tasselli distinti hanno parti interne disgiunte.</li>
+                            </ol>
+                        </div>
 
-						<p style="text-align: justify;">Una tassellazione è <em>propria</em> se i tasselli si incontrano solo in corrispondenze lato-lato o vertice-vertice. Le tassellazioni si distinguono in tassellazioni periodiche (come quella nella figura precedente) e non periodiche.</p>
-					</section>
+                        <p style="text-align: justify;">Una tassellazione è <em>propria</em> se i tasselli si incontrano solo in corrispondenze lato-lato o vertice-vertice. Le tassellazioni si distinguono in tassellazioni periodiche (come quella nella figura precedente) e non periodiche.</p>
+                    </section>
 
-					<hr />
+                    <hr />
 
-					<section id="periodiche">
-						<h2 class="major">Le tassellazioni periodiche</h2>
-						<p style="text-align: justify;">Una tassellazione si dice <em>periodica</em> se viene costruita ripetendo una cella elementare di base.</p>
+                    <section id="periodiche">
+                        <h2 class="major">Le tassellazioni periodiche</h2>
+                        <p style="text-align: justify;">Una tassellazione si dice <em>periodica</em> se viene costruita ripetendo una cella elementare di base.</p>
 
-						<h3 class="major">Il caso piano</h3>
-						<p style="text-align: justify;"><strong>Teorema</strong> Una tassellazione piana <em>T</em> è periodica se e solo se esistono due vettori <strong>v</strong><sub>1</sub>,<strong>v</strong><sub>2</sub> linearmente indipendenti tali che se <em>T</em> viene traslata tramite <strong>v</strong><sub>1</sub>,<strong>v</strong><sub>2</sub>, rimane invariata.</p>
-						<p style="text-align: justify;">Osserviamo poi che per il <em>Teorema Fondamentale della Cristallografia</em>, che definisce i legami tra i parametri relativi agli assi di riferimento di un cristallo, si possono costruire tassellazioni periodiche piane utilizzando come cella elementare un poligono regolare se e solo se tale poligono è un triangolo, un quadrato o un esagono.</p>
+                        <h3 class="major">Il caso piano</h3>
+                        <p style="text-align: justify;"><strong>Teorema</strong> Una tassellazione piana <em>T</em> è periodica se e solo se esistono due vettori <strong>v</strong><sub>1</sub>,<strong>v</strong><sub>2</sub> linearmente indipendenti tali che se <em>T</em> viene traslata tramite <strong>v</strong><sub>1</sub>,<strong>v</strong><sub>2</sub>, rimane invariata.</p>
+                        <p style="text-align: justify;">Osserviamo poi che per il <em>Teorema Fondamentale della Cristallografia</em>, che definisce i legami tra i parametri relativi agli assi di riferimento di un cristallo, si possono costruire tassellazioni periodiche piane utilizzando come cella elementare un poligono regolare se e solo se tale poligono è un triangolo, un quadrato o un esagono.</p>
 
-						<div class="row" style="margin-bottom: 2em; text-align: center;">
-							<div class="col-4 col-12-medium"><img src="images/tassellazioni/Triangoli.jpg" alt="Triangoli" style="width: 100%; max-width: 100%; border-radius: 4px; display: block; margin: 0 auto;" /><h5>Triangoli</h5></div>
-							<div class="col-4 col-12-medium"><img src="images/tassellazioni/Quadrati.jpg" alt="Quadrati" style="width: 100%; max-width: 100%; border-radius: 4px; display: block; margin: 0 auto;" /><h5>Quadrati</h5></div>
-							<div class="col-4 col-12-medium"><img src="images/tassellazioni/Esagoni.jpg" alt="Esagoni" style="width: 100%; max-width: 100%; border-radius: 4px; display: block; margin: 0 auto;" /><h5>Esagoni</h5></div>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; text-align: center; margin-bottom: 3em; gap: 20px;">
+    
+    						<div style="flex: 1; min-width: 200px; max-width: 260px;">
+        						<img src="images/tassellazioni/Triangoli.jpg" alt="Triangoli" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+        						<h5 style="margin-top: 0.8em; margin-bottom: 0;">Triangoli</h5>
+    						</div>
+    
+    						<div style="flex: 1; min-width: 200px; max-width: 370px;">
+        						<img src="images/tassellazioni/Quadrati.jpg" alt="Quadrati" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+        						<h5 style="margin-top: 0.8em; margin-bottom: 0;">Quadrati</h5>
+    						</div>
+    
+    					<div style="flex: 1; min-width: 200px; max-width: 230px;">
+        					<img src="images/tassellazioni/Esagoni.jpg" alt="Esagoni" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+        					<h5 style="margin-top: 0.8em; margin-bottom: 0;">Esagoni</h5>
+    					</div>
+
 						</div>
                         
 
-						<h3 class="major">Fatti curiosi</h3>
-						<ul>
-							<li>I pattern delle tassellazioni periodiche formano i 17 <em>gruffici cristallografici piani</em>.</li>
-							<li>Il <em>problema di Domino</em>, ossia stabilire se un dato insieme di prototipi di tasselli possa originare una tassellazione periodica, è indecidibile.</li>
+                        <h3 class="major">Fatti curiosi</h3>
+                        <ul>
+                            <li>I pattern delle tassellazioni periodiche formano i 17 <em>gruppi cristallografici piani</em>.</li>
+                            <li>Il <em>problema di Domino</em>, ossia stabilire se un dato insieme di prototipi di tasselli possa originare una tassellazione periodica, è indecidibile.</li>
                         </ul>
 
                         <h3 class="major">Esempi</h3>
-						<ul>
+                        <ul>
                             <li>In natura, esempi di tassellazioni periodiche sono il favo delle api, le fratture del terreno roccioso, note come <em>tassellazioni di Gilbert</em>, oppure le soluzioni saponate che si aggregano tassellando lo spazio secondo le <em>leggi di Plateau</em>.</li>
-							<li>Il grafico olandese Maurits Cornelis <em>Escher</em>, manipolando opportunamente un singolo modello ornamentale, ha costruito tassellazioni periodiche di grande effetto.</li>
-						</ul>
+                            <li>Il grafico olandese Maurits Cornelis <em>Escher</em>, manipolando opportunamente un singolo modello ornamentale, ha costruito tassellazioni periodiche di grande effetto.</li>
+                        </ul>
 
-						<div class="row" style="margin-bottom: 2em;">
-							<div class="col-6 col-12-medium"><img src="images/tassellazioni/tassellazione periodica 2.png" alt="Escher 1" style="width:100%; border-radius: 4px; display: block; margin: 0 auto;" /></div>
-							<div class="col-6 col-12-medium"><img src="images/tassellazioni/tassellazione periodica.jpg" alt="Escher 2" style="width:100%; border-radius: 4px; display: block; margin: 0 auto;" /></div>
-						</div>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; text-align: center; margin-bottom: 2em; gap: 30px;">
+    
+    						<div style="flex: 1; min-width: 280px; max-width: 380px;">
+        						<img src="images/tassellazioni/tassellazione periodica 2.png" alt="Escher 1" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+    						</div>
+    
+    						<div style="flex: 1; min-width: 280px; max-width: 410px;">
+        						<img src="images/tassellazioni/tassellazione periodica.jpg" alt="Escher 2" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+    							</div>
 
-						<h3 class="major">Applicazioni</h3>
-						<p style="text-align: justify;">Una delle applicazioni più comuni delle tassellazioni periodiche è sicuramente il <em>rendering di ambienti 3D</em> in computer grafica: tassellando le figure da rappresentare, si può creare una forma tridimensionale più dettagliata. Rendendo dinamica la tassellazione, in modo che si adatti in base alla vicinanza dell'oggetto, si può inoltre ottenere un risparmo di risorse.</p>
-					</section>
-
-					<hr />
-
-					<section id="non-periodiche">
-						<h2 class="major">Le tassellazioni non periodiche</h2>
-						<p style="text-align: justify;">Le tassellazioni non periodiche sono quelle che non possiedono simmetrie traslazionali.</p>
-
-						<h3 class="major">Le tassellazioni di Penrose</h3>
-						<p style="text-align: justify;">Il matematico Roger Penrose (1931 -- ) ha scoperto l'esistenza di particolari tipi di tasselli che hanno la particolarità di essere replicabili in modo non periodico.</p>
-
-						<div class="row" style="margin-bottom: 2em; justify-content: center; text-align: center;">
-							<div class="col-4 col-12-medium"><img src="images/tassellazioni/cattura5.PNG" alt="Penrose" style="width: 100%; max-width: 100%; border-radius: 4px; display: block; margin: 0 auto;" /></div>
 						</div>
 
                         <h3 class="major">Applicazioni</h3>
-						<p style="text-align: justify;">Una delle maggiori applicazioni delle tassellazioni aperiodiche è lo studio dei <em>quasicristalli</em>, particolari materiali in cui gli atomi sono disposti in una struttura deterministica ma non ripetitiva, cioè non periodica. Un esempio ne è l'icosaedrite, scoperta nel 2009.</p>
-					</section>
+                        <p style="text-align: justify;">Una delle applicazioni più comuni delle tassellazioni periodiche è sicuramente il <em>rendering di ambienti 3D</em> in computer grafica: tassellando le figure da rappresentare, si può creare una forma tridimensionale più dettagliata. Rendendo dinamica la tassellazione, in modo che si adatti in base alla vicinanza dell'oggetto, si può inoltre ottenere un risparmo di risorse.</p>
+                    </section>
 
-					<hr />
+                    <hr />
 
-					<section id="einstein">
-						<h2 class="major">Il tassello Einstein</h2>
-						<p style="text-align: justify;">Per molto tempo è stato un problema aperto, noto come ricerca del tassello di Einstein, trovare una tassellazione del piano che utilizzi un solo tipo di tassello ripetuto in modo non periodico. Nel tempo sono stati proposti numerosi candidati come tassello di Einstein, ma in generale si erano sempre scontrati in qualche modo con la definizione iniziale. A Marzo 2023, il team di David Smith ha fornito un esempio di tassellazione monoedrica non periodica. Tale tassello è stato chiamato Hat e può essere costruito combinando opportunamente 16 triangoli rettangoli congruenti.</p>
+                    <section id="non-periodiche">
+                        <h2 class="major">Le tassellazioni non periodiche</h2>
+                        <p style="text-align: justify;">Le tassellazioni non periodiche sono quelle che non possiedono simmetrie traslazionali.</p>
 
-						<div style="text-align: center; margin-bottom: 2em;">
-							<img src="images/tassellazioni/tassello cappello.jpg" alt="Hat" style="max-width: 300px; width: 100%; border-radius: 4px; display: block; margin: 0 auto;" />
-							<h5>Il tassello Hat</h5>
+                        <h3 class="major">Le tassellazioni di Penrose</h3>
+                        <p style="text-align: justify;">Il matematico Roger Penrose (1931 -- ) ha scoperto l'esistenza di particolari tipi di tasselli che hanno la particolarità di essere replicabili in modo non periodico.</p>
+
+                        <div style="text-align: center; margin: 2em auto;">
+   							<img src="images/tassellazioni/cattura5.PNG" alt="Penrose" style="max-width: 800px; width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
 						</div>
+
+                        <h3 class="major">Applicazioni</h3>
+                        <p style="text-align: justify;">Una delle maggiori applicazioni delle tassellazioni aperiodiche è lo studio dei <em>quasicristalli</em>, particolari materiali in cui gli atomi sono disposti in una struttura deterministica ma non ripetitiva, cioè non periodica. Un esempio ne è l'icosaedrite, scoperta nel 2009.</p>
+                    </section>
+
+                    <hr />
+
+                    <section id="einstein">
+                        <h2 class="major">Il tassello Einstein</h2>
+                        <p style="text-align: justify;">Per molto tempo è stato un problema aperto, noto come ricerca del tassello di Einstein, trovare una tassellazione del piano che utilizzi un solo tipo di tassello ripetuto in modo non periodico. Nel tempo sono stati proposti numerosi candidati come tassello di Einstein, ma in generale si erano sempre scontrati in qualche modo con la definizione iniziale. A Marzo 2023, il team di David Smith ha fornito un esempio di tassellazione monoedrica non periodica. Tale tassello è stato chiamato Hat e può essere costruito combinando opportunamente 16 triangoli rettangoli congruenti.</p>
+
+                        <div style="text-align: center; margin-bottom: 2em;">
+                            <img src="images/tassellazioni/tassello cappello.jpg" alt="Hat" style="max-width: 350px; width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+                            <h5>Il tassello Hat</h5>
+                        </div>
 
                         <p style="text-align: justify;">Il team di ricerca ha dichiarato che con il tassello Hat è possibile costruire una tassellazione monoedrica, cioè che usa un solo tipo di tassello, aperiodica. Nell'articolo, forniscono addirittura un'intera famiglia di tasselli di Einstein: gli appartenenti sono l'uno il trasformato dell'altro tramite manipolazioni indipendenti e continue. Nella comunità accademica, il tassello Hat desta però ancora qualche dubbio: per raggiungere l'aperiodicità è infatti necessario utilizzare anche il suo speculare. Questo problema è stato risolto da un altro membro della famiglia di tasselli scoperto a maggio 2023 sempre dal team di David Smith, il tassello Spectre. Di fatto è stato trovato un esemplare di tassello di Einstein.</p>
 
                         
-						<div class="row" style="margin-bottom: 2em; justify-content: center; text-align: center;">
-							<div class="col-4 col-12-medium"><img src="images/tassellazioni/Cattura8.PNG" alt="Spectre 1" style="width:100%; max-width: 100%; border-radius: 4px; display: block; margin: 0 auto;" /></div>
+                        <div class="row" style="margin-bottom: 2em; justify-content: center; text-align: center;">
+                            <div class="col-6 col-12-medium"><img src="images/tassellazioni/Cattura8.PNG" alt="Spectre 1" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" /></div>
                         </div>
 
                         <p style="text-align: justify;">Il monotassello aperiodico è privo di simmetrie, ha 13 lati e gli angoli sono multipli di 30, in modo da favorirne varie rotazioni.</p>
 
 
                         <div class="row" style="margin-bottom: 2em; align-items: center;">
-							<div class="col-4 col-12-medium" style="text-align: center;"><img src="images/tassellazioni/Cattura.PNG" alt="Spectre Dettagli" style="width:100%; max-width: 100%; border-radius: 4px; display: block; margin: 0 auto;" /></div>
-							<div class="col-8 col-12-medium">
-								<p style="text-align: justify; margin-bottom: 0;">Si nota facilmente che la faccia rossa e il suo speculare non possono essere sovrapposte ottenendo la stessa figura: il tassello è detto chirale.</p> 
-							</div>
-						</div>
+                            <div class="col-4 col-12-medium" style="text-align: center;"><img src="images/tassellazioni/Cattura.PNG" alt="Spectre Dettagli" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" /></div>
+                            <div class="col-8 col-12-medium">
+                                <p style="text-align: justify; margin-bottom: 0;">Si nota facilmente che la faccia rossa e il suo speculare non possono essere sovrapposte ottenendo la stessa figura: il tassello è detto chirale.</p> 
+                            </div>
+                        </div>
 
                         <p style="text-align: justify;">Accostando alcune piastrelle per traslazione si ottiene una torre di spettri.</p>
 
                         <div class="row" style="margin-bottom: 2em; justify-content: center; text-align: center;">
-							<div class="col-4 col-12-medium"><img src="images/tassellazioni/Cattura2.PNG" alt="Torre" style="width:100%; max-width: 100%; border-radius: 4px; display: block; margin: 0 auto;" /><h5>Torre di Spectre</h5></div>
-						</div>
+                            <div class="col-5 col-12-medium"><img src="images/tassellazioni/Cattura2.PNG" alt="Torre" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" /><h5>Torre di Spectre</h5></div>
+                        </div>
 
                         <p style="text-align: justify;">Si possono impilare quante piastrelle si voglia; impilandone due o tre, si può ancora estendere la tassellazione, ma se la torre è composta da più di tre piastrelle ciò diventa impossibile. Tuttavia, violando la richiesta di monoedricità e usando anche il tassello speculare è possibile ottenere una tassellazione biedrica periodica, accostando due torri infinite, una di tasselli Spectre, e una di tasselli speculari. La striscia che si ottiene può essere replicata in modo da riempire tutto il piano.</p>
 
-						<h3 class="major">Costruzione della tassellazione con lo Spectre</h3>
+                        <h3 class="major">Costruzione della tassellazione con lo Spectre</h3>
 
                         <p style="text-align: justify;">Per costruire la tassellazione aperiodica con lo Spectre è necessario iniziare combinando due tasselli: si ottiene il tassello Mystic, il cui nome deriva dal profilo che assomiglia ad un Buddha. Inoltre, tale costruzione è simmetrica rispetto all'asse indicato nella figura seguente.</p>
 
-						<div style="text-align: center; margin-bottom: 2em;">
-							<img src="images/tassellazioni/Cattura3.png" alt="Mystic" style="max-width: 400px; width:100%; border-radius: 4px; display: block; margin: 0 auto;" />
-							<h5>Costruzione del tassello Mystic</h5>
-						</div>
+                        <div style="text-align: center; margin-bottom: 2em;">
+                            <img src="images/tassellazioni/Cattura3.png" alt="Mystic" style="max-width: 450px; width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+                            <h5>Costruzione del tassello Mystic</h5>
+                        </div>
 
                         <p style="text-align: justify;">Per proseguire con la tassellazione, si procede per livelli. Il primo livello consiste nel creare due aggregati, lo Spettro e il Mistico di livello 1.</p>
 
-						<div class="row" style="margin-bottom: 2em; justify-content: center; text-align: center;">
-							<div class="col-4 col-6-medium"><img src="images/tassellazioni/Cattura4.PNG" alt="Livello 1" style="width:100%; max-width: 100%; border-radius:4px; display: block; margin: 0 auto;" /></div>
-							<div class="col-4 col-6-medium"><img src="images/tassellazioni/Spectre e Mystic.jpg" alt="S e M" style="width:100%; max-width: 100%; border-radius:4px; display: block; margin: 0 auto;" /></div>
-                        </div>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 2em; text-align: center;">
+    <div style="width: 35%; min-width: 250px; padding: 10px; box-sizing: border-box;">
+        <img src="images/tassellazioni/Cattura4.PNG" alt="Livello 1" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+    </div>
+    
+    <div style="width: 58.27%; min-width: 280px; padding: 10px; box-sizing: border-box;">
+        <img src="images/tassellazioni/Spectre e Mystic.jpg" alt="S e M" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+    </div>
+</div>
 
                         <p style="text-align: justify;">Lo Spettro di livello 1 si ottiene circondando un Mistico (di livello 0) con 7 Spettri disposti come nella figura precedente a sinistra. Rispetto al tassello blu del Mistico e procedendo in senso orario, dal rosa più tenue al rosso, l'angolo di rotazione di ciascuno Spettro è -120, -60, -60, 0, 60, 60, 120 gradi. Il Mistico di livello 1 si ottiene rimuovendo lo Spettro più esterno, come mostrato a destra nella figura precedente. Si noti quindi che tra i due aggregati vi è un solo tassello di differenza. Queste costruzioni sono il primo passo di una procedura che si generalizza e che permette di riempire regioni sempre più estese. Per la costruzione del secondo livello, come mostrato nella figura seguente, si considera un Mistico di primo livello, circondato da 6 spetti di livello 1, e se ne aggiungerà uno per lo Spettro di livello 2, e così via.</p>
 
-                        <div class="row" style="margin-bottom: 2em; justify-content: center; text-align: center;">
-							<div class="col-4 col-6-medium"><img src="images/tassellazioni/Cattura6.PNG" alt="Livello 2" style="width:100%; max-width: 100%; border-radius:4px; display: block; margin: 0 auto;" /></div>
-                        </div>
+                        <div style="text-align: center; margin: 2em auto;">
+    						<img src="images/tassellazioni/Cattura6.PNG" alt="Livello 2" style="max-width: 550px; width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+						</div>
 
                         <p style="text-align: justify;">Si prosegue poi con il livello 3 nella figura seguente.</p> 
 
                         <div class="row" style="margin-bottom: 2em; justify-content: center; text-align: center;">
-							<div class="col-4 col-6-medium"><img src="images/tassellazioni/Cattura7.PNG" alt="Livello 3" style="width:100%; max-width: 100%; border-radius:4px; display: block; margin: 0 auto;" /></div>
-						</div>
+                            <div class="col-7 col-12-medium"><img src="images/tassellazioni/Cattura7.PNG" alt="Livello 3" style="width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" /></div>
+                        </div>
 
                         <p style="text-align: justify;">Per finire, la tassellazione monoedrica aperiodica dal livello 0 al livello 4.</p>
-						<div style="text-align: center; margin-top: 3em;">
-							<img src="images/tassellazioni/10.PNG" alt="Completa" style="max-width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
-						</div>
-					</section>
+                        <div style="text-align: center; margin-top: 3em;">
+                            <img src="images/tassellazioni/10.PNG" alt="Completa" style="max-width: 100%; height: auto; border-radius: 4px; display: block; margin: 0 auto;" />
+                        </div>
+                    </section>
 
-				</div>
-			</div>
-		</section>
+                </div>
+            </div>
+        </section>
 
-		<section id="footer">
-			<div class="inner">
-				<ul class="copyright">
-					<li>&copy; Mattia Garatti | All rights reserved.</li>
-				</ul>
-			</div>
-		</section>
+        <section id="footer">
+            <div class="inner">
+                <ul class="copyright">
+                    <li>&copy; Mattia Garatti | All rights reserved.</li>
+                </ul>
+            </div>
+        </section>
 
-	</div>
+    </div>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>
