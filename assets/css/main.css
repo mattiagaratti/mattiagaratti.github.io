@@ -25,6 +25,7 @@
 	--READINGS_BG: var(--GRADIENT), url(../../images/background_readings.jpg);
 	--PUBLICATIONS_BG: var(--GRADIENT), url(../../images/background_publications.jpg);
 	--TASSELLAZIONI_BG: var(--GRADIENT), url(../../images/background_tassellazioni.jpg);
+	--TEACHING_BG: var(--GRADIENT), url(../../images/background_teaching.jpg);
 }
 
 
@@ -275,6 +276,10 @@ body.tassellazioni::before {
 	background-image: var(--TASSELLAZIONI_BG);
 }
 
+body.teaching::before {
+	background-image: var(--TEACHING_BG);
+}
+
 /* Rimuovi l'immagine di sfondo dai container interni per evitare duplicati */
 body.index #banner,
 body.index #footer,
@@ -289,7 +294,9 @@ body.publications #footer,
 body.tassellazioni #banner,
 body.tassellazioni #footer,
 body.readings #banner,
-body.readings #footer {
+body.readings #footer,
+body.teaching #banner,
+body.teaching #footer {
 	background-image: none !important;
 	background-color: transparent !important;
 }
@@ -339,6 +346,11 @@ body.publications {
 body.tassellazioni {
 	background-color: var(--BODY_COLOR);
 	background-image: var(--TASSELLAZIONI_BG);
+	background-size: auto, cover;
+}
+body.teaching {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--TEACHING_BG);
 	background-size: auto, cover;
 }
 body.index {
@@ -406,6 +418,14 @@ body.publications #footer {
 body.tassellazioni #banner,
 body.tassellazioni #footer {
 	background-image: var(--TASSELLAZIONI_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.teaching #banner,
+body.teaching #footer {
+	background-image: var(--TEACHING_BG);
 	background-size: auto, cover;
 	background-attachment: fixed, fixed;
 	background-position: center, center;
