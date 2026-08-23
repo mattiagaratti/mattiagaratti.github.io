@@ -79,7 +79,7 @@ use_mathjax: true
 								$container.empty();
 								
 								newsData.forEach((news, index) => {
-									const isExtra = index >= 4 ? 'extra-news' : '';
+									const isExtra = index >= 3 ? 'extra-news' : '';
 									const article = `
 										<article class="${isExtra}">
 											<a class="image"><img src="${news.image}" alt="${news.alt}" /></a>
