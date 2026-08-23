@@ -1,0 +1,725 @@
+/* --- REGOLE DI BASE: COLORI, FONT, TIPOGRAFIA --- */
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic");
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+:root {
+	--ARTICLE_COLOR: #3b4150;
+	/* Colore article */
+	--BODY_COLOR: #003153;
+	/* Colore body */
+	--MENU_COLOR: #3b4150;
+	/*Colore menu */
+	--HEADER_COLOR: #000923;
+	/* Colore header */
+	--BG_OVERLAY: rgba(46, 49, 65, 0.8);
+	/* Overlay immagine di sfondo */
+	--GRADIENT: linear-gradient(to top, var(--BG_OVERLAY), var(--BG_OVERLAY));
+	--MENU_HOVER_COLOR: #45558d;
+	/* Colore hover menu */
+
+	/* Immagini di sfondo */
+	--HOME_BG: var(--GRADIENT), url(../../images/background_index.jpg);
+	--MATERIALS_BG: var(--GRADIENT), url(../../images/background_materials.jpg);
+	--CV_BG: var(--GRADIENT), url(../../images/background_cv.jpg);
+	--PRIVATE_LESSONS_BG: var(--GRADIENT), url(../../images/background_private_lessons.jpg);
+	--READINGS_BG: var(--GRADIENT), url(../../images/background_readings.jpg);
+	--PUBLICATIONS_BG: var(--GRADIENT), url(../../images/background_publications.jpg);
+	--TASSELLAZIONI_BG: var(--GRADIENT), url(../../images/background_tassellazioni.jpg);
+	--TEACHING_BG: var(--GRADIENT), url(../../images/background_teaching.jpg);
+}
+
+
+/* LOGO SITO WEB*/
+.m-logo {
+    width: 120px; 
+    height: 120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="180 65 680 680"><g><path d="m 838,409 c 0,-172 -139,-311 -311,-311 -172,0 -311,139 -311,311 0,172 139,311 311,311 172,0 311,-139 311,-311 z" style="fill:%23003054;stroke:%2340657e;stroke-width:13"/><path d="m 445,316 c 11,54 29,143 53,192 9,18 13,27 18,27 1,0 2,0 10,-7 31,-30 53,-54 82,-88 l 91,-106 c -5,35 -20,129 -20,178 0,11 0.3,22 1,33 0.3,4 2,16 19,16 17,0 49,-18 49,-26 0,-2 -2,-2 -3,-2 -5,0 -13,3 -18,6 -10,-1 -10,-7 -11,-17 -1,-13 -1,-25 -1,-27 0,-46 18,-173 30,-225 0.3,-2 0.7,-3 0.7,-7 0,-1 -0.3,-6 -3,-6 -1,0 -1,0.3 -9,9 -39,47 -161,194 -202,229 -10,-22 -18,-38 -32,-96 -12,-47 -19,-81 -26,-122 -1,-5 -3,-17 -3,-18 -1,-1 -3,-1 -4,-1 -7,0 -24,9 -26,18 -4,35 -13,90 -42,170 -33,89 -42,89 -50,89 -5,0 -20,-3 -30,-11 -1,-2 -2,-2 -3,-2 -5,0 -15,18 -15,30 0,3 0,8 13,15 10,5 20,5 22,5 25,0 50,-59 58,-81 19,-47 43,-113 54,-173 z" style="fill:%23ffffff"/></g></svg>');
+}
+
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	-webkit-text-size-adjust: none;
+}
+
+mark {
+	background-color: var(--ARTICLE_COLOR);
+	color: inherit;
+}
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input,
+select,
+textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+
+/* Basic */
+
+@-ms-viewport {
+	width: device-width;
+}
+
+body {
+	-ms-overflow-style: scrollbar;
+}
+
+@media screen and (max-width: 480px) {
+
+	html,
+	body {
+		min-width: 320px;
+	}
+
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: var(--BODY_COLOR);
+}
+
+/* --- NUOVA GESTIONE SFONDO FISSO (COMPATIBILE CON IPHONE) --- */
+
+/* Creiamo un elemento virtuale che fa da sfondo */
+body::before {
+	content: "";
+	position: fixed;
+	/* Questo è il segreto per iPhone */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	/* Copre tutto lo schermo */
+	z-index: -1;
+	/* Sta dietro a tutto il testo */
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	/* Impostiamo uno sfondo di default */
+	background-image: var(--GRADIENT), url(../../images/background_index.jpg);
+}
+
+/* Ora riassegniamo le immagini corrette per ogni pagina al "::before" */
+body.index::before {
+	background-image: var(--HOME_BG);
+}
+
+body.materials::before {
+	background-image: var(--MATERIALS_BG);
+}
+
+body.cv::before {
+	background-image: var(--CV_BG);
+}
+
+body.private_lessons::before {
+	background-image: var(--PRIVATE_LESSONS_BG);
+}
+
+body.readings::before {
+	background-image: var(--READINGS_BG);
+}
+
+body.publications::before {
+	background-image: var(--PUBLICATIONS_BG);
+}
+
+body.tassellazioni::before {
+	background-image: var(--TASSELLAZIONI_BG);
+}
+
+body.teaching::before {
+	background-image: var(--TEACHING_BG);
+}
+
+/* Rimuovi l'immagine di sfondo dai container interni per evitare duplicati */
+body.index #banner,
+body.index #footer,
+body.materials #banner,
+body.materials #footer,
+body.cv #banner,
+body.cv #footer,
+body.private_lessons #banner,
+body.private_lessons #footer,
+body.publications #banner,
+body.publications #footer,
+body.tassellazioni #banner,
+body.tassellazioni #footer,
+body.readings #banner,
+body.readings #footer,
+body.teaching #banner,
+body.teaching #footer {
+	background-image: none !important;
+	background-color: transparent !important;
+}
+
+body.is-preload *,
+body.is-preload *:before,
+body.is-preload *:after {
+	-moz-animation: none !important;
+	-webkit-animation: none !important;
+	-ms-animation: none !important;
+	animation: none !important;
+	-moz-transition: none !important;
+	-webkit-transition: none !important;
+	-ms-transition: none !important;
+	transition: none !important;
+}
+
+body.materials {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--MATERIALS_BG);
+	background-size: auto, cover;
+}
+
+body.readings {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--READINGS_BG);
+	background-size: auto, cover;
+}
+
+body.cv {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--CV_BG);
+	background-size: auto, cover;
+}
+
+body.private_lessons {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--PRIVATE_LESSONS_BG);
+	background-size: auto, cover;
+}
+
+body.publications {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--PUBLICATIONS_BG);
+	background-size: auto, cover;
+}
+body.tassellazioni {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--TASSELLAZIONI_BG);
+	background-size: auto, cover;
+}
+body.teaching {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--TEACHING_BG);
+	background-size: auto, cover;
+}
+body.index {
+	background-color: var(--BODY_COLOR);
+	background-image: var(--HOME_BG);
+	background-size: auto, cover;
+}
+
+body.index #banner,
+body.index #footer {
+	background-image: var(--HOME_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.index #banner,
+body.index #footer {
+	background-image: var(--HOME_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.private_lessons #banner,
+body.private_lessons #footer {
+	background-image: var(--PRIVATE_LESSONS_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.materials #banner,
+body.materials #footer {
+	background-image: var(--MATERIALS_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.cv #banner,
+body.cv #footer {
+	background-image: var(--CV_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.readings #banner,
+body.readings #footer {
+	background-image: var(--READINGS_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.publications #banner,
+body.publications #footer {
+	background-image: var(--PUBLICATIONS_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.tassellazioni #banner,
+body.tassellazioni #footer {
+	background-image: var(--TASSELLAZIONI_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+body.teaching #banner,
+body.teaching #footer {
+	background-image: var(--TEACHING_BG);
+	background-size: auto, cover;
+	background-attachment: fixed, fixed;
+	background-position: center, center;
+}
+
+/* Type */
+
+body,
+input,
+select,
+textarea {
+	color: #ffffff;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 16.5pt;
+	font-weight: 300;
+	line-height: 1.65;
+}
+
+@media screen and (max-width: 1680px) {
+
+	body,
+	input,
+	select,
+	textarea {
+		font-size: 13pt;
+	}
+
+}
+
+@media screen and (max-width: 1280px) {
+
+	body,
+	input,
+	select,
+	textarea {
+		font-size: 12pt;
+	}
+
+}
+
+@media screen and (max-width: 980px) {
+
+	body,
+	input,
+	select,
+	textarea {
+		font-size: 12pt;
+	}
+
+}
+
+@media screen and (max-width: 736px) {
+
+	body,
+	input,
+	select,
+	textarea {
+		font-size: 12pt;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+
+	body,
+	input,
+	select,
+	textarea {
+		font-size: 12pt;
+	}
+
+}
+
+a {
+	-moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	-webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+	/* border-bottom: dotted 1px rgba(255, 255, 255, 0.35); */
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom-color: transparent;
+	color: #ffffff !important;
+}
+
+a.special:not(.button) {
+	text-decoration: none;
+	border-bottom: 0;
+	display: block;
+	font-family: Raleway, Helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	margin: 0 0 2em 0;
+	text-transform: uppercase;
+}
+
+a.special:not(.button):before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	line-height: 1;
+	text-transform: none !important;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+}
+
+a.special:not(.button):before {
+	-moz-transition: background-color 0.2s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out;
+	-ms-transition: background-color 0.2s ease-in-out;
+	transition: background-color 0.2s ease-in-out;
+	border-radius: 100%;
+	border: solid 2px rgba(255, 255, 255, 0.125);
+	content: '\f105';
+	display: inline-block;
+	font-size: 1.25em;
+	height: 2em;
+	line-height: 1.75em;
+	margin-right: 0.85em;
+	text-align: center;
+	text-indent: 0.15em;
+	vertical-align: middle;
+	width: 2em;
+}
+
+a.special:not(.button):hover:before {
+	background-color: rgba(255, 255, 255, 0.025);
+}
+
+a.special:not(.button):active:before {
+	background-color: rgba(255, 255, 255, 0.075);
+}
+
+strong,
+b {
+	color: #ffffff;
+	font-weight: 600;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+p {
+	margin: 0 0 2em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #ffffff;
+	font-family: Raleway, Helvetica, sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	margin: 0 0 1em 0;
+	text-transform: uppercase;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 0;
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+	font-weight: 200;
+}
+
+h1.major,
+h2.major,
+h3.major,
+h4.major,
+h5.major,
+h6.major {
+	padding-bottom: 1em;
+	border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+h3 {
+	font-size: 0.9em;
+}
+
+h4 {
+	font-size: 0.7em;
+}
+
+h5 {
+	font-size: 0.7em;
+}
+
+h6 {
+	font-size: 0.7em;
+}
+
+@media screen and (max-width: 736px) {
+
+	h2 {
+		font-size: 1em;
+	}
+
+	h3 {
+		font-size: 0.8em;
+	}
+
+}
+
+sub {
+	font-size: 0.8em;
+	position: relative;
+	top: 0.5em;
+}
+
+sup {
+	font-size: 0.8em;
+	position: relative;
+	top: -0.5em;
+}
+
+blockquote {
+	border-left: solid 4px rgba(255, 255, 255, 0.125);
+	font-style: italic;
+	margin: 0 0 2em 0;
+	padding: 0.5em 0 0.5em 2em;
+}
+
+code {
+	background: rgba(255, 255, 255, 0.025);
+	border-radius: 5px;
+	border: solid 2px rgba(255, 255, 255, 0.125);
+	font-family: "Courier New", monospace;
+	font-size: 0.9em;
+	margin: 0 0.25em;
+	padding: 0.25em 0.65em;
+}
+
+pre {
+	-webkit-overflow-scrolling: touch;
+	font-family: "Courier New", monospace;
+	font-size: 0.9em;
+	margin: 0 0 2em 0;
+}
+
+pre code {
+	display: block;
+	line-height: 1.75em;
+	padding: 1em 1.5em;
+	overflow-x: auto;
+}
+
+hr {
+	border: 0;
+	border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+	margin: 2.5em 0;
+}
+
+hr.major {
+	margin: 4em 0;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-right {
+	text-align: right;
+}
+

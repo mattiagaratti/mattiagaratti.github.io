@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Mattia Garatti {% if page.title %}| {{ page.title }}{% endif %}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}" />
+	<link rel="stylesheet" href="{{ '/assets/css/grid.css' | relative_url }}" />
+	<link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}" />
+	<link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}" />
+	<link rel="stylesheet" href="{{ '/assets/css/custom_modules.css' | relative_url }}" />
+	<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}" />
+	<link rel="icon" href="{{ '/images/favicon.ico' | relative_url }}" type="image/x-icon">
+	<link rel="shortcut icon" href="{{ '/images/favicon.ico' | relative_url }}" type="image/x-icon">
+	<link rel="apple-touch-icon" href="{{ '/images/favicon.ico' | relative_url }}" type="image/x-icon">
+	<link rel="icon" sizes="192x192" href="{{ '/images/favicon.ico' | relative_url }}" type="image/x-icon">
+	{% if page.use_mathjax %}
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	{% endif %}
+	<script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
+	<noscript>
+		<script src="https://cdnjs.cloudflare.com/cloudflare-static/polyfill.v3.min.js"></script>
+		<link rel="stylesheet" href="{{ '/assets/css/noscript.css' | relative_url }}" />
+	</noscript>
+	{% if page.is_index %}
+	<meta name="description" content="Mattia Garatti's personal website. Doctoral researcher in Mathematics at Université Paris-Saclay. Explore my journey through Maths!">
+	<meta name="google-site-verification" content="Pad_7OobXckZCcfTAL8-2pPJVLqGYMPMPkgBSWSvoGg" />
+	{% endif %}
+</head>
+
+<body class="is-preload {{ page.body_class }}">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" {% if page.is_index %}class="alt"{% endif %}>
+			<h1><a href="{{ '/index.html' | relative_url }}">Mattia Garatti</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+                    <li><a href="{{ '/index.html' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/cv.html' | relative_url }}">Curriculum Vitae</a></li>
+                    <li><a href="{{ '/publications.html' | relative_url }}">Publications</a></li>
+                    <li><a href="{{ '/teaching.html' | relative_url }}">Teaching</a></li>
+                    <li><a href="{{ '/materials.html' | relative_url }}">Miscellanea</a></li>
+                    <li><a href="{{ '/readings.html' | relative_url }}">Suggested Readings</a></li>
+                </ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+        {{ content }}
+
+		<!-- Footer -->
+		<section id="footer" {% if page.is_index %}class="index"{% endif %}>
+			<div class="inner">
+				{% if page.is_index %}
+				<h2 class="major">Get in touch</h2>
+				<ul class="contact">
+					<li class="custom-icon" style="--icon-url: url({{ '/assets/css/images/Orsay_Sigle_CMJN.svg' | relative_url }});">
+    					<a href="https://maps.app.goo.gl/5u9RJqtkKmsaFAGc7" target="_blank" style="text-decoration: none; color: inherit;">
+        					Institut de Mathématiques d'Orsay<br />
+        					Bâtiment 307, campus d'Orsay - Bureau 2S15
+    				</a>
+					</li>
+					<li class="icon solid fa-phone"><a href="tel:+33169154735">(+33) 1 69 15 47 35</a></li>
+					<li class="icon solid fa-envelope"><a
+							href="mailto:mattia.garatti@universite-paris-saclay.fr">mattia.garatti@universite-paris-saclay.fr</a>
+					</li>
+				</ul>
+				
+				<ul class="custom-social-row">
+					<li>
+						<a href="https://orcid.org/0009-0007-0064-063X" target="_blank" 
+						class="social-circle" 
+						style="background-image: url('{{ '/images/orcid.svg' | relative_url }}');">&nbsp;</a>
+					</li>
+					<li>
+						<a href="https://www.researchgate.net/profile/Mattia-Garatti" target="_blank" 
+						class="social-circle" 
+						style="background-image: url('{{ '/images/researchgate.svg' | relative_url }}');">&nbsp;</a>
+					</li>
+				</ul>
+				{% endif %}
+
+				<ul class="copyright">
+					<li>&copy; Mattia Garatti | All rights reserved.</li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="{{ '/assets/js/jquery.scrollex.min.js' | relative_url }}"></script>
+	<script src="{{ '/assets/js/browser.min.js' | relative_url }}"></script>
+	<script src="{{ '/assets/js/breakpoints.min.js' | relative_url }}"></script>
+	<script src="{{ '/assets/js/util.js' | relative_url }}"></script>
+	<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+	{% if page.is_index %}
+	<script>
+		const btn = document.getElementById('load-more-btn');
+		const newsTitle = document.getElementById('news-title');
+		const newsSection = document.getElementById('four');
+
+		if (btn) {
+			btn.addEventListener('click', function () {
+				const extraNews = document.querySelectorAll('.extra-news');
+				if (extraNews.length === 0) return;
+				const isExpanded = extraNews[0].classList.contains('is-visible');
+
+				extraNews.forEach(item => {
+					item.classList.toggle('is-visible');
+				});
+
+				if (isExpanded) {
+					btn.textContent = 'See others';
+					newsTitle.textContent = 'Recent news';
+					const offset = 80;
+					const sectionPosition = newsSection.getBoundingClientRect().top + window.pageYOffset;
+					window.scrollTo({
+						top: sectionPosition - offset,
+						behavior: 'smooth'
+					});
+				} else {
+					btn.textContent = 'Show less';
+					newsTitle.textContent = 'My journey through maths';
+				}
+			});
+		}
+	</script>
+	{% endif %}
+
+</body>
+</html>

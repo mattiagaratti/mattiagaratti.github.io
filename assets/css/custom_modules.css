@@ -1,0 +1,381 @@
+/* Contenitore principale */
+.features {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: flex-start;
+	/* Allinea a sinistra */
+	gap: 20px;
+	/* Spazio uniforme tra i riquadri */
+}
+
+/* Regola per i singoli riquadri (Desktop) */
+.features article {
+	/* Calcolo: (100% / 3) meno un po' di margine per il gap */
+	width: calc(33.33% - 14px) !important;
+	margin: 0 !important;
+	/* Resettiamo i margini vecchi del template */
+	display: none;
+	/* Nascosti di default per lo script */
+	flex-direction: column;
+}
+
+/* Mostra i riquadri iniziali */
+.features article:not(.extra-news) {
+	display: flex !important;
+}
+
+/* Mostra gli extra quando clicchi il tasto */
+.features article.extra-news.is-visible {
+	display: flex !important;
+}
+
+/* --- Responsive: Mobile --- */
+@media screen and (max-width: 980px) {
+	.features article {
+		width: calc(50% - 10px) !important;
+		/* 2 per riga su tablet */
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.features article {
+		width: 100% !important;
+		/* 1 per riga su smartphone */
+	}
+}
+
+button.button {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: solid 2px rgba(255, 255, 255, 0.125);
+    border-radius: 4px;
+    color: #ffffff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 700;
+    height: 3.75em;
+    letter-spacing: 0.1em;
+    line-height: 3.75em;
+    padding: 0 2.25em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+button.button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Correzione distanza foto profilo */
+#one .inner .image {
+    margin-right: 2.5em !important; /* Spazio a destra della foto */
+    margin-bottom: 1em !important; /* Spazio sotto se il testo va a capo */
+    flex-shrink: 0;                /* Impedisce alla foto di rimpicciolirsi troppo */
+}
+
+/* Ottimizzazione per Mobile (quando NON sei in modalità sito desktop) */
+@media screen and (max-width: 736px) {
+    #one .inner {
+        display: flex;
+        flex-direction: column !important; /* Foto sopra, testo sotto */
+        align-items: center;
+        text-align: center;
+    }
+    
+    #one .inner .image {
+        margin-right: 0 !important;
+        margin-bottom: 2em !important;
+    }
+}
+
+/* --- STILE LISTA (HOVER CARD) --- */
+#page-wrapper .pub-item {
+    cursor: pointer !important;
+    padding: 20px !important;
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease !important;
+    border-radius: 4px !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
+    text-decoration: none !important;
+}
+
+#page-wrapper .pub-item:hover {
+    background-color: var(--MENU_HOVER_COLOR) !important;
+}
+
+#page-wrapper .pub-title {
+    color: #fff !important;
+    font-weight: bold !important;
+    font-size: 1.2em !important;
+    display: inline-block !important;
+    margin-bottom: 5px !important;
+}
+
+#page-wrapper .pub-item:hover .pub-title {
+    text-decoration: underline !important;
+    color: #fff !important;
+}
+
+#page-wrapper .pub-info {
+    font-size: 0.9em !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin: 0 !important;
+}
+
+#page-wrapper .pub-links {
+    margin-top: 10px !important;
+}
+
+#page-wrapper .pub-links a {
+    font-size: 0.8em !important;
+    color: #fff !important;
+    margin-right: 15px !important;
+    font-weight: bold !important;
+    border-bottom: none !important;
+    padding-left: 0 !important;
+}
+
+/* Rimuove frecce/icone circolari ovunque nella lista */
+#page-wrapper .pub-item::before, 
+#page-wrapper .pub-item::after, 
+#page-wrapper .pub-links a::before, 
+#page-wrapper .pub-links a::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* --- STILE POP-UP (MODAL) --- */
+#pubModal.modal {
+    display: none;
+    position: fixed !important;
+    z-index: 10000 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: var(--BG_OVERLAY) !important;
+    backdrop-filter: blur(5px) !important;
+    overflow-y: auto !important; /* Questo permette lo scroll se il testo è lungo */
+}
+
+#pubModal .modal-content {
+    background-color: var(--ARTICLE_COLOR) !important;
+    margin: 40px auto !important;
+    padding: 40px !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    width: 90% !important;
+    max-width: 800px !important;
+    border-radius: 8px !important;
+    position: relative !important;
+}
+
+#pubModal .close-modal {
+    color: #fff !important;
+    position: absolute !important;
+    right: 20px !important;
+    top: 10px !important;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+#pubModal .abstract-text {
+    text-align: justify !important;
+    line-height: 1.6 !important;
+    margin-top: 20px !important;
+}
+
+#pubModal pre code {
+    display: block !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    border-radius: 4px !important;
+    font-size: 0.85em !important;
+    overflow-x: auto !important;
+    color: #ccc !important;
+    white-space: pre-wrap !important;
+}
+
+#pubModal .modal-content a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+#pubModal .modal-content a:hover {
+    text-decoration: underline !important;
+    color: #fff !important;
+}
+
+@media screen and (max-width: 736px) {
+    
+    /* Evita che l'intera pagina abbia strani vuoti a destra */
+    body.materials .wrapper {
+        padding: 2em 1em !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Forza i blocchi ad incolonnarsi occupando tutta la larghezza disponibile */
+    body.materials .features {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Riquadro grigio: azzeriamo il padding nativo per controllare i margini internamente */
+    body.materials .features article {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 2em 0 !important;
+        padding: 0 0 2.5em 0 !important; /* Spazio in fondo alla scheda */
+        float: none !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    /* L'elemento link dell'immagine deve occupare il 100% senza margini */
+    body.materials .features article .image {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 0 1.5em 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
+
+    /* L'immagine vera e propria si allarga da bordo a bordo */
+    body.materials .features article .image img {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        object-fit: cover !important;
+    }
+
+    /* GESTIONE TITOLI (H3) */
+    body.materials .features article h3 {
+        padding-left: 1.5em !important;
+        padding-right: 1.5em !important;
+        box-sizing: border-box !important;
+        /* Se il titolo è la prima cosa del riquadro (senza immagine sopra), gli diamo il giusto spazio dal soffitto */
+        margin-top: 3em !important; 
+    }
+
+    /* Se invece il titolo si trova DOPO un'immagine, riduciamo il margine superiore per non distanziarlo troppo */
+    body.materials .features article .image + h3,
+    body.materials .features article screen + h3 {
+        margin-top: 0.5em !important;
+    }
+
+    /* Riporta gli altri testi (descrizioni e link) ad avere il loro spazio interno laterale */
+    body.materials .features article p,
+    body.materials .features article .special,
+    body.materials .features article ul {
+        padding-left: 1.5em !important;
+        padding-right: 1.5em !important;
+        box-sizing: border-box !important;
+    }
+}
+
+ /* Griglia flessibile per i gruppi di immagini */
+        .tassellazioni-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            gap: 1.5rem !important;
+            margin: 2rem 0 !important;
+        }
+
+        /* Griglia per le immagini singole o più grandi */
+        .tassellazioni-grid.grid-large {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        }
+
+        /* Contenitore della singola figura/miniatura */
+        .tassellazioni-grid .grid-item {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 6px !important;
+            padding: 1rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+
+        /* Impedisce alle immagini geometriche di diventare giganti o sgranate */
+        .tassellazioni-grid .grid-item img {
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: 220px !important;
+            object-fit: contain !important;
+            border-radius: 4px !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        /* Stile per le didascalie sotto le immagini */
+        .tassellazioni-grid .grid-item span {
+            font-size: 0.85rem !important;
+            color: rgba(255, 255, 255, 0.6) !important;
+            font-style: italic !important;
+        }
+
+        /* Layout ottimizzato per smartphone (forza 2 colonne ordinate invece di immagini giganti a tutto schermo) */
+        @media screen and (max-width: 480px) {
+            .tassellazioni-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.8rem !important;
+            }
+            .tassellazioni-grid .grid-item img {
+                max-height: 140px !important;
+            }
+        }/* --- COURSE BOX (TEACHING.HTML) --- */
+details.course-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    margin-bottom: 1.5em;
+    padding: 0;
+    transition: background 0.3s ease;
+}
+details.course-box[open] {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+summary.course-header {
+    padding: 1em 1.2em;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+summary.course-header::-webkit-details-marker {
+    display: none;
+}
+summary.course-header::after {
+    content: "+";
+    font-size: 1.3em;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+details[open] summary.course-header::after {
+    content: "−";
+}
+.course-content {
+    padding: 0 1.2em 1.2em 1.2em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5em;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
