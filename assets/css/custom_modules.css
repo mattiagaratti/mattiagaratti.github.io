@@ -379,3 +379,31 @@ details[open] summary.course-header::after {
     font-size: 0.95em;
     line-height: 1.6;
 }
+
+
+
+
+/* Course materials buttons responsive layout */
+.course-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+.course-buttons .button {
+    box-sizing: border-box !important;
+}
+@media screen and (max-width: 480px) {
+    .button {
+        padding: 0 1.5em !important;
+    }
+    .course-buttons {
+        flex-direction: column;
+    }
+    .course-buttons .button {
+        width: 100% !important;
+        text-align: center;
+        font-size: 0.85em !important;
+    }
+}

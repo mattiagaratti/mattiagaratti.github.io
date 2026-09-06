@@ -1,0 +1,18 @@
+
+/* Course materials buttons responsive layout */
+.course-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+@media screen and (max-width: 480px) {
+    .course-buttons {
+        flex-direction: column;
+    }
+    .course-buttons .button {
+        width: 100%;
+        text-align: center;
+    }
+}
