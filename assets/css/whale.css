@@ -1,0 +1,187 @@
+/* Kept outside #page-wrapper so the menu's blur never traps the fixed layer. */
+#site-whale {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;
+    width: 118px;
+    height: 81px;
+    pointer-events: none;
+    user-select: none;
+    will-change: transform;
+    opacity: .92;
+    transition: opacity .25s ease;
+    filter: drop-shadow(0 4px 5px rgba(0, 18, 39, .18));
+}
+
+#site-whale *, #site-whale svg {
+    pointer-events: none;
+}
+
+#site-whale svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+#site-whale .whale-heading {
+    width: 100%;
+    height: 100%;
+    transition: transform .65s ease-in-out;
+}
+
+#site-whale .whale-bob {
+    width: 100%;
+    height: 100%;
+    animation: whale-bob 4s ease-in-out infinite;
+}
+
+#site-whale .whale-tail {
+    transform-origin: 157px 98px;
+    animation: whale-tail 1.8s ease-in-out infinite;
+}
+
+#site-whale .whale-flipper {
+    transform-origin: 102px 102px;
+    animation: whale-flipper 3.2s ease-in-out infinite;
+}
+
+#site-whale .whale-eye {
+    transform-origin: 43px 86px;
+    animation: whale-blink 7s ease-in-out infinite;
+}
+
+#site-whale .whale-spout {
+    opacity: 0;
+    transform-origin: 65px 56px;
+    animation: whale-spout 16s ease-out infinite;
+}
+
+#site-whale .whale-bob,
+#site-whale .whale-tail,
+#site-whale .whale-flipper,
+#site-whale .whale-eye,
+#site-whale .whale-spout {
+    animation-delay: var(--whale-delay, 0s);
+}
+
+#site-whale.is-resting * {
+    animation-play-state: paused;
+}
+
+#site-whale.is-paused,
+body.is-menu-visible #site-whale {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#whale-toggle {
+    position: fixed;
+    z-index: 9001;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 56px;
+    height: 36px;
+    min-height: 36px;
+    padding: 6px 9px;
+    border: 1px solid rgba(165, 228, 237, .4);
+    border-radius: 20px;
+    background: #14374b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+    color: #d5eef0;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    transition: background .2s ease;
+}
+
+#whale-toggle:hover {
+    background: #245770;
+}
+
+#whale-toggle:focus-visible {
+    outline: 2px solid #b6edf4;
+    outline-offset: 4px;
+}
+
+#whale-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: #a5e4ed;
+    flex-shrink: 0;
+}
+
+#whale-toggle .whale-toggle-eye {
+    fill: #14374b;
+}
+
+#whale-toggle .whale-toggle-state {
+    font: 12px/1 Arial, sans-serif;
+}
+
+#whale-toggle .whale-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+body.is-menu-visible #whale-toggle {
+    visibility: hidden;
+}
+
+@keyframes whale-bob {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes whale-tail {
+    0%, 100% { transform: rotate(-8deg); }
+    50% { transform: rotate(9deg); }
+}
+
+@keyframes whale-flipper {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(12deg); }
+}
+
+@keyframes whale-blink {
+    0%, 42%, 46%, 100% { transform: scaleY(1); }
+    44% { transform: scaleY(.12); }
+}
+
+@keyframes whale-spout {
+    0%, 76%, 91%, 100% { opacity: 0; transform: scale(.35) translateY(4px); }
+    79%, 85% { opacity: .95; transform: scale(1) translateY(0); }
+    90% { opacity: 0; transform: scale(1.1) translateY(-8px); }
+}
+
+@media (max-width: 600px) {
+    #site-whale { width: 88px; height: 60px; opacity: .85; }
+    #whale-toggle { width: 56px; height: 44px; min-height: 44px; }
+}
+
+#site-whale.is-reduced-motion *,
+#site-whale.is-reduced-motion .whale-heading {
+    animation: none;
+    transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #site-whale, #site-whale *, #whale-toggle {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media print {
+    #site-whale, #whale-toggle { display: none !important; }
+}
