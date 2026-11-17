@@ -19,7 +19,7 @@ export function Logo({ className = "" }: { className?: string }) {
 /** Just the "M" glyph of the logo, drawn as an outline: used as a large decorative watermark. */
 export function MGlyph({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="325 225 450 330" className={className} aria-hidden fill="currentColor" fillOpacity="0.35">
+    <svg viewBox="292 249 464 331" className={className} aria-hidden fill="currentColor" fillOpacity="0.35">
       <path
         d="m 445,316 c 11,54 29,143 53,192 9,18 13,27 18,27 1,0 2,0 10,-7 31,-30 53,-54 82,-88 l 91,-106 c -5,35 -20,129 -20,178 0,11 0.3,22 1,33 0.3,4 2,16 19,16 17,0 49,-18 49,-26 0,-2 -2,-2 -3,-2 -5,0 -13,3 -18,6 -10,-1 -10,-7 -11,-17 -1,-13 -1,-25 -1,-27 0,-46 18,-173 30,-225 0.3,-2 0.7,-3 0.7,-7 0,-1 -0.3,-6 -3,-6 -1,0 -1,0.3 -9,9 -39,47 -161,194 -202,229 -10,-22 -18,-38 -32,-96 -12,-47 -19,-81 -26,-122 -1,-5 -3,-17 -3,-18 -1,-1 -3,-1 -4,-1 -7,0 -24,9 -26,18 -4,35 -13,90 -42,170 -33,89 -42,89 -50,89 -5,0 -20,-3 -30,-11 -1,-2 -2,-2 -3,-2 -5,0 -15,18 -15,30 0,3 0,8 13,15 10,5 20,5 22,5 25,0 50,-59 58,-81 19,-47 43,-113 54,-173 z"
         stroke="currentColor"

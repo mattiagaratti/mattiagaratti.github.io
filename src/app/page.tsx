@@ -64,7 +64,9 @@ export default function HomePage() {
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col px-5 pb-8 pt-32 sm:px-8 md:pt-28">
           <div className="grid flex-1 items-center gap-14 md:grid-cols-[1.5fr_1fr] md:gap-16">
-            <div>
+            <div className="relative isolate">
+              {/* the M of the logo, large and faint behind the name, like a monogram */}
+              <MGlyph className="pointer-events-none absolute left-[-4%] top-1/2 -z-10 hidden w-[108%] -translate-y-1/2 text-prussian-400/30 lg:block" />
               <h1 className="title-serif animate-rise text-[clamp(3.4rem,10vw,7rem)] leading-[0.92]" style={d(80)}>
                 Mattia
                 <br />
@@ -90,8 +92,6 @@ export default function HomePage() {
             </div>
 
             <div className="animate-rise relative mx-auto w-full max-w-[17rem] md:max-w-[19rem]" style={d(200)}>
-              {/* the M of the logo, engraved large behind the portrait (fully visible, not cropped) */}
-              <MGlyph className="pointer-events-none absolute left-[-95%] top-1/2 hidden w-[225%] -translate-y-[52%] text-prussian-400/35 xl:block" />
               <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-prussian-500/30 via-transparent to-glacier/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-prussian-400/30">
                 <Img
