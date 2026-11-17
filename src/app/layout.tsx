@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         {/* Mattia's swimming whale (vanilla JS, see public/whale.js) */}
-        <Script src="/whale.js" strategy="afterInteractive" />
+        <Script src="/whale.js?v=2" strategy="afterInteractive" />
       </body>
     </html>
   );

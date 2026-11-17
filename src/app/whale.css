@@ -84,11 +84,11 @@ body.is-menu-visible #site-whale {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    width: 56px;
-    height: 36px;
-    min-height: 36px;
-    padding: 6px 9px;
+    gap: 6px;
+    width: auto;
+    height: 38px;
+    min-height: 38px;
+    padding: 0 12px 0 10px;
     border: 1px solid rgba(165, 228, 237, .4);
     border-radius: 20px;
     background: var(--color-prussian-800);
@@ -122,8 +122,11 @@ body.is-menu-visible #site-whale {
 
 #whale-toggle .whale-toggle-state {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 12px;
     height: 12px;
+    flex-shrink: 0;
 }
 
 #whale-toggle .whale-toggle-state svg {
@@ -174,7 +177,7 @@ body.is-menu-visible #whale-toggle {
 
 @media (max-width: 600px) {
     #site-whale { width: 88px; height: 60px; opacity: .85; }
-    #whale-toggle { width: 56px; height: 44px; min-height: 44px; }
+    #whale-toggle { height: 44px; min-height: 44px; }
 }
 
 #site-whale.is-reduced-motion *,

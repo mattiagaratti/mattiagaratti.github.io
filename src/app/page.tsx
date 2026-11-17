@@ -89,9 +89,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="animate-rise relative mx-auto w-full max-w-[17rem] md:mr-0 md:max-w-[19rem]" style={d(200)}>
+            <div className="animate-rise relative mx-auto w-full max-w-[17rem] md:max-w-[19rem]" style={d(200)}>
               {/* the M of the logo, engraved large behind the portrait (fully visible, not cropped) */}
-              <MGlyph className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[165%] -translate-x-[60%] -translate-y-1/2 text-prussian-500/45 lg:block" />
+              <MGlyph className="pointer-events-none absolute left-[-95%] top-1/2 hidden w-[225%] -translate-y-[52%] text-prussian-400/35 xl:block" />
               <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-prussian-500/30 via-transparent to-glacier/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-prussian-400/30">
                 <Img
