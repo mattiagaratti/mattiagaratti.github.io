@@ -42,7 +42,7 @@ export default function MaterialsPage() {
                     <h3 className="title-serif text-2xl leading-tight">{item.title}</h3>
                     {item.subtitle && (
                       <p className="prose-site mt-3 text-prussian-200">
-                        <Rich text={item.subtitle} />
+                        <Rich text={item.subtitle} plain />
                       </p>
                     )}
                     <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm text-glacier">

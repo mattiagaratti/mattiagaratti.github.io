@@ -23,6 +23,7 @@ export function Header({ name, nav }: { name: string; nav: NavItem[] }) {
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
+    document.body.classList.toggle("is-menu-visible", open); // hides the whale while the menu is open
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);

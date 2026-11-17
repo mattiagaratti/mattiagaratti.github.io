@@ -25,11 +25,30 @@ function MaterialButton({ label, link }: { label: string; link: string }) {
   );
 }
 
-function SubItem({ title, children }: { title: string; children: React.ReactNode }) {
+function SubItem({
+  title,
+  badge,
+  muted,
+  children,
+}: {
+  title: string;
+  badge?: string;
+  muted?: boolean;
+  children: React.ReactNode;
+}) {
   return (
     <details className="rounded-xl border border-prussian-500/20 bg-prussian-900/60">
-      <summary className="flex items-center justify-between gap-3 px-4 py-3 text-prussian-50">
-        {title}
+      <summary className={`flex items-center gap-3 px-4 py-3 ${muted ? "text-prussian-300" : "text-prussian-50"}`}>
+        <span className={`flex-1 ${muted ? "line-through decoration-prussian-400" : ""}`}>{title}</span>
+        {badge && (
+          <span
+            className={`rounded-full px-2.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-[0.06em] ${
+              muted ? "bg-prussian-800 text-prussian-300" : "bg-glacier/15 text-glacier"
+            }`}
+          >
+            {badge}
+          </span>
+        )}
         <Plus className="chevron h-4 w-4 shrink-0 text-prussian-300" />
       </summary>
       <div className="px-4 pb-4">{children}</div>
@@ -38,7 +57,7 @@ function SubItem({ title, children }: { title: string; children: React.ReactNode
 }
 
 function CourseCard({ course }: { course: Course }) {
-  const diary = (course.diary?.entries.filter((e) => !e.hidden) ?? []).sort((a, b) => a.date.localeCompare(b.date));
+  const diary = (course.diary?.entries.filter((e) => !e.hidden) ?? []).sort((a, b) => b.date.localeCompare(a.date));
   const chapters = course.chapters?.items.filter((c) => !c.hidden) ?? [];
   return (
     <details className="surface group overflow-hidden transition-colors open:border-prussian-400/40">
@@ -106,19 +125,35 @@ function CourseCard({ course }: { course: Course }) {
             <Label>{course.diary!.title}</Label>
             <div className="space-y-2">
               {diary.map((d, i) => (
-                <SubItem key={i} title={formatLessonDate(d.date)}>
-                  <div className="prose-site text-[0.95rem]">
-                    {d.topics && (
-                      <p>
-                        <strong>Topics covered:</strong> <Rich text={d.topics} />
-                      </p>
+                <SubItem
+                  key={i}
+                  title={formatLessonDate(d.date)}
+                  badge={d.canceled ? "Canceled" : i === 0 ? "Latest" : undefined}
+                  muted={d.canceled}
+                >
+                  <dl className="prose-site grid gap-x-5 gap-y-2 text-[0.95rem] sm:grid-cols-[9rem_1fr]">
+                    {d.note && <p className="text-prussian-200 sm:col-span-2">{<Rich text={d.note} />}</p>}
+                    {(
+                      [
+                        ["Topics covered", d.topics],
+                        ["Exercises completed", d.exercises],
+                        ["Homework", d.homework],
+                      ] as const
+                    ).map(([label, value]) =>
+                      value ? (
+                        <div key={label} className="contents">
+                          <dt className="font-mono text-[0.7rem] uppercase leading-7 tracking-[0.06em] text-prussian-300">{label}</dt>
+                          <dd className="min-w-0 text-prussian-100">
+                            {(Array.isArray(value) ? value : [value]).map((v, j) => (
+                              <span key={j} className="block">
+                                <Rich text={v} />
+                              </span>
+                            ))}
+                          </dd>
+                        </div>
+                      ) : null,
                     )}
-                    {d.exercises && (
-                      <p>
-                        <strong>Exercises completed:</strong> <Rich text={d.exercises} />
-                      </p>
-                    )}
-                  </div>
+                  </dl>
                 </SubItem>
               ))}
             </div>

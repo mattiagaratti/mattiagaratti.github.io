@@ -41,7 +41,15 @@ export type Course = {
   syllabus?: string[];
   diary?: {
     title: string;
-    entries: { date: string; topics?: string; exercises?: string; hidden?: boolean }[];
+    entries: {
+      date: string;
+      topics?: string;
+      exercises?: string | string[];
+      homework?: string;
+      note?: string;
+      canceled?: boolean;
+      hidden?: boolean;
+    }[];
   };
   chapters?: { intro?: string; items: { title: string; links: Link[]; hidden?: boolean }[] };
   materials?: Link[];

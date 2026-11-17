@@ -3,7 +3,10 @@ import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/content";
+import Script from "next/script";
+import "katex/dist/katex.min.css";
 import "./globals.css";
+import "./whale.css";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -41,6 +44,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header name={site.name} nav={site.nav} />
         <main id="main">{children}</main>
         <Footer />
+        {/* Mattia's swimming whale (vanilla JS, see public/whale.js) */}
+        <Script src="/whale.js" strategy="afterInteractive" />
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 {
-  "$comment": "Teaching page. Text fields support [link](https://...), **bold** and *italic*. Every field of a course is optional: remove what you do not need. Diary: one entry per lesson, 'date' as YYYY-MM-DD (the weekday is added automatically, entries are sorted by date). Materials: a link with an empty href is shown as 'soon'. Set \"hidden\": true on a course, a diary entry or a chapter to hide it without deleting it.",
+  "$comment": "Teaching page. Text fields support [link](https://...), **bold**, *italic* and LaTeX math: $x^2$ inline, $$\\\\lim_{x\\\\to 0} f(x)$$ on its own line (in JSON every backslash must be written twice: \\\\lim, \\\\frac, ...). Every field of a course is optional. Diary: one entry per lesson with 'date' as YYYY-MM-DD (weekday added automatically, most recent lesson shown first); 'topics', 'exercises', 'homework' and 'note' are optional, 'exercises' can be a list (one line per TD sheet); add \"canceled\": true for a canceled lesson. Materials: a link with an empty href is shown as 'soon'. Set \"hidden\": true on a course, a diary entry or a chapter to hide it without deleting it.",
   "academicYear": "Academic Year 2026/2027",
   "consultation": {
     "title": "Student consultation",
@@ -54,9 +54,9 @@
           "syllabus": [
             "The set of real numbers",
             "The set of complex numbers",
-            "Algebraic manipulation techniques",
+            "Algebraic calculation techniques",
             "Limits, continuity, and differentiability of real-valued functions of a real variable",
-            "Standard functions",
+            "Reference functions",
             "Bijective functions and inverse functions",
             "Taylor expansions",
             "Integration"
@@ -66,7 +66,113 @@
             "entries": [
               {
                 "date": "2026-09-07",
-                "topics": "Introduction, quantifiers, and basic properties of real numbers."
+                "topics": "Introduction, quantifiers and basic properties of real numbers.",
+                "exercises": "TD1 — Exercises 1, 2 (points 1 to 5, 9 and 11), 3, 4, 10 and 12.",
+                "homework": "TD1 — Exercise 7."
+              },
+              {
+                "date": "2026-09-08",
+                "topics": "Basic properties of real numbers, fractional and irrational inequations, infimum and supremum of a set.",
+                "exercises": "TD1 — Exercises 7, 15, 16, 18 and 19.",
+                "homework": "TD1 — Exercise 14."
+              },
+              {
+                "date": "2026-09-14",
+                "topics": "Absolute value of a real number, intervals.",
+                "exercises": "TD1 — Exercises 14, 20, 21 (point 1 and 2), and 26.",
+                "homework": "TD1 — Exercises 23 and 25."
+              },
+              {
+                "date": "2026-09-15",
+                "topics": "Algebraical form of a complex number, conjugate of a complex number, modulus of a complex number.",
+                "exercises": [
+                  "TD1 — Exercises 23 and 25.",
+                  "TD2 — Exercises 1, 3 (point 1 and 3), 4, 6, 7 and 8."
+                ],
+                "homework": "TD2 — Exercise 5."
+              },
+              {
+                "date": "2026-09-21",
+                "topics": "Complex numbers of module 1, Moivre's formula and Euler's formula.",
+                "exercises": "TD2 — Exercises 5, 9 (points 1 and 3), 13, 16 and 17.",
+                "homework": "TD2 — Exercise 18."
+              },
+              {
+                "date": "2026-09-22",
+                "topics": "Argument and trigonometrical form of a complex number, square roots of complex numbers. General review for the test of 23/09/2026.",
+                "exercises": "TD2 — Exercises 18, 19 and 21. Review exercises for the test.",
+                "homework": "TD2 — Exercise 12."
+              },
+              {
+                "date": "2026-09-28",
+                "topics": "Algebraical equations with complex numbers, induction principle.",
+                "exercises": [
+                  "TD2 — Exercises 12 and 22 (point 1,3 and 4).",
+                  "TD3 — Exercise 2."
+                ],
+                "homework": "TD2 — Exercise 24."
+              },
+              {
+                "date": "2026-09-29",
+                "topics": "Complex numbers and geometry, change of index in a sum, Newton's formula.",
+                "exercises": [
+                  "TD2 — Exercise 24.",
+                  "TD3 — Exercises 4, 6, 7 and 8."
+                ],
+                "homework": "TD3 — Exercise 3."
+              },
+              {
+                "date": "2026-10-05",
+                "topics": "Geometric sums, graph of a function, image and preimage of a set via a function, composition of functions, bounded functions.",
+                "exercises": [
+                  "TD3 — Exercise 3.",
+                  "TD4 — Exercises 1, 3, 4, 5, 7."
+                ],
+                "homework": "TD4 — Exercise 2."
+              },
+              {
+                "date": "2026-10-06",
+                "topics": "Positive part and negative part of a function, monotonic functions, even and odd functions, periodic functions, definition of a limit, operations with the limits.",
+                "exercises": "TD4 — Exercise 2, 8, 10, 11, 14, 17 and 18 (point 2).",
+                "homework": "TD4 — Exercise 19."
+              },
+              {
+                "date": "2026-10-12",
+                "canceled": true,
+                "note": "Lesson canceled due to student strike."
+              },
+              {
+                "date": "2026-10-13",
+                "canceled": true,
+                "note": "Lesson canceled due to student strike."
+              },
+              {
+                "date": "2026-11-02",
+                "topics": "Algebra of limits, indeterminate forms, orders of infinity.",
+                "exercises": "TD4 — Exercise 19 and 15.",
+                "homework": "TD4 — Exercise 16."
+              },
+              {
+                "date": "2026-11-03",
+                "canceled": true,
+                "note": "Lesson canceled due to student strike."
+              },
+              {
+                "date": "2026-11-09",
+                "topics": "Limits and periodic functions. Correction mid-semester exam.",
+                "exercises": "TD4 — Exercise 16.",
+                "homework": "TD4 — Exercise 18."
+              },
+              {
+                "date": "2026-11-10",
+                "topics": "Limits and indeterminate forms. Correction mid-semester exam.",
+                "exercises": "TD4 — Exercise 18.",
+                "homework": "None."
+              },
+              {
+                "date": "2026-11-17",
+                "topics": "General review.",
+                "homework": "TD3 — Exercise 5, compute the following limits: $$\\lim_{x \\to +\\infty} \\left(\\sqrt{x^2+2x+1}-x\\right), \\qquad \\lim_{x \\to 1} \\frac{\\log x}{x^2+3x-4}.$$"
               }
             ]
           },
@@ -83,6 +189,74 @@
                   {
                     "label": "Exercises",
                     "href": "documents/teaching/Analyse-Calculus renforcé/TD1.pdf"
+                  },
+                  {
+                    "label": "Solutions",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD1_sol.pdf"
+                  }
+                ]
+              },
+              {
+                "title": "Chapter 2: The set of complex numbers",
+                "links": [
+                  {
+                    "label": "Theory",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/Chapitre2.pdf"
+                  },
+                  {
+                    "label": "Exercises",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD2.pdf"
+                  },
+                  {
+                    "label": "Solutions",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD2_sol.pdf"
+                  }
+                ]
+              },
+              {
+                "title": "Chapter 3: Algebraic calculation techniques",
+                "links": [
+                  {
+                    "label": "Theory",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/Chapitre3.pdf"
+                  },
+                  {
+                    "label": "Exercises",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD3.pdf"
+                  },
+                  {
+                    "label": "Solutions",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD3_sol.pdf"
+                  }
+                ]
+              },
+              {
+                "title": "Chapter 4: Limits, continuity and differentiability",
+                "links": [
+                  {
+                    "label": "Theory",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/Chapitre4.pdf"
+                  },
+                  {
+                    "label": "Exercises",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD4.pdf"
+                  },
+                  {
+                    "label": "Solutions",
+                    "href": ""
+                  }
+                ]
+              },
+              {
+                "title": "Chapter 5: Reference functions",
+                "links": [
+                  {
+                    "label": "Theory",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/Chapitre5.pdf"
+                  },
+                  {
+                    "label": "Exercises",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD5.pdf"
                   },
                   {
                     "label": "Solutions",

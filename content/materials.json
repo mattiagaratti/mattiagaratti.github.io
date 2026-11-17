@@ -1,6 +1,28 @@
 {
-  "$comment": "Miscellanea page. Each section is a list of cards. 'image' is optional. Links starting with / are internal pages, 'documents/...' are PDFs in public/documents.",
+  "$comment": "Miscellanea page. Each section is a list of cards. 'image', 'subtitle' and 'href' are optional. Links starting with / are internal pages, 'documents/...' are PDFs in public/documents. Text supports [link](https://...), **bold** and *italic*.",
   "sections": [
+    {
+      "title": "Seminars",
+      "items": [
+        {
+          "title": "GdT OT-PDE-ML",
+          "subtitle": "I co-organize a monthly seminar on Optimal Transport, Partial Differential Equations, and Machine Learning.",
+          "href": "https://parma-inria.github.io/gdt-ot-pde-ml/",
+          "cta": "Seminar website"
+        }
+      ]
+    },
+    {
+      "title": "Website management",
+      "items": [
+        {
+          "title": "ParMA research team",
+          "subtitle": "I am the website manager for the [ParMA research team](https://parma-inria.github.io/).",
+          "href": "https://parma-inria.github.io/",
+          "cta": "Visit the website"
+        }
+      ]
+    },
     {
       "title": "My theses",
       "items": [

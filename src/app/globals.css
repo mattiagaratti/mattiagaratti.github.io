@@ -54,6 +54,18 @@ body {
   color: #fff;
 }
 
+.math-display {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0.75rem 0;
+  padding: 0.25rem 0;
+}
+.katex {
+  font-size: 1.08em;
+  color: var(--color-prussian-50);
+}
+
 @layer components {
   /* Small monospace label above section titles */
   .eyebrow {

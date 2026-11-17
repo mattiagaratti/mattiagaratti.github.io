@@ -7,25 +7,62 @@
   "url": "https://mattiagaratti.github.io",
   "googleSiteVerification": "Pad_7OobXckZCcfTAL8-2pPJVLqGYMPMPkgBSWSvoGg",
   "nav": [
-    { "label": "Home", "href": "/" },
-    { "label": "Curriculum Vitae", "href": "/cv" },
-    { "label": "Publications", "href": "/publications" },
-    { "label": "Teaching", "href": "/teaching" },
-    { "label": "Miscellanea", "href": "/materials" },
-    { "label": "Suggested Readings", "href": "/readings" }
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Curriculum Vitae",
+      "href": "/cv"
+    },
+    {
+      "label": "Publications",
+      "href": "/publications"
+    },
+    {
+      "label": "Teaching",
+      "href": "/teaching"
+    },
+    {
+      "label": "Miscellanea",
+      "href": "/materials"
+    },
+    {
+      "label": "Suggested Readings",
+      "href": "/readings"
+    }
   ],
   "contact": {
     "office": {
-      "lines": ["Institut de Mathématiques d'Orsay", "Bâtiment 307, campus d'Orsay - Bureau 2S15"],
+      "lines": [
+        "Institut de Mathématiques d'Orsay",
+        "Bâtiment 307, campus d'Orsay - Bureau 2S15"
+      ],
       "mapsUrl": "https://maps.app.goo.gl/5u9RJqtkKmsaFAGc7",
       "icon": "images/orsay.svg"
     },
-    "phone": { "label": "(+33) 1 69 15 47 35", "href": "tel:+33169154735" },
+    "phone": {
+      "label": "(+33) 1 69 15 47 35",
+      "href": "tel:+33169154735"
+    },
     "email": "mattia.garatti@universite-paris-saclay.fr"
   },
   "socials": [
-    { "label": "ORCID", "href": "https://orcid.org/0009-0007-0064-063X", "icon": "images/orcid.svg" },
-    { "label": "ResearchGate", "href": "https://www.researchgate.net/profile/Mattia-Garatti", "icon": "images/researchgate.svg" }
+    {
+      "label": "ORCID",
+      "href": "https://orcid.org/0009-0007-0064-063X",
+      "icon": "images/orcid.svg"
+    },
+    {
+      "label": "ResearchGate",
+      "href": "https://www.researchgate.net/profile/Mattia-Garatti",
+      "icon": "images/researchgate.svg"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/mattia-garatti-67a803442",
+      "icon": "images/linkedin.svg"
+    }
   ],
   "backgrounds": {
     "$comment": "Background image of each page (path inside public/).",

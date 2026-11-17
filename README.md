@@ -53,7 +53,11 @@ Ogni pubblicazione ha un link diretto condivisibile: `/publications#<id>`.
 { "date": "2026-09-08", "topics": "Upper and lower bounds, supremum and infimum.", "exercises": "TD1 — Exercises 4 to 6." }
 ```
 
-La data va scritta `AAAA-MM-GG`: il giorno della settimana ("Tuesday 08/09/2026") viene aggiunto da solo e le lezioni sono ordinate automaticamente.
+La data va scritta `AAAA-MM-GG`: il giorno della settimana ("Tuesday 08/09/2026") viene aggiunto da solo e le lezioni sono ordinate automaticamente (la più recente in alto).
+Altri campi facoltativi: `"homework"`, `"note"`, `"canceled": true` per una lezione annullata, ed `"exercises"` può essere una lista (una riga per foglio TD).
+
+**Formule LaTeX**: in tutti i testi si possono scrivere `$x^2$` (in linea) e `$$\\lim_{x \\to 0} f(x)$$` (su una riga a parte).
+Attenzione: nel JSON ogni backslash va scritto due volte (`\\lim`, `\\frac`, `\\sqrt`…).
 Un link materiale con `"href": ""` appare come "coming soon". Con `"hidden": true` puoi nascondere un corso, una lezione o un capitolo senza cancellarlo.
 
 **Immagini pesanti?** Nessun problema: in fase di build vengono create automaticamente versioni WebP leggere (in `public/_img/`, non va committata).
