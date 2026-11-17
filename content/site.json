@@ -1,0 +1,41 @@
+{
+  "$comment": "Global info: name, navigation, contacts and social links. Text fields support [link](https://...), **bold** and *italic*.",
+  "name": "Mattia Garatti",
+  "role": "Doctoral researcher",
+  "affiliation": "[Laboratoire de mathématiques d'Orsay](https://www.imo.universite-paris-saclay.fr/en/), [Université Paris-Saclay](https://www.universite-paris-saclay.fr/en)",
+  "description": "Mattia Garatti's personal website. Doctoral researcher in Mathematics at Université Paris-Saclay. Explore my journey through Maths!",
+  "url": "https://mattiagaratti.github.io",
+  "googleSiteVerification": "Pad_7OobXckZCcfTAL8-2pPJVLqGYMPMPkgBSWSvoGg",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Curriculum Vitae", "href": "/cv" },
+    { "label": "Publications", "href": "/publications" },
+    { "label": "Teaching", "href": "/teaching" },
+    { "label": "Miscellanea", "href": "/materials" },
+    { "label": "Suggested Readings", "href": "/readings" }
+  ],
+  "contact": {
+    "office": {
+      "lines": ["Institut de Mathématiques d'Orsay", "Bâtiment 307, campus d'Orsay - Bureau 2S15"],
+      "mapsUrl": "https://maps.app.goo.gl/5u9RJqtkKmsaFAGc7",
+      "icon": "images/orsay.svg"
+    },
+    "phone": { "label": "(+33) 1 69 15 47 35", "href": "tel:+33169154735" },
+    "email": "mattia.garatti@universite-paris-saclay.fr"
+  },
+  "socials": [
+    { "label": "ORCID", "href": "https://orcid.org/0009-0007-0064-063X", "icon": "images/orcid.svg" },
+    { "label": "ResearchGate", "href": "https://www.researchgate.net/profile/Mattia-Garatti", "icon": "images/researchgate.svg" }
+  ],
+  "backgrounds": {
+    "$comment": "Background image of each page (path inside public/).",
+    "home": "images/background_index.jpg",
+    "cv": "images/background_cv.jpg",
+    "publications": "images/background_publications.jpg",
+    "teaching": "images/background_teaching.jpg",
+    "materials": "images/background_materials.jpg",
+    "readings": "images/background_readings.jpg",
+    "privateLessons": "images/background_private_lessons.jpg",
+    "tassellazioni": "images/background_tassellazioni.jpg"
+  }
+}

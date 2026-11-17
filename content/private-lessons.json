@@ -1,0 +1,29 @@
+{
+  "$comment": "Private lessons page. Text fields support [link](https://...), **bold** and *italic*.",
+  "tagline": "My goal is to make learning an effective and enjoyable experience!",
+  "sections": [
+    {
+      "title": "Private Lessons for University and Secondary School Students",
+      "paragraphs": ["I offer private lessons tailored to students' individual needs, covering a wide range of subjects and topics."],
+      "list": [
+        { "label": "University exam preparation", "text": "personalized support in Mathematics to help students be effectively prepared for exams, clarifying complex topics, and strengthening problem-solving skills." },
+        { "label": "Secondary school tutoring", "text": "focused lessons for the upper secondary school students, aimed at building a solid foundation in Mathematics and Physics through clear explanations and practical exercises." },
+        { "label": "Remedial exam assistance", "text": "specialized help for upper secondary school students with suspended judgment in Mathematics and Physics, offering targeted reviews and practice tests to ensure success." },
+        { "label": "Introduction to LaTeX", "text": "a beginner-friendly introduction to the LaTeX typesetting language, ideal for students who wish to produce professional-quality academic documents or theses." }
+      ],
+      "after": ["Lessons are flexible and adapted to each student's learning style. For more information or to schedule a session, feel free to contact me!"]
+    },
+    {
+      "title": "Terms and Conditions",
+      "paragraphs": [
+        "Lessons can be conveniently booked by contacting me. I will be happy to work with you to find the solution that best suits your teaching and organizational needs. See below for my contact details.",
+        "I offer maximum flexibility regarding lesson formats:"
+      ],
+      "list": [
+        { "label": "In-Person lessons", "text": "(subject to geographical availability)" },
+        { "label": "Distance learning", "text": "(via digital platforms with virtual whiteboard support and screen sharing)" }
+      ],
+      "after": ["To ensure an organized and efficient service for all students, please notify any cancellations at least 24 hours in advance. Timely cancellations allow for easy rescheduling. **Missed lessons without prior notice may incur a fee.**"]
+    }
+  ]
+}

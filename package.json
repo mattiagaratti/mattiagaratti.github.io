@@ -1,0 +1,27 @@
+{
+  "name": "mattiagaratti-website",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "validate": "node scripts/validate-content.mjs",
+    "dev": "npm run images && next dev",
+    "build": "npm run validate && npm run images && next build",
+    "preview": "npx serve@14.2.4 out"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "^22",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "^19",
+    "sharp": "^0.34",
+    "tailwindcss": "4.3.5",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$comment": "Suggested readings. 'cover' is an image in public/images.",
+  "intro": "Here you can find a (continuously updated) selection of books I have read and would recommend.",
+  "books": [
+    {
+      "title": "Il genio dei numeri",
+      "cover": "images/Books/Il genio dei numeri.jpg",
+      "description": "The biography of John Nash, mathematician and winner of the Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel in 1994.",
+      "isbn": "978-8-81-712871-1",
+      "link": { "label": "View on Amazon", "href": "https://www.amazon.it/genio-numeri-Storia-Forbes-matematico/dp/8817128716" }
+    },
+    {
+      "title": "Matematica fuori dalle regole",
+      "cover": "images/Books/Matematica fuori dalle regole.jpg",
+      "description": "A short text packed with food for thought on mathematics education: suitable for parents, teachers, and anyone who is apprehensive about this subject.",
+      "isbn": "978-8-80-717467-4",
+      "link": { "label": "View on Amazon", "href": "https://www.amazon.it/Matematica-fuori-regole-Daniele-Gouthier/dp/8807174677" }
+    },
+    {
+      "title": "La fisica dei supereroi",
+      "cover": "images/Books/La fisica dei supereroi.jpg",
+      "description": "An unusual physics manual, suitable for all the curious and enthusiasts.",
+      "isbn": "978-8-80-622148-5",
+      "link": { "label": "View on Amazon", "href": "https://www.amazon.it/fisica-dei-supereroi-James-Kakalios/dp/8806221485" }
+    }
+  ]
+}

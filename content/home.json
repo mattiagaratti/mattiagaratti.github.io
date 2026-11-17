@@ -1,0 +1,45 @@
+{
+  "$comment": "Home page. Paragraphs support [link](https://...), **bold** and *italic*. 'heroIntro', 'interests' and 'affiliations' appear in the top part of the home page.",
+  "photo": "images/Profile_pic2.jpg",
+  "heroIntro": "Mathematician working on the Calculus of Variations and regularized optimal transport.",
+  "interests": [
+    "Calculus of Variations",
+    "Variational methods",
+    "Optimal transport",
+    "Entropic regularization",
+    "Schrödinger problem"
+  ],
+  "affiliations": [
+    {
+      "name": "Laboratoire de mathématiques d'Orsay",
+      "detail": "ANEDP team · Université Paris-Saclay",
+      "href": "https://www.imo.universite-paris-saclay.fr/en/"
+    },
+    {
+      "name": "Laboratoire Jean Alexandre Dieudonné",
+      "detail": "EDP et Analyse Numérique · Université Côte d'Azur",
+      "href": "https://math.univ-cotedazur.fr/"
+    },
+    {
+      "name": "MathPhDInFrance",
+      "detail": "MSCA COFUND · FSMP",
+      "href": "https://mathphdinfrance.fr"
+    },
+    {
+      "name": "Inria ParMA & ANR GOTA",
+      "detail": "Inria Saclay",
+      "href": "https://team.inria.fr/parma/"
+    }
+  ],
+  "aboutTitle": "Mathematically me, very briefly",
+  "about": [
+    "I am a doctoral researcher in Mathematics in the [Analyse numérique et équations aux dérivées partielles (ANEDP)](https://www.imo.universite-paris-saclay.fr/fr/la-recherche/analyse-numerique-et-equations-aux-derives-partielles-edp/) team at the [Laboratoire de mathématiques d'Orsay](https://www.imo.universite-paris-saclay.fr/en/), [Université Paris-Saclay](https://www.universite-paris-saclay.fr/en), Paris (France), under the supervision of [Prof. Luca Nenna](https://lucanenna.github.io) and [Prof. Simona Rota Nodari](https://www.simonarotanodari.com).",
+    "I am a fellow of the [*MathPhDInFrance*](https://mathphdinfrance.fr) program, co-funded by the [Marie Skłodowska-Curie Actions (MSCA COFUND)](https://marie-sklodowska-curie-actions.ec.europa.eu/actions/cofund), and coordinated by the [Fondation Sciences Mathématiques de Paris (FSMP)](https://sciencesmaths-paris.fr). As a result, I am also affiliated with the [EDP et Analyse Numérique](https://math.univ-cotedazur.fr/laboratoire/equipes-de-recherche/edp-et-analyse-num%C3%A9rique) team at the [Laboratoire Jean Alexandre Dieudonné](https://math.univ-cotedazur.fr/), [Université Côte d'Azur](https://univ-cotedazur.fr/), Nice (France).",
+    "I am also a member of the Inria team [ParMA](https://team.inria.fr/parma/) (Inria Saclay) and the [ANR GOTA](https://lucanenna.github.io/gota.html).",
+    "The macro-set that encompasses most of my research interests is deeply rooted in the Calculus of Variations and the study of variational methods for solving minimization problems.",
+    "My Ph.D. research project focuses on regularized optimal transport problems."
+  ],
+  "newsTitle": "Recent news",
+  "newsTitleExpanded": "My journey through maths",
+  "newsInitiallyVisible": 4
+}

@@ -1,0 +1,68 @@
+{
+  "$comment": "Curriculum Vitae page. Text fields support [link](https://...), **bold** and *italic*. In 'details', each row is a label + value.",
+  "personal": [
+    { "label": "Full name", "value": "Mattia Garatti" },
+    { "label": "Birth date", "value": "April 5, 2001" },
+    { "label": "Nationality", "value": "Italian" },
+    { "label": "Languages", "value": "Italian (mother tongue), English (fluent), French (intermediate)" }
+  ],
+  "sections": [
+    {
+      "title": "Current position",
+      "entries": [
+        {
+          "when": "",
+          "title": "**Doctoral researcher** @ Laboratoire de mathématiques d'Orsay, Université Paris-Saclay",
+          "details": [
+            { "label": "Thesis", "value": "[*On regularized Optimal Transport problems*](https://theses.fr/s418791)" },
+            { "label": "Supervisors", "value": "[Prof. Luca Nenna](https://lucanenna.github.io) & [Prof. Simona Rota Nodari](https://www.simonarotanodari.com)" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Education",
+      "entries": [
+        {
+          "when": "July 15, 2025",
+          "title": "Master’s degree in Mathematics @ Università Cattolica del Sacro Cuore - sede di Brescia",
+          "details": [
+            { "label": "Thesis", "value": "*Variational representations of optimal transport and Schrödinger problem*" },
+            { "label": "Supervisor", "value": "[Dr. Luca Tamanini](https://sites.google.com/view/lucatamanini)" },
+            { "label": "Co-supervisor", "value": "[Dr. Nicolò De Ponti](https://sites.google.com/view/nicolodeponti)" },
+            { "label": "Grade", "value": "110/110 cum laude" }
+          ]
+        },
+        {
+          "when": "July 11, 2023",
+          "title": "Bachelor’s degree in Mathematics @ Università Cattolica del Sacro Cuore - sede di Brescia",
+          "details": [
+            { "label": "Thesis", "value": "*Il Teorema di esistenza di Peano per le equazioni differenziali ordinarie*" },
+            { "label": "Supervisor", "value": "Dr. Marco Marzocchi" },
+            { "label": "Grade", "value": "110/110 cum laude" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Work experience",
+      "entries": [
+        {
+          "when": "June, 2025",
+          "title": "MathExcellence 2025: corso di eccellenza in Matematica @ Università Cattolica del Sacro Cuore - sede di Brescia",
+          "description": "Assistance and tutoring activities (5 hours)"
+        },
+        {
+          "when": "2023-2024",
+          "title": "Math writer @ Zanichelli editore S.p.A.",
+          "description": "Teamwork with the editorial staff. In particular, autonomous creation of exercises of varying difficulty to be included in future high school publications."
+        }
+      ]
+    }
+  ],
+  "pdf": {
+    "text": "A detailed version of my CV is also available at the link below.",
+    "label": "Open CV",
+    "href": "documents/garatti_CV.pdf?v=01_2026"
+  }
+}

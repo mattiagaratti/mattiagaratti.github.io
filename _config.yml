@@ -1,6 +1,0 @@
-name: Mattia Garatti
-exclude:
-  - README.md
-  - refactor.py
-  - fix_pub.py
-  - elements.html

@@ -1,0 +1,327 @@
+@import "tailwindcss";
+
+/*
+ * Design system
+ * One single hue: Prussian blue (#003153), expanded into a tonal scale.
+ * No neutral greys: every surface, border and muted text is a tint/shade of it.
+ */
+@theme {
+  --color-prussian-950: #000c16;
+  --color-prussian-900: #00131f; /* page background */
+  --color-prussian-850: #001a2b; /* raised surface */
+  --color-prussian-800: #002238; /* card */
+  --color-prussian-750: #002a45;
+  --color-prussian-700: #003153; /* brand: Prussian blue */
+  --color-prussian-600: #0b4269; /* borders on hover */
+  --color-prussian-500: #1d5785;
+  --color-prussian-400: #4479a8;
+  --color-prussian-300: #7fa6cb; /* muted text */
+  --color-prussian-200: #b8cfe4; /* body text */
+  --color-prussian-100: #dce8f3;
+  --color-prussian-50: #f2f7fb; /* headings */
+
+  --color-glacier: #8ec5f2; /* single accent, a light cold blue */
+
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--color-prussian-900);
+  color: var(--color-prussian-200);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background: var(--color-prussian-500);
+  color: #fff;
+}
+
+@layer components {
+  /* Small monospace label above section titles */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-glacier);
+  }
+
+  .title-serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    color: var(--color-prussian-50);
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* Rich text */
+  .prose-site a,
+  a.link {
+    color: var(--color-prussian-50);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-glacier) 45%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s, color 0.2s;
+  }
+  .prose-site a:hover,
+  a.link:hover {
+    color: var(--color-glacier);
+    text-decoration-color: var(--color-glacier);
+  }
+  .prose-site strong {
+    color: var(--color-prussian-50);
+    font-weight: 600;
+  }
+  .prose-site em {
+    font-style: italic;
+  }
+  .prose-site p + p {
+    margin-top: 1.1em;
+  }
+  .prose-site ul {
+    list-style: none;
+    padding: 0;
+  }
+  .prose-site ul > li {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .prose-site ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 0.4rem;
+    height: 1px;
+    background: var(--color-glacier);
+  }
+  .prose-site ol {
+    padding-left: 1.4rem;
+  }
+  .prose-site li + li {
+    margin-top: 0.4rem;
+  }
+
+  /* Surfaces */
+  .surface {
+    background: var(--color-prussian-850);
+    border: 1px solid color-mix(in srgb, var(--color-prussian-500) 28%, transparent);
+    border-radius: 1.25rem;
+  }
+  .surface-hover {
+    transition:
+      border-color 0.3s,
+      background-color 0.3s,
+      transform 0.5s var(--ease-out-expo);
+  }
+  .surface-hover:hover {
+    border-color: color-mix(in srgb, var(--color-glacier) 40%, transparent);
+    background: var(--color-prussian-800);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 2.75rem;
+    padding: 0 1.25rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      color 0.2s,
+      transform 0.2s;
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn-primary {
+    background: var(--color-prussian-50);
+    color: var(--color-prussian-900);
+  }
+  .btn-primary:hover {
+    background: var(--color-glacier);
+  }
+  .btn-ghost {
+    color: var(--color-prussian-50);
+    border: 1px solid color-mix(in srgb, var(--color-prussian-400) 50%, transparent);
+  }
+  .btn-ghost:hover {
+    border-color: var(--color-glacier);
+    background: color-mix(in srgb, var(--color-prussian-600) 35%, transparent);
+  }
+  .btn-sm {
+    height: 2.25rem;
+    padding: 0 0.95rem;
+    font-size: 0.8125rem;
+  }
+  .btn[aria-disabled="true"] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    height: 2rem;
+    padding: 0 0.85rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    color: var(--color-prussian-100);
+    background: color-mix(in srgb, var(--color-prussian-700) 55%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-prussian-500) 35%, transparent);
+  }
+
+  /* Graph-paper / lattice backdrop (a nod to the tessellations page) */
+  .lattice {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--color-prussian-500) 22%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-prussian-500) 22%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  }
+
+  /* Accordions (native <details>) */
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details .chevron {
+    transition: transform 0.35s var(--ease-out-expo);
+  }
+  details[open] > summary .chevron {
+    transform: rotate(45deg);
+  }
+  details::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    transition:
+      block-size 0.4s var(--ease-out-expo),
+      content-visibility 0.4s allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.9s var(--ease-out-expo),
+      transform 0.9s var(--ease-out-expo);
+    transition-delay: var(--delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-rise {
+  animation: rise 1s var(--ease-out-expo) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Dialog */
+dialog.modal {
+  margin: auto;
+  max-height: min(88vh, 900px);
+  width: min(760px, calc(100vw - 2rem));
+  border-radius: 1.5rem;
+  background: var(--color-prussian-850);
+  color: inherit;
+  border: 1px solid color-mix(in srgb, var(--color-prussian-500) 40%, transparent);
+  box-shadow: 0 40px 100px -30px #000;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition:
+    opacity 0.3s var(--ease-out-expo),
+    transform 0.3s var(--ease-out-expo),
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+}
+dialog.modal[open] {
+  opacity: 1;
+  transform: none;
+}
+@starting-style {
+  dialog.modal[open] {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+dialog.modal::backdrop {
+  background: rgb(0 12 22 / 0);
+  transition:
+    background 0.3s,
+    backdrop-filter 0.3s,
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+}
+dialog.modal[open]::backdrop {
+  background: rgb(0 12 22 / 0.75);
+  backdrop-filter: blur(6px);
+}
+@starting-style {
+  dialog.modal[open]::backdrop {
+    background: rgb(0 12 22 / 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

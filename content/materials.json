@@ -1,0 +1,55 @@
+{
+  "$comment": "Miscellanea page. Each section is a list of cards. 'image' is optional. Links starting with / are internal pages, 'documents/...' are PDFs in public/documents.",
+  "sections": [
+    {
+      "title": "My theses",
+      "items": [
+        {
+          "title": "Master's thesis",
+          "subtitle": "Variational representations of optimal transport and Schrödinger problem",
+          "image": "images/Frontespizi/thesis_master_front.jpg",
+          "href": "documents/thesis_master.pdf",
+          "cta": "Open PDF"
+        },
+        {
+          "title": "Bachelor's thesis",
+          "subtitle": "Il Teorema di esistenza di Peano per le equazioni differenziali ordinarie",
+          "image": "images/Frontespizi/thesis_bachelor_front.jpg",
+          "href": "documents/thesis_bachelor.pdf",
+          "cta": "Open PDF"
+        }
+      ]
+    },
+    {
+      "title": "Notes",
+      "items": [
+        {
+          "title": "Analisi Funzionale ed Equazioni Differenziali",
+          "subtitle": "*Functional Analysis and Differential Equations*",
+          "href": "documents/afed.pdf",
+          "cta": "Open PDF"
+        },
+        {
+          "title": "Analisi Numerica",
+          "subtitle": "*Numerical Analysis*",
+          "href": "documents/an.pdf",
+          "cta": "Open PDF"
+        }
+      ]
+    },
+    {
+      "title": "Others",
+      "items": [
+        {
+          "title": "Tassellazioni del piano",
+          "href": "/tassellazioni",
+          "cta": "Open"
+        }
+      ]
+    }
+  ],
+  "browseAll": {
+    "label": "Browse All",
+    "href": "https://github.com/mattiagaratti/mattiagaratti.github.io/tree/main/public/documents"
+  }
+}

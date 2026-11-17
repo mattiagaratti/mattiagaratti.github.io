@@ -1,0 +1,79 @@
+{
+  "$comment": "News shown on the home page. Order does not matter: they are sorted automatically from the most recent. Dates are YYYY-MM-DD; 'end' is optional (for events lasting several days). 'text' supports [link](https://...), **bold** and *italic*.",
+  "items": [
+    {
+      "date": "2026-04-28",
+      "image": "images/logo_M.svg",
+      "alt": "Logo M",
+      "text": "My first pre-print, \"A PDE approach to Benamou–Brenier formula for the Schrödinger problem\", co-authored with Luca Nenna, Simona Rota Nodari, and Luca Tamanini, is now available."
+    },
+    {
+      "date": "2026-03-16",
+      "end": "2026-03-27",
+      "image": "images/Visit_Simona_March26.jpg",
+      "alt": "Visit to Simona Rota Nodari in Nice",
+      "text": "I visited Prof. Simona Rota Nodari at Université Côte d'Azur, Nice (France)."
+    },
+    {
+      "date": "2026-03-16",
+      "end": "2026-03-20",
+      "image": "images/Journées SMAI-MODE 2026.jpeg",
+      "alt": "Journées SMAI-MODE 2026",
+      "text": "I participated in the [\"Journées SMAI-MODE 2026\"](https://mode2026.sciencesconf.org/)."
+    },
+    {
+      "date": "2026-03-06",
+      "image": "images/Disfida_26.jpg",
+      "alt": "Disfida Matematica 2026",
+      "text": "I helped during [Disfida Matematica 2026](http://www.disfida.it/2026/)."
+    },
+    {
+      "date": "2026-03-05",
+      "end": "2026-03-06",
+      "image": "images/FirstTalk.jpeg",
+      "alt": "First talk",
+      "text": "I visited Dr. Luca Tamanini at Università Cattolica del Sacro Cuore, Brescia (Italy) and gave a talk on \"Entropic regularization(s) of Optimal Transport problem(s)\"."
+    },
+    {
+      "date": "2026-01-30",
+      "end": "2026-02-06",
+      "image": "images/DisfidaFemminile_26.jpg",
+      "alt": "Visit to Brescia",
+      "text": "I visited Dr. Luca Tamanini at Università Cattolica del Sacro Cuore, Brescia (Italy)."
+    },
+    {
+      "date": "2026-01-12",
+      "end": "2026-01-16",
+      "image": "images/calanques.jpg",
+      "alt": "Calanques, Marseille",
+      "text": "I have been at CIRM (Marseille) for the workshop [\"Calculus of Variations and applications\"](https://conferences.cirm-math.fr/3460.html)."
+    },
+    {
+      "date": "2026-01-02",
+      "end": "2026-01-04",
+      "image": "images/Merla26.jpeg",
+      "alt": "Modelling Viscoelastic Fluids workshop",
+      "text": "I participated in the workshop [\"Modelling Viscoelastic Fluids\"](https://www.dmf.bs.unicatt.it/~musesti/merla/viscoelastic/)."
+    },
+    {
+      "date": "2025-09-18",
+      "end": "2025-09-19",
+      "image": "images/Degio70.jpg",
+      "alt": "Workshop for Marco Degiovanni's 70th birthday",
+      "text": "I participated in the workshop in honour of Marco Degiovanni's 70th birthday [\"Advances in Calculus of Variations and Nonlinear Analysis\"](https://www.unicatt.it/en/events/events/brescia/2025/advances-in-calculus-of-variations-and-nonlinear-analysis.html)."
+    },
+    {
+      "date": "2025-07-27",
+      "end": "2025-08-02",
+      "image": "images/visiting_Nenna_2025.jpeg",
+      "alt": "Visit to Luca Nenna in Paris",
+      "text": "I visited Prof. Luca Nenna at Université Paris-Saclay, Paris (France)."
+    },
+    {
+      "date": "2025-07-15",
+      "image": "images/graduationday_1.jpg",
+      "alt": "Graduation day",
+      "text": "I obtained the master's degree in Mathematics."
+    }
+  ]
+}
