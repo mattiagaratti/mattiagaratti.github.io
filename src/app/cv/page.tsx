@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "CV" };
 export default function CvPage() {
   return (
     <>
-      <PageHero eyebrow="About me" title="Curriculum Vitae" photo={site.backgrounds.cv}>
+      <PageHero title="Curriculum Vitae" photo={site.backgrounds.cv}>
         <a
           href={href(cv.pdf.href)}
           target="_blank"
@@ -24,7 +24,7 @@ export default function CvPage() {
       </PageHero>
       <PageBody>
         <Reveal as="section" className="mb-20">
-          <SectionTitle eyebrow="01" title="Personal information" />
+          <SectionTitle title="Personal information" />
           <dl className="grid gap-px overflow-hidden rounded-2xl border border-prussian-500/25 bg-prussian-500/25 sm:grid-cols-2">
             {cv.personal.map((row) => (
               <div key={row.label} className="bg-prussian-850 px-6 py-5">
@@ -35,9 +35,9 @@ export default function CvPage() {
           </dl>
         </Reveal>
 
-        {cv.sections.map((section, si) => (
+        {cv.sections.map((section) => (
           <Reveal as="section" key={section.title} className="mb-20">
-            <SectionTitle eyebrow={`0${si + 2}`} title={section.title} />
+            <SectionTitle title={section.title} />
             <ol className="space-y-4">
               {section.entries.map((e, i) => (
                 <li key={i} className="grid gap-2 border-t border-prussian-500/20 pt-6 md:grid-cols-[9rem_1fr] md:gap-8">

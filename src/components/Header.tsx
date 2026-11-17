@@ -102,7 +102,6 @@ export function Header({ name, nav }: { name: string; nav: NavItem[] }) {
                 }`}
               >
                 {item.label}
-                <span className="font-mono text-xs text-prussian-300">0{i + 1}</span>
               </Link>
             </li>
           ))}

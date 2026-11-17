@@ -27,7 +27,7 @@ export const viewport: Viewport = { themeColor: "#00131f", width: "device-width"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${mono.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${fraunces.variable} ${inter.variable} ${mono.variable}`}>
       <body className="min-h-dvh overflow-x-hidden">
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>

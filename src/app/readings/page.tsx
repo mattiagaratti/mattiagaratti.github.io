@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Suggested Readings" };
 export default function ReadingsPage() {
   return (
     <>
-      <PageHero eyebrow="Bookshelf" title="Suggested Readings" subtitle={readings.intro} photo={site.backgrounds.readings} />
+      <PageHero title="Suggested Readings" subtitle={readings.intro} photo={site.backgrounds.readings} />
       <PageBody wide>
         <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {readings.books.map((b, i) => (

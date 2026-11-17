@@ -10,7 +10,7 @@ export const metadata: Metadata = { title: "Private lessons" };
 export default function PrivateLessonsPage() {
   return (
     <>
-      <PageHero eyebrow="Tutoring" title="Private lessons" subtitle={privateLessons.tagline} photo={site.backgrounds.privateLessons}>
+      <PageHero title="Private lessons" subtitle={privateLessons.tagline} photo={site.backgrounds.privateLessons}>
         <a
           href={`mailto:${site.contact.email}`}
           className="btn btn-primary animate-rise mt-8"
@@ -20,9 +20,9 @@ export default function PrivateLessonsPage() {
         </a>
       </PageHero>
       <PageBody>
-        {privateLessons.sections.map((s, si) => (
+        {privateLessons.sections.map((s) => (
           <Reveal as="section" key={s.title} className="prose-site mb-20 text-[1.05rem]">
-            <SectionTitle eyebrow={`0${si + 1}`} title={s.title} />
+            <SectionTitle title={s.title} />
             {s.paragraphs?.map((p, i) => (
               <p key={i}>
                 <Rich text={p} />

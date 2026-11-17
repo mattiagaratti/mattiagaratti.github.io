@@ -1,10 +1,8 @@
 {
-  "$comment": "News shown on the home page. Order does not matter: they are sorted automatically from the most recent. Dates are YYYY-MM-DD; 'end' is optional (for events lasting several days). 'text' supports [link](https://...), **bold** and *italic*.",
+  "$comment": "News shown on the home page. Order does not matter: they are sorted automatically from the most recent. Dates are YYYY-MM-DD; 'image' is optional; 'end' is optional (for events lasting several days). 'text' supports [link](https://...), **bold** and *italic*.",
   "items": [
     {
       "date": "2026-04-28",
-      "image": "images/logo_M.svg",
-      "alt": "Logo M",
       "text": "My first pre-print, \"A PDE approach to Benamou–Brenier formula for the Schrödinger problem\", co-authored with Luca Nenna, Simona Rota Nodari, and Luca Tamanini, is now available."
     },
     {

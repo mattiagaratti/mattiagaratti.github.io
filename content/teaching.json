@@ -1,12 +1,18 @@
 {
-  "$comment": "Teaching page. Text fields support [link](https://...), **bold** and *italic*. In each course every field is optional: remove what you do not need. Material links with an empty href are shown as 'coming soon'. Set \"hidden\": true on a course, a diary entry or a chapter to hide it without deleting it.",
+  "$comment": "Teaching page. Text fields support [link](https://...), **bold** and *italic*. Every field of a course is optional: remove what you do not need. Diary: one entry per lesson, 'date' as YYYY-MM-DD (the weekday is added automatically, entries are sorted by date). Materials: a link with an empty href is shown as 'soon'. Set \"hidden\": true on a course, a diary entry or a chapter to hide it without deleting it.",
   "academicYear": "Academic Year 2026/2027",
   "consultation": {
     "title": "Student consultation",
     "text": "I am always available for questions, advice, and discussions with my students. Feel free to talk to me right after class or reach out for a private meeting.",
     "modes": [
-      { "label": "In person", "value": "in my office (no appointment needed)" },
-      { "label": "Online", "value": "via Microsoft Teams (by appointment)" }
+      {
+        "label": "In person",
+        "value": "in my office (no appointment needed)"
+      },
+      {
+        "label": "Online",
+        "value": "via Microsoft Teams (by appointment)"
+      }
     ]
   },
   "groups": [
@@ -17,15 +23,32 @@
           "title": "Analyse - Calculus renforcé",
           "subtitle": "TD for the PCm+ group",
           "info": [
-            { "label": "Head of the course", "value": "Ophélie Rouby" },
-            { "label": "TD volume", "value": "30 hours" },
-            { "label": "Course language", "value": "French" }
+            {
+              "label": "Head of the course",
+              "value": "Ophélie Rouby"
+            },
+            {
+              "label": "TD volume",
+              "value": "30 hours"
+            },
+            {
+              "label": "Course language",
+              "value": "French"
+            }
           ],
           "timetable": {
             "title": "TD timetable",
             "slots": [
-              { "day": "Monday", "time": "08:45 – 10:15", "room": "Bâtiment 336 - salle 302" },
-              { "day": "Tuesday", "time": "10:30 – 12:00", "room": "Bâtiment 336 - salle 304" }
+              {
+                "day": "Monday",
+                "time": "08:45 – 10:15",
+                "room": "Bâtiment 336 - salle 302"
+              },
+              {
+                "day": "Tuesday",
+                "time": "10:30 – 12:00",
+                "room": "Bâtiment 336 - salle 304"
+              }
             ]
           },
           "syllabus": [
@@ -42,7 +65,7 @@
             "title": "TD diary",
             "entries": [
               {
-                "date": "Monday 07/09/2026",
+                "date": "2026-09-07",
                 "topics": "Introduction, quantifiers, and basic properties of real numbers."
               }
             ]
@@ -53,9 +76,18 @@
               {
                 "title": "Chapter 1: The set of real numbers",
                 "links": [
-                  { "label": "Theory", "href": "documents/teaching/Analyse-Calculus renforcé/Chapitre1.pdf" },
-                  { "label": "Exercises", "href": "documents/teaching/Analyse-Calculus renforcé/TD1.pdf" },
-                  { "label": "Solutions", "href": "" }
+                  {
+                    "label": "Theory",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/Chapitre1.pdf"
+                  },
+                  {
+                    "label": "Exercises",
+                    "href": "documents/teaching/Analyse-Calculus renforcé/TD1.pdf"
+                  },
+                  {
+                    "label": "Solutions",
+                    "href": ""
+                  }
                 ]
               }
             ]
@@ -64,7 +96,12 @@
         {
           "title": "Calcul Numérique 2",
           "subtitle": "TP",
-          "info": [{ "label": "Volume", "value": "24 hours" }],
+          "info": [
+            {
+              "label": "Volume",
+              "value": "24 hours"
+            }
+          ],
           "syllabus": [
             "Numerical methods for ordinary differential equations",
             "Numerical interpolation",
@@ -73,7 +110,12 @@
           ],
           "timetable": {
             "title": "TP Schedule",
-            "slots": [{ "day": "Friday", "time": "08:15 – 10:15" }]
+            "slots": [
+              {
+                "day": "Friday",
+                "time": "08:15 – 10:15"
+              }
+            ]
           },
           "materialsNote": "Not available yet."
         }
@@ -84,8 +126,18 @@
       "courses": [
         {
           "title": "Oraux de Mathématiques",
-          "info": [{ "label": "Volume", "value": "12 hours" }],
-          "materials": [{ "label": "Guidelines", "href": "documents/orauxL2.pdf" }]
+          "info": [
+            {
+              "label": "Volume",
+              "value": "12 hours"
+            }
+          ],
+          "materials": [
+            {
+              "label": "Guidelines",
+              "href": "documents/orauxL2.pdf"
+            }
+          ]
         }
       ]
     }

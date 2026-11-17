@@ -56,7 +56,7 @@ const toc = [
 export default function TassellazioniPage() {
   return (
     <>
-      <PageHero eyebrow="Miscellanea · Divulgazione" title="Tassellazioni del piano" photo={site.backgrounds.tassellazioni}>
+      <PageHero title="Tassellazioni del piano" photo={site.backgrounds.tassellazioni}>
         <nav aria-label="Indice" className="animate-rise mt-8 flex flex-wrap gap-2" style={{ "--delay": "260ms" } as React.CSSProperties}>
           {toc.map((t) => (
             <a key={t.id} href={`#${t.id}`} className="btn btn-sm btn-ghost">

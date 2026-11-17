@@ -12,7 +12,7 @@ import privateLessonsJson from "@content/private-lessons.json";
 export type Link = { label: string; href: string };
 export type LabelValue = { label: string; value: string };
 
-export type NewsItem = { date: string; end?: string; image: string; alt: string; text: string };
+export type NewsItem = { date: string; end?: string; image?: string; alt?: string; text: string };
 
 export type Publication = {
   id: string;
@@ -101,6 +101,13 @@ const fmt = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", ye
 export function formatDate(iso: string) {
   return fmt.format(new Date(`${iso}T00:00:00Z`));
 }
+const dayFmt = new Intl.DateTimeFormat("en-GB", { weekday: "long", day: "2-digit", month: "2-digit", year: "numeric", timeZone: "UTC" });
+/** "2026-09-07" -> "Monday 07/09/2026" (used by the teaching diary). */
+export function formatLessonDate(iso: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(iso)) return iso;
+  return dayFmt.format(new Date(`${iso}T00:00:00Z`)).replace(",", "");
+}
+
 export function formatRange(start: string, end?: string) {
   return end && end !== start ? [formatDate(start), formatDate(end)] : [formatDate(start)];
 }

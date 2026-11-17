@@ -48,6 +48,12 @@ Nei campi di testo si possono usare:
 Ogni pubblicazione ha un link diretto condivisibile: `/publications#<id>`.
 
 **Aggiungere una lezione al diario o un capitolo** (`content/teaching.json`): aggiungi un elemento a `diary.entries` o `chapters.items`.
+
+```json
+{ "date": "2026-09-08", "topics": "Upper and lower bounds, supremum and infimum.", "exercises": "TD1 — Exercises 4 to 6." }
+```
+
+La data va scritta `AAAA-MM-GG`: il giorno della settimana ("Tuesday 08/09/2026") viene aggiunto da solo e le lezioni sono ordinate automaticamente.
 Un link materiale con `"href": ""` appare come "coming soon". Con `"hidden": true` puoi nascondere un corso, una lezione o un capitolo senza cancellarlo.
 
 **Immagini pesanti?** Nessun problema: in fase di build vengono create automaticamente versioni WebP leggere (in `public/_img/`, non va committata).

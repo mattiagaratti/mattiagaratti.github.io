@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Course } from "@/lib/content";
-import { site, teaching } from "@/lib/content";
+import { formatLessonDate, site, teaching } from "@/lib/content";
 import { href } from "@/lib/assets";
 import { Rich } from "@/lib/markup";
 import { PageBody, PageHero, SectionTitle } from "@/components/PageHero";
@@ -37,13 +37,12 @@ function SubItem({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function CourseCard({ course, index }: { course: Course; index: number }) {
-  const diary = course.diary?.entries.filter((e) => !e.hidden) ?? [];
+function CourseCard({ course }: { course: Course }) {
+  const diary = (course.diary?.entries.filter((e) => !e.hidden) ?? []).sort((a, b) => a.date.localeCompare(b.date));
   const chapters = course.chapters?.items.filter((c) => !c.hidden) ?? [];
   return (
     <details className="surface group overflow-hidden transition-colors open:border-prussian-400/40">
       <summary className="flex items-center gap-5 p-5 transition-colors hover:bg-prussian-800/60 sm:p-7">
-        <span className="hidden font-mono text-xs text-prussian-400 sm:block">{String(index + 1).padStart(2, "0")}</span>
         <span className="flex-1">
           <span translate="no" className="title-serif block text-2xl leading-tight">
             {course.title}
@@ -107,7 +106,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
             <Label>{course.diary!.title}</Label>
             <div className="space-y-2">
               {diary.map((d, i) => (
-                <SubItem key={i} title={d.date}>
+                <SubItem key={i} title={formatLessonDate(d.date)}>
                   <div className="prose-site text-[0.95rem]">
                     {d.topics && (
                       <p>
@@ -156,13 +155,12 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
 
 export default function TeachingPage() {
   const { consultation } = teaching;
-  let n = 0;
   return (
     <>
-      <PageHero eyebrow={teaching.academicYear} title="Teaching" photo={site.backgrounds.teaching} />
+      <PageHero title="Teaching" subtitle={teaching.academicYear} photo={site.backgrounds.teaching} />
       <PageBody>
         <Reveal as="section" className="mb-20">
-          <SectionTitle eyebrow="Office hours" title={consultation.title} />
+          <SectionTitle title={consultation.title} />
           <p className="text-[1.05rem] text-prussian-200">{consultation.text}</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {consultation.modes.map((m) => (
@@ -176,12 +174,12 @@ export default function TeachingPage() {
 
         {teaching.groups.map((g) => (
           <Reveal as="section" key={g.title} className="mb-20">
-            <SectionTitle eyebrow={g.title === "Courses" ? "This year" : "Also"} title={g.title} />
+            <SectionTitle title={g.title} />
             <div className="space-y-3">
               {g.courses
                 .filter((c) => !c.hidden)
                 .map((c) => (
-                  <CourseCard key={c.title} course={c} index={n++} />
+                  <CourseCard key={c.title} course={c} />
                 ))}
             </div>
           </Reveal>

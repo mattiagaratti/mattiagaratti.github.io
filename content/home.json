@@ -1,14 +1,7 @@
 {
-  "$comment": "Home page. Paragraphs support [link](https://...), **bold** and *italic*. 'heroIntro', 'interests' and 'affiliations' appear in the top part of the home page.",
+  "$comment": "Home page. Paragraphs support [link](https://...), **bold** and *italic*. 'heroIntro' is the sentence under the name, 'affiliations' are the cards below the presentation.",
   "photo": "images/Profile_pic2.jpg",
   "heroIntro": "Mathematician working on the Calculus of Variations and regularized optimal transport.",
-  "interests": [
-    "Calculus of Variations",
-    "Variational methods",
-    "Optimal transport",
-    "Entropic regularization",
-    "Schrödinger problem"
-  ],
   "affiliations": [
     {
       "name": "Laboratoire de mathématiques d'Orsay",

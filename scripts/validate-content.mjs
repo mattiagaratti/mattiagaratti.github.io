@@ -47,6 +47,15 @@ for (const name of (await readdir(CONTENT)).filter((f) => f.endsWith(".json"))) 
       if (!n.text) errors.push(`news.json items[${i}]: missing "text"`);
     });
   }
+  if (name === "teaching.json") {
+    data.groups?.forEach((g) =>
+      g.courses?.forEach((c) =>
+        c.diary?.entries?.forEach((e, i) => {
+          if (!ISO.test(e.date)) errors.push(`teaching.json "${c.title}" diary[${i}]: "date" must be YYYY-MM-DD, got "${e.date}"`);
+        }),
+      ),
+    );
+  }
   if (name === "publications.json") {
     const ids = new Set();
     data.items.forEach((p, i) => {

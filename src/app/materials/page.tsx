@@ -13,15 +13,14 @@ export default function MaterialsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Theses · Notes · More"
         title="Miscellanea"
         subtitle="My theses, lecture notes from my studies and other mathematical bits."
         photo={site.backgrounds.materials}
       />
       <PageBody wide>
-        {materials.sections.map((section, si) => (
+        {materials.sections.map((section) => (
           <Reveal as="section" key={section.title} className="mb-20">
-            <SectionTitle eyebrow={`0${si + 1}`} title={section.title} />
+            <SectionTitle title={section.title} />
             <div className={`grid gap-4 ${section.items.some((i) => i.image) ? "md:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
               {section.items.map((item) => (
                 <CardLink

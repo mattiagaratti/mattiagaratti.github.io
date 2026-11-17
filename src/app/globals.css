@@ -35,6 +35,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   scroll-padding-top: 6rem;
 }
 
