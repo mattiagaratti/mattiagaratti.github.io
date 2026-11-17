@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { home, news, site, formatDate } from "@/lib/content";
-import { href, image } from "@/lib/assets";
+import { image } from "@/lib/assets";
 import { Rich } from "@/lib/markup";
 import { Img } from "@/components/Img";
 import { Reveal } from "@/components/Reveal";
 import { NewsList } from "@/components/NewsList";
-import { Logo, MGlyph } from "@/components/Logo";
+import { MGlyph } from "@/components/Logo";
 import { SectionTitle } from "@/components/PageHero";
 import { ArrowRight, ArrowUpRight, Mail, MapPin, Phone } from "@/components/icons";
 
@@ -60,8 +60,6 @@ export default function HomePage() {
           <div className="lattice absolute inset-0" />
           <div className="absolute -left-40 top-1/3 h-[34rem] w-[34rem] rounded-full bg-prussian-600/40 blur-[120px]" />
           <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-prussian-900 to-transparent" />
-          {/* the M of the logo, engraved large behind the portrait */}
-          <MGlyph className="absolute right-[-6%] top-1/2 hidden w-[min(46rem,60vw)] -translate-y-[46%] text-prussian-500/40 md:block" />
         </div>
 
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col px-5 pb-8 pt-32 sm:px-8 md:pt-28">
@@ -89,35 +87,11 @@ export default function HomePage() {
                   Get in touch
                 </a>
               </div>
-              <ul className="animate-rise mt-8 flex items-center gap-2" style={d(340)}>
-                {site.socials.map((s) => (
-                  <li key={s.href}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={s.label}
-                      title={s.label}
-                      className="grid h-10 w-10 place-items-center rounded-full border border-prussian-500/35 bg-prussian-900/40 transition hover:-translate-y-0.5 hover:border-glacier/60"
-                    >
-                      <img src={href(s.icon)} alt="" className="h-5 w-5 rounded-full" />
-                    </a>
-                  </li>
-                ))}
-                <li>
-                  <a
-                    href={`mailto:${site.contact.email}`}
-                    aria-label="Email"
-                    title="Email"
-                    className="grid h-10 w-10 place-items-center rounded-full border border-prussian-500/35 bg-prussian-900/40 text-prussian-100 transition hover:-translate-y-0.5 hover:border-glacier/60 hover:text-glacier"
-                  >
-                    <Mail className="h-[18px] w-[18px]" />
-                  </a>
-                </li>
-              </ul>
             </div>
 
             <div className="animate-rise relative mx-auto w-full max-w-[17rem] md:mr-0 md:max-w-[19rem]" style={d(200)}>
+              {/* the M of the logo, engraved large behind the portrait (fully visible, not cropped) */}
+              <MGlyph className="pointer-events-none absolute left-1/2 top-1/2 hidden w-[165%] -translate-x-[60%] -translate-y-1/2 text-prussian-500/45 lg:block" />
               <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-prussian-500/30 via-transparent to-glacier/10 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] ring-1 ring-prussian-400/30">
                 <Img
@@ -129,8 +103,6 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-prussian-900/70 via-transparent to-transparent" />
               </div>
-              {/* logo used as a seal on the portrait */}
-              <Logo className="absolute -bottom-7 -left-7 h-16 w-16 rounded-full shadow-[0_10px_30px_-8px_#000] ring-[6px] ring-prussian-900 sm:h-[4.5rem] sm:w-[4.5rem]" />
             </div>
           </div>
 

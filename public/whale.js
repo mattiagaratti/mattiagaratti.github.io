@@ -159,7 +159,10 @@
         toggle.setAttribute('aria-label', label);
         toggle.title = label;
         toggle.querySelector('.whale-toggle-label').textContent = label;
-        toggle.querySelector('.whale-toggle-state').textContent = paused ? '\u25b6' : '\u2161';
+        // SVG icons instead of the ▶ / Ⅱ characters, which iOS renders as emoji.
+        toggle.querySelector('.whale-toggle-state').innerHTML = paused
+            ? '<svg viewBox="0 0 12 12" focusable="false"><path d="M3 1.8v8.4L10 6z"/></svg>'
+            : '<svg viewBox="0 0 12 12" focusable="false"><rect x="2.5" y="2" width="2.4" height="8" rx=".6"/><rect x="7.1" y="2" width="2.4" height="8" rx=".6"/></svg>';
         if (canSwim()) frame = requestAnimationFrame(tick);
     }
 
