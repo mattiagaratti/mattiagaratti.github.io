@@ -34,9 +34,8 @@ export default function HomePage() {
               src={n.image}
               alt={n.alt ?? ""}
               sizes="(min-width: 640px) 176px, 100vw"
-              className={`h-full w-full transition-transform duration-700 ease-out-expo group-hover:scale-105 ${
-                n.image.endsWith(".svg") ? "object-contain p-7" : "object-cover"
-              }`}
+              className={`h-full w-full transition-transform duration-700 ease-out-expo group-hover:scale-105 ${n.image.endsWith(".svg") ? "object-contain p-7" : "object-cover"
+                }`}
             />
           </div>
         )}
@@ -72,9 +71,9 @@ export default function HomePage() {
                 <br />
                 <span className="italic text-glacier">Garatti</span>
               </h1>
-              <p className="animate-rise mt-8 max-w-lg text-xl leading-relaxed text-prussian-100" style={d(160)}>
+              {/* <p className="animate-rise mt-8 max-w-lg text-xl leading-relaxed text-prussian-100" style={d(160)}>
                 {home.heroIntro}
-              </p>
+              </p> */}
               <p className="prose-site animate-rise mt-4 max-w-lg text-[0.95rem] text-prussian-300" style={d(220)}>
                 {site.role} · <Rich text={site.affiliation} />
               </p>
