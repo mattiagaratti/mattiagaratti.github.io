@@ -136,7 +136,7 @@ export function PublicationList({
             {current.abstract && (
               <>
                 <h3 className="eyebrow mb-3 mt-9">Abstract</h3>
-                <p className="leading-relaxed text-prussian-200">{current.abstract}</p>
+                <p className="justified leading-relaxed text-prussian-200">{current.abstract}</p>
               </>
             )}
 

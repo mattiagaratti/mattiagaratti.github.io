@@ -196,7 +196,7 @@ export default function TeachingPage() {
       <PageBody>
         <Reveal as="section" className="mb-20">
           <SectionTitle title={consultation.title} />
-          <p className="text-[1.05rem] text-prussian-200">{consultation.text}</p>
+          <p className="justified text-[1.05rem] text-prussian-200">{consultation.text}</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {consultation.modes.map((m) => (
               <div key={m.label} className="surface px-6 py-5">

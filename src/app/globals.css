@@ -67,6 +67,15 @@ body {
 }
 
 @layer components {
+  /* Justified long paragraphs, with hyphenation to avoid wide gaps */
+  .justified,
+  .justified-p p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    text-wrap: pretty;
+  }
+
   /* Small monospace label above section titles */
   .eyebrow {
     font-family: var(--font-mono);

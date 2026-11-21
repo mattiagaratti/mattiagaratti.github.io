@@ -66,7 +66,7 @@ export default function TassellazioniPage() {
         </nav>
       </PageHero>
       <PageBody>
-        <article lang="it" className="prose-site text-[1.05rem] leading-[1.8]">
+        <article lang="it" className="prose-site justified-p text-[1.05rem] leading-[1.8]">
           <Reveal as="section" id="introduzione">
             <h2 className="title-serif mb-6 text-4xl">Introduzione alle tassellazioni</h2>
             <p>

@@ -21,7 +21,7 @@ export default function PrivateLessonsPage() {
       </PageHero>
       <PageBody>
         {privateLessons.sections.map((s) => (
-          <Reveal as="section" key={s.title} className="prose-site mb-20 text-[1.05rem]">
+          <Reveal as="section" key={s.title} className="prose-site justified-p mb-20 text-[1.05rem]">
             <SectionTitle title={s.title} />
             {s.paragraphs?.map((p, i) => (
               <p key={i}>

@@ -47,7 +47,7 @@ export default function CvPage() {
                       <Rich text={e.title} />
                     </h3>
                     {e.description && (
-                      <p className="prose-site mt-2 text-prussian-200">
+                      <p className="prose-site justified mt-2 text-prussian-200">
                         <Rich text={e.description} />
                       </p>
                     )}

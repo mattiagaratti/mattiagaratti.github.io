@@ -130,7 +130,7 @@ export default function HomePage() {
             <SectionTitle title={home.aboutTitle} />
           </Reveal>
           <div>
-            <Reveal className="prose-site text-[1.075rem] leading-[1.8] text-prussian-200">
+            <Reveal className="prose-site justified-p text-[1.075rem] leading-[1.8] text-prussian-200">
               {home.about.map((p, i) => (
                 <p key={i}>
                   <Rich text={p} />
